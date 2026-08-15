@@ -9,13 +9,13 @@
     emailjs.init({ publicKey: "zZevy4-YLmMl16Kxj" });
   })();
 </script>
-<title>Aluguel de Carrinho de Bebê no Rio de Janeiro | Rental Turtle</title>
-<meta name="description" content="Alugue carrinho de bebê, cadeirinha e berço no Rio de Janeiro. Entregamos higienizado no seu hotel ou Airbnb na Zona Sul. Reserva online, confirmação em até 24h.">
-<link rel="canonical" href="https://rentalturtle.com/">
-<meta property="og:title" content="Aluguel de Carrinho de Bebê no Rio de Janeiro | Rental Turtle">
-<meta property="og:description" content="Alugue carrinho de bebê, cadeirinha e berço no Rio de Janeiro. Entregamos higienizado no seu hotel ou Airbnb na Zona Sul. Reserva online, confirmação em até 24h.">
+<title>Carrinho de reservas | Rental Turtle</title>
+<meta name="description" content="Revise suas reservas de equipamentos de bebê e finalize pelo WhatsApp. Rental Turtle — Zona Sul, Rio de Janeiro.">
+<link rel="canonical" href="https://rentalturtle.com/carrito.html">
+<meta property="og:title" content="Carrinho de reservas | Rental Turtle">
+<meta property="og:description" content="Revise suas reservas de equipamentos de bebê e finalize pelo WhatsApp. Rental Turtle — Zona Sul, Rio de Janeiro.">
 <meta property="og:image" content="https://rentalturtle.com/assets/og-image.jpg">
-<meta property="og:url" content="https://rentalturtle.com/">
+<meta property="og:url" content="https://rentalturtle.com/carrito.html">
 <meta property="og:type" content="website">
 <script type="application/ld+json">
 {
@@ -34,9 +34,7 @@
 <link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/">
 <link rel="icon" type="image/png" href="./assets/favicon.png">
-<link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48x48.png">
-<link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon-96x96.png">
-<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<script>window.__RT_INIT={cartOpen:true};</script>
 <script src="./support.js"></script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -106,21 +104,17 @@ main:empty{flex:none !important;min-height:0 !important;}
 <script src="./image-slot.js"></script>
 <style>
 @media (max-width:900px){
+  .rt-cart-grid{grid-template-columns:1fr !important;grid-template-areas:'items' 'form' 'totals' !important;}
+  .rt-cart-form,.rt-cart-totals{border-right:none !important;}
   .rt-g2{grid-template-columns:1fr !important;}
   .rt-g4{grid-template-columns:repeat(2,1fr) !important;}
   .rt-footer{grid-template-columns:repeat(2,1fr) !important;}
-  /* Contacto: en móvil las columnas se encogen (sin desborde a la derecha) */
-  #contato .rt-g2>div{min-width:0;}
-  /* Sobre: en móvil el texto va arriba y la imagen abajo, sin recortes */
-  #sobre .rt-g2>div:first-child{order:2;}
-  #sobre .rt-g2>div:last-child{order:1;}
-  #sobre #sobre-photo{height:auto !important;aspect-ratio:1484/1060;max-height:none !important;}
   .rt-sticky{position:static !important;}
   .rt-nav-desktop{display:none !important;}
   .rt-hamburger{display:flex !important;order:1;}
   .rt-header-row{justify-content:space-between;}
   .rt-logo{order:2;}
-  .rt-cart-btn{order:3;margin-left:0 !important;}.rt-cart-items-col{order:-1;}
+  .rt-cart-btn{order:3;margin-left:0 !important;}
   .rt-actions-row{display:none !important;}
   .rt-specs-card{padding:24px !important;}
   .rt-specs-grid{grid-template-columns:repeat(2,1fr) !important;}
@@ -135,12 +129,8 @@ main:empty{flex:none !important;min-height:0 !important;}
   .rt-g4{grid-template-columns:1fr !important;}
   .rt-footer{grid-template-columns:1fr !important;gap:28px !important;}
   section, .rt-g2{gap:28px !important;}
-  #contato>div{padding:34px 20px !important;}
-  #contato .rt-g2>div:last-child{padding:22px !important;}
-  #contato .rt-g2>div:last-child>div{min-width:0;}
-  #contato .rt-g2>div:last-child>div>div{min-width:0;overflow-wrap:anywhere;}
   :root{--container-pad:20px;--text-4xl:2.25rem;--text-3xl:2rem;}
-  .rt-header-wa{width:40px !important;padding:0 !important;justify-content:center;}
+  .rt-header-wa{width:44px !important;padding:0 !important;justify-content:center;}
   .rt-header-wa-label{display:none;}
   .rt-calendar{padding:8px !important;width:180px !important;left:calc(-1 * var(--container-pad) + 4px) !important;}
   .rt-specs-card{padding:18px !important;}
@@ -156,15 +146,16 @@ main:empty{flex:none !important;min-height:0 !important;}
 
 <header style="position:sticky;top:0;z-index:40;transition:background var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out);background:{{ headerBg }};box-shadow:{{ headerShadow }};border-bottom:1px solid {{ headerBorder }};backdrop-filter:blur(10px);">
 <div style="max-width: var(--container-max); margin: 0 auto; padding: 9px var(--container-pad); display: flex; align-items: center; gap: 20px; flex-wrap: wrap;" class="rt-header-row">
-<div onClick="{{ goHome }}" class="rt-logo" style="display:flex;align-items:center;cursor:pointer;flex-shrink:0;">
-<img src="./assets/logo-rental-turtle-full.png" alt="Rental Turtle" style="height:44px;width:auto;object-fit:contain;">
+<div onClick="{{ goHome }}" class="rt-logo" style="display:flex;flex-direction:column;align-items:center;gap:1px;cursor:pointer;flex-shrink:0;">
+<img src="./assets/logo-turtle-sm.png" alt="Rental Turtle" style="width:38px;height:38px;object-fit:contain;">
+<span style="font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:var(--tracking-tight);color:var(--ink-500);line-height:1;">Rental Turtle</span>
 </div>
 <nav class="rt-nav-desktop" style="display:flex;flex-wrap:wrap;gap:20px;margin-left:12px;">
 <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
-<a onClick="{{ n.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:14px;color:#fff;text-decoration:none;cursor:pointer;white-space:nowrap;transition:color var(--dur-fast) var(--ease-out);" style-hover="color:var(--green-50);">{{ n.label }}</a>
+<a onClick="{{ n.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:14px;color:var(--color-text-secondary);text-decoration:none;cursor:pointer;white-space:nowrap;transition:color var(--dur-fast) var(--ease-out);" style-hover="color:var(--color-primary);">{{ n.label }}</a>
 </sc-for>
 </nav>
-<button onClick="{{ toggleMobileMenu }}" aria-label="Menu" class="rt-hamburger" style="width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+<button onClick="{{ toggleMobileMenu }}" aria-label="Menu" class="rt-hamburger" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--color-border);background:var(--color-surface);color:var(--ink-500);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><sc-if value="{{ mobileMenuOpen }}"><path d="M6 6l12 12M18 6L6 18"></path></sc-if><sc-if value="{{ mobileMenuClosed }}"><path d="M4 7h16M4 12h16M4 17h16"></path></sc-if></svg>
 </button>
 <div style="margin-left:auto;display:flex;align-items:center;gap:9px;flex-wrap:wrap;" class="rt-actions-row">
@@ -194,12 +185,12 @@ main:empty{flex:none !important;min-height:0 !important;}
 </div>
 </sc-if>
 </div>
-<a href="{{ waHref }}" target="_blank" data-cta="whatsapp_header" aria-label="WhatsApp" class="rt-header-wa" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--color-border);background:#FFFFFF;color:var(--color-primary);display:flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;flex-shrink:0;transition:border-color var(--dur-fast) var(--ease-out);" style-hover="border-color:var(--color-primary);">
+<a href="{{ waHref }}" target="_blank" data-cta="whatsapp_header" aria-label="WhatsApp" class="rt-header-wa" style="width:44px;height:44px;border-radius:50%;border:1.5px solid var(--color-border);background:#FFFFFF;color:var(--color-primary);display:flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;flex-shrink:0;transition:border-color var(--dur-fast) var(--ease-out);" style-hover="border-color:var(--color-primary);">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.2-.2-1.2-1.5-1.2-2.9 0-1.3.7-2 1-2.3.2-.2.5-.3.7-.3h.5c.2 0 .4.1.6.5l.8 1.9c.1.2 0 .4-.1.5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.7 1 .8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.3.1.7-.1 1Z"></path></svg>
 </a>
 </div>
 </div>
-<button onClick="{{ openCart }}" title="{{ t.cartWord }}" class="rt-cart-btn" style="position:relative;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--color-border);background:#FFFFFF;color:var(--color-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:border-color var(--dur-fast) var(--ease-out);" style-hover="border-color:var(--color-primary);">
+<button onClick="{{ openCart }}" title="{{ t.cartWord }}" class="rt-cart-btn" style="position:relative;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--color-border);background:var(--color-surface);color:var(--color-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:border-color var(--dur-fast) var(--ease-out);" style-hover="border-color:var(--color-primary);">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle><path d="M2 3h3l2.4 12.5a1.5 1.5 0 0 0 1.5 1.2h8.2a1.5 1.5 0 0 0 1.5-1.2L21 7H6"></path></svg>
 <sc-if value="{{ hasCart }}"><span style="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:var(--radius-pill);background:var(--color-cta);color:#fff;font-family:var(--font-body);font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;border:2px solid var(--color-bg);">{{ cartCount }}</span></sc-if>
 </button>
@@ -267,7 +258,7 @@ main:empty{flex:none !important;min-height:0 !important;}
 </div>
 <div class="rt-g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
 <sc-for list="{{ products }}" as="item" hint-placeholder-count="6">
-<a href="{{ item.href }}" onClick="{{ item.open }}" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;text-decoration:none;color:inherit;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-lg);">
+<div onClick="{{ item.open }}" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-lg);">
 <div style="position:relative;background:var(--white);border-bottom:1px solid var(--sand-100);">
 <image-slot id="{{ item.imgId }}" src="{{ item.imgFallback }}" alt="{{ item.imgAlt }}" style="width: 100%; height: 200px; display: block; z-index: auto" shape="rect" fit="contain" placeholder="Solte a foto do produto"></image-slot>
 <sc-if value="{{ item.tag }}" hint-placeholder-val="Mais alugado"><div style="position:absolute;top:12px;left:12px;padding:5px 12px;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:800;font-size:12px;background:var(--color-primary);color:#fff;box-shadow:var(--shadow-sm);">{{ item.tag }}</div></sc-if>
@@ -281,7 +272,7 @@ main:empty{flex:none !important;min-height:0 !important;}
 </div>
 <button onClick="{{ item.open }}" style="margin-top: 8px; height: var(--control-md); border-radius: var(--radius-pill); border: var(--border-regular) solid var(--color-primary); color: #FFFFFF; font-family: var(--font-body); font-weight: 800; font-size: var(--text-sm); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background var(--dur-base) var(--ease-out); background-color: #E76F51; border-width: 0px; border-color: #E76F51" style-hover="background:var(--green-50);">{{ chooseDates }}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
 </div>
-</a>
+</div>
 </sc-for>
 </div>
 <div style="text-align:center;margin-top:40px;">
@@ -343,28 +334,6 @@ main:empty{flex:none !important;min-height:0 !important;}
 </div>
 </section>
 
-<section id="pagamento" style="background:#FFFFFF;border-top:1px solid var(--color-border);">
-<div style="max-width: var(--container-max); margin: 0 auto; padding: 72px var(--container-pad);">
-<div style="text-align:center;max-width:640px;margin:0 auto 40px;">
-<h2 style="font-family: var(--font-display); font-weight: 800; font-size: var(--text-2xl); letter-spacing: var(--tracking-tight); color: #264653; margin: 0">{{ payTitle }}</h2>
-<p style="font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; color: #2A9D8F; margin: 10px 0 0">{{ paySub }}</p>
-</div>
-<div style="max-width:940px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
-<sc-for list="{{ payMethods }}" as="m" hint-placeholder-count="0">
-<div style="background:#FFFFFF;border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-xs);transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);">
-<div style="height:56px;display:flex;align-items:center;gap:16px;">
-<sc-for list="{{ m.logos }}" as="lg" hint-placeholder-count="0">
-<img src="{{ lg.src }}" alt="{{ lg.alt }}" style="max-height:34px;max-width:120px;width:auto;height:auto;object-fit:contain;display:block;"/>
-</sc-for>
-</div>
-<div style="font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--color-text-secondary);flex:1;">{{ m.note }}</div>
-<span style="align-self:flex-start;font-family:var(--font-body);font-size:12px;font-weight:700;padding:4px 11px;border-radius:var(--radius-pill);background:{{ m.bg }};color:{{ m.fg }};">{{ m.badge }}</span>
-</div>
-</sc-for>
-</div>
-</div>
-</section>
-
 <section id="entrega" style="background:#FBF8F2;border-top:1px solid var(--color-border);">
 <div style="max-width: var(--container-max); margin: 0 auto; padding: 72px var(--container-pad); background-color: #FBF8F2">
 <div class="rt-g2" style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;">
@@ -384,7 +353,7 @@ main:empty{flex:none !important;min-height:0 !important;}
 </div>
 <div style="display:flex;gap:18px;align-items:flex-start;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);">
 <div style="width:52px;height:52px;flex-shrink:0;border-radius:var(--radius-md);background:var(--green-50);display:flex;align-items:center;justify-content:center;color:var(--color-primary);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg></div>
-<div><div style="font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--color-primary);letter-spacing:var(--tracking-caps);text-transform:uppercase;margin-bottom:4px;">{{ t.del2Label }}</div><p style="margin:0;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--color-text-secondary);white-space:pre-line;">{{ t.del2Desc }}</p></div>
+<div><div style="font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--color-primary);letter-spacing:var(--tracking-caps);text-transform:uppercase;margin-bottom:4px;">{{ t.del2Label }}</div><p style="margin:0;font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--color-text-secondary);">{{ t.del2Desc }}</p></div>
 </div>
 <div style="display:flex;gap:18px;align-items:flex-start;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);">
 <div style="width:52px;height:52px;flex-shrink:0;border-radius:var(--radius-md);background:var(--green-50);display:flex;align-items:center;justify-content:center;color:var(--color-primary);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></svg></div>
@@ -564,7 +533,7 @@ main:empty{flex:none !important;min-height:0 !important;}
 </div>
 <div class="rt-g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
 <sc-for list="{{ filteredProducts }}" as="item" hint-placeholder-count="6">
-<a href="{{ item.href }}" onClick="{{ item.open }}" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;text-decoration:none;color:inherit;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-lg);">
+<div onClick="{{ item.open }}" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-lg);">
 <div style="position:relative;background:#FFFFFF;border-bottom:1px solid var(--sand-100);">
 <image-slot id="{{ item.imgId }}" src="{{ item.imgFallback }}" alt="{{ item.imgAlt }}" style="width:100%;height:200px;display:block;" shape="rect" fit="contain" placeholder="Solte a foto do produto"></image-slot>
 <sc-if value="{{ item.tag }}" hint-placeholder-val="Mais alugado"><div style="position:absolute;top:12px;left:12px;padding:5px 12px;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:800;font-size:12px;background:var(--color-primary);color:#fff;box-shadow:var(--shadow-sm);">{{ item.tag }}</div></sc-if>
@@ -580,7 +549,7 @@ main:empty{flex:none !important;min-height:0 !important;}
 <button onClick="{{ item.open }}" style="flex:1;height:var(--control-md);border-radius:var(--radius-pill);border:none;background:var(--color-cta);color:#fff;font-family:var(--font-body);font-weight:800;font-size:var(--text-sm);cursor:pointer;transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--color-cta-hover);">{{ t.verDetalhes }}</button>
 </div>
 </div>
-</a>
+</div>
 </sc-for>
 </div>
 </section>
@@ -660,6 +629,7 @@ main:empty{flex:none !important;min-height:0 !important;}
 </div>
 <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;">
 <button onClick="{{ cur.add }}" data-cta="reservar_producto" style="height:var(--control-lg);border:none;border-radius:var(--radius-pill);background:var(--color-cta);color:#fff;box-shadow:var(--shadow-lift);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);display:flex;align-items:center;justify-content:center;gap:10px;transition:transform var(--dur-fast) var(--ease-out),background var(--dur-base) var(--ease-out);opacity:{{ cur.addOpacity }};cursor:{{ cur.addCursor }};pointer-events:{{ cur.addPE }};" style-hover="background:var(--color-cta-hover);" style-active="transform:scale(.97);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle><path d="M2 3h3l2.4 12.5a1.5 1.5 0 0 0 1.5 1.2h8.2a1.5 1.5 0 0 0 1.5-1.2L21 7H6"></path></svg>{{ t.addCart }}</button>
+<button onClick="{{ cur.reserveWaClick }}" data-cta="whatsapp_producto" style="height:var(--control-lg);border:var(--border-regular) solid var(--color-primary);border-radius:var(--radius-pill);background:var(--color-surface);color:var(--color-primary);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;transition:background var(--dur-base) var(--ease-out);opacity:{{ cur.addOpacity }};cursor:{{ cur.addCursor }};pointer-events:{{ cur.addPE }};" style-hover="background:var(--green-50);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.2-.2-1.2-1.5-1.2-2.9 0-1.3.7-2 1-2.3.2-.2.5-.3.7-.3h.5c.2 0 .4.1.6.5l.8 1.9c.1.2 0 .4-.1.5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.7 1 .8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.3.1.7-.1 1Z"></path></svg>{{ t.reserveWa }}</button>
 </div>
 <sc-if value="{{ !cur.canAdd }}"><p style="margin:10px 0 0;font-family:var(--font-body);font-size:12px;color:var(--color-cta);text-align:center;">{{ t.pickDatesFirst }}</p></sc-if>
 <p style="margin:14px 0 0;font-family:var(--font-body);font-size:12px;line-height:1.5;color:var(--color-text-muted);text-align:center;">{{ t.minNote }}</p>
@@ -718,13 +688,13 @@ main:empty{flex:none !important;min-height:0 !important;}
 <h2 style="font-family:var(--font-display);font-weight:800;font-size:var(--text-xl);color:var(--ink-500);margin:0 0 24px;">{{ t.relatedTitle }}</h2>
 <div class="rt-g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
 <sc-for list="{{ cur.related }}" as="item" hint-placeholder-count="3">
-<a href="{{ item.href }}" onClick="{{ item.open }}" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;text-decoration:none;color:inherit;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-lg);">
+<div onClick="{{ item.open }}" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-lg);">
 <div style="background:var(--white);border-bottom:1px solid var(--sand-100);"><image-slot id="{{ item.imgId }}" src="{{ item.imgFallback }}" alt="{{ item.imgAlt }}" style="width:100%;height:170px;display:block;" shape="rect" fit="contain" placeholder="Foto"></image-slot></div>
 <div style="padding:16px;display:flex;flex-direction:column;gap:6px;">
 <h3 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--ink-500);">{{ item.name }}</h3>
 <div style="font-family:var(--font-display);font-weight:800;font-size:17px;color:var(--ink-500);">R${{ item.price }}<span style="font-size:12px;font-weight:600;color:var(--color-text-secondary);">{{ t.perDay }}</span></div>
 </div>
-</a>
+</div>
 </sc-for>
 </div>
 </section>
@@ -796,8 +766,8 @@ main:empty{flex:none !important;min-height:0 !important;}
 </div>
 <sc-if value="{{ hasCartItems }}">
 <sc-if value="{{ cartStepIsCart }}">
-<div style="flex:1;min-height:0;overflow-y:auto;display:flex;flex-wrap:wrap;align-items:stretch;align-content:flex-start;">
-<div class="rt-cart-form-col" style="flex:1 1 380px;min-width:min(380px,100%);padding:24px;border-right:1px solid var(--color-border);background:var(--color-surface);display:flex;flex-direction:column;gap:14px;box-sizing:border-box;">
+<div class="rt-cart-grid" style="flex:1;min-height:0;overflow-y:auto;display:grid;grid-template-columns:1fr 1.3fr;grid-template-areas:'form items' 'totals items';">
+<div class="rt-cart-form" style="grid-area:form;padding:24px;border-right:1px solid var(--color-border);background:var(--color-surface);display:flex;flex-direction:column;gap:14px;box-sizing:border-box;">
 <div style="font-family:var(--font-display);font-weight:800;font-size:15px;color:var(--ink-500);">{{ t.detailsSubtitle }}</div>
 <div>
 <label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.fieldName }} <span style="color:var(--color-danger);">*</span></label>
@@ -815,43 +785,9 @@ main:empty{flex:none !important;min-height:0 !important;}
 <label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.fieldCountry }} <span style="color:var(--color-danger);">*</span></label>
 <input value="{{ customerCountry }}" onChange="{{ setCustomerCountry }}" placeholder="{{ t.fieldCountryPh }}" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
 </div>
-<div>
-<label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">Referência de localização <span style="color:var(--color-danger);">*</span></label>
-<div role="radiogroup" aria-label="Referência de localização" style="display:flex;gap:8px;margin-bottom:8px;">
-<button type="button" role="radio" aria-checked="{{ locEndAria }}" onClick="{{ setLocEndereco }}" style-hover="border-color:var(--color-primary);" style="flex:1;height:46px;border-width:2px;border-style:solid;border-color:{{ locEndBorder }};border-radius:var(--radius-md);background:{{ locEndBg }};font-family:var(--font-body);font-weight:800;font-size:14px;color:var(--ink-500);cursor:pointer;display:flex;align-items:center;justify-content:center;box-sizing:border-box;transition:border-color .18s ease,background .18s ease;">Endereço</button>
-<button type="button" role="radio" aria-checked="{{ locHotelAria }}" onClick="{{ setLocHotel }}" style-hover="border-color:var(--color-primary);" style="flex:1;height:46px;border-width:2px;border-style:solid;border-color:{{ locHotelBorder }};border-radius:var(--radius-md);background:{{ locHotelBg }};font-family:var(--font-body);font-weight:800;font-size:14px;color:var(--ink-500);cursor:pointer;display:flex;align-items:center;justify-content:center;box-sizing:border-box;transition:border-color .18s ease,background .18s ease;">Hotel</button>
+<p style="margin:0;font-family:var(--font-body);font-size:11.5px;line-height:1.5;color:var(--color-text-muted);">{{ t.detailsPrivacyNote }}</p>
 </div>
-<input value="{{ locationReference }}" onChange="{{ setLocationReference }}" placeholder="{{ locationRefPlaceholder }}" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
-</div>
-<div>
-<label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">Horário de entrega <span style="color:var(--color-danger);">*</span></label>
-<input type="time" value="{{ deliveryTime }}" onChange="{{ setDeliveryTime }}" step="60" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
-</div>
-<div>
-<label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">Horário de recolhida <span style="color:var(--color-danger);">*</span></label>
-<input type="time" value="{{ pickupTime }}" onChange="{{ setPickupTime }}" step="60" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
-</div>
-<div>
-<label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">Forma de pagamento preferida <span style="color:var(--color-danger);">*</span></label>
-<div role="radiogroup" aria-label="Forma de pagamento preferida" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
-<sc-for list="{{ paymentOptions }}" as="p" hint-placeholder-count="6">
-<button type="button" role="radio" aria-checked="{{ p.aria }}" aria-label="{{ p.name }}" onClick="{{ p.onClick }}" style-hover="border-color:var(--color-primary);" style="grid-column:{{ p.span }};height:48px;border-width:2px;border-style:solid;border-color:{{ p.border }};border-radius:var(--radius-md);background:{{ p.bg }};cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;padding:6px 6px;box-sizing:border-box;transition:border-color .18s ease,background .18s ease;"><sc-for list="{{ p.icons }}" as="ic" hint-placeholder-count="1"><img src="{{ ic }}" alt="{{ p.name }}" style="max-width:100%;max-height:22px;object-fit:contain;display:block;"></sc-for></button>
-</sc-for>
-</div>
-</div>
-<div>
-<label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">Como nos conheceu <span style="color:var(--color-danger);">*</span></label>
-<select value="{{ referralSource }}" onChange="{{ setReferralSource }}" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 12px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;cursor:pointer;">
-<option value="" disabled>Selecione uma opção</option>
-<option value="Busca com IA (ChatGPT, Claude, etc.)">Busca com IA (ChatGPT, Claude, etc.)</option>
-<option value="Google">Google</option>
-<option value="Instagram / Redes sociais">Instagram / Redes sociais</option>
-<option value="Recomendação de alguém">Recomendação de alguém</option>
-<option value="Outro">Outro</option>
-</select>
-</div>
-<p style="margin:0;font-family:var(--font-body);font-size:11.5px;line-height:1.5;color:var(--color-danger);">{{ t.detailsPrivacyNote }}</p>
-<div style="border-top:1px solid var(--color-divider);padding-top:16px;display:flex;flex-direction:column;gap:8px;">
+<div class="rt-cart-totals" style="grid-area:totals;padding:16px 24px 24px;border-top:1px solid var(--color-divider);border-right:1px solid var(--color-border);background:var(--color-surface);display:flex;flex-direction:column;gap:8px;box-sizing:border-box;">
 <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.cartSubtotalLabel }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cartSubtotal }}</span></div>
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ deliveryFee }}</span></div>
@@ -861,9 +797,9 @@ main:empty{flex:none !important;min-height:0 !important;}
 <button onClick="{{ sendReservation }}" data-cta="carrinho_finalizar_reserva" style="width:100%;height:var(--control-lg);border:none;border-radius:var(--radius-pill);background:{{ detailsBtnBg }};color:#fff;box-shadow:var(--shadow-lift);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-sizing:border-box;opacity:{{ detailsBtnOpacity }};pointer-events:{{ detailsBtnPE }};transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--color-cta-hover);">{{ sendBtnLabel }}</button>
 <sc-if value="{{ showSentNote }}"><p style="margin:8px 0 0;font-family:var(--font-body);font-size:12px;font-weight:700;text-align:center;color:var(--color-primary);">{{ sentNoteText }}</p></sc-if>
 <sc-if value="{{ showFillNote }}"><p style="margin:8px 0 0;font-family:var(--font-body);font-size:11px;text-align:center;color:var(--color-text-secondary);">{{ t.detailsFillNote }}</p></sc-if>
+<p style="margin:12px 0 0;font-family:var(--font-body);font-size:12px;line-height:1.5;color:var(--color-text-muted);text-align:center;">{{ t.cartNote }}</p>
 </div>
-</div>
-<div class="rt-cart-items-col" style="flex:1.3 1 440px;min-width:min(380px,100%);padding:24px;display:flex;flex-direction:column;gap:14px;box-sizing:border-box;">
+<div class="rt-cart-items" style="grid-area:items;padding:24px;display:flex;flex-direction:column;gap:14px;box-sizing:border-box;">
 <sc-for list="{{ cartItems }}" as="c" hint-placeholder-count="2">
 <div style="display:flex;gap:14px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:12px;">
 <div style="width:70px;height:70px;flex-shrink:0;border-radius:var(--radius-sm);overflow:hidden;background:var(--white);border:1px solid var(--sand-100);"><image-slot id="{{ c.imgId }}" src="{{ c.imgFallback }}" alt="{{ c.imgAlt }}" style="width:100%;height:100%;display:block;" shape="rect" fit="contain" placeholder=""></image-slot></div>
@@ -894,7 +830,7 @@ main:empty{flex:none !important;min-height:0 !important;}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;deliveryFee&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:50,&quot;unit&quot;:&quot;R$&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;minRentalDays&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;unit&quot;:&quot;dias&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+5521975855044&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;showPromoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Conteúdo&quot;}}">
 class Component extends DCLogic {
-  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{return JSON.parse(localStorage.getItem('rt-cart')||'[]')}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle' };
+  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||'home', productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{return JSON.parse(localStorage.getItem('rt-cart')||'[]')}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle' };
 
   CATS = {
     todos:   { pt:'Todos',    en:'All',       es:'Todos' },
@@ -905,23 +841,17 @@ class Component extends DCLogic {
     banho:   { pt:'Banho',    en:'Bath',      es:'Baño' },
   };
 
-  PRODUCT_SLUGS = {"carrinho":{"pt":"carrinho-de-bebe","es":"carrito-de-bebe","en":"full-size-stroller"},"compacto":{"pt":"carrinho-compacto","es":"carrito-de-paseo-compacto","en":"compact-stroller"},"cadeirinha":{"pt":"cadeirinha-de-auto","es":"silla-de-coche","en":"car-seat"},"cadeira":{"pt":"cadeira-de-alimentacao","es":"trona-para-comer","en":"high-chair"},"berco":{"pt":"berco-de-viagem","es":"cuna-de-viaje","en":"travel-crib"},"banheira":{"pt":"banheira-de-bebe","es":"banera-de-bebe","en":"baby-bathtub"}};
-  HOME_REL = {"pt":"","es":"es/","en":"en/"};
-  PROD_REL = {"pt":"catalogo/","es":"es/catalogo/","en":"en/catalog/"};
-  siteRoot(){ if(typeof window==='undefined') return '/'; var dir=window.location.pathname.replace(/[^/]*$/,''); var suf=this.bootedProduct()?this.PROD_REL[this.state.lang]:this.HOME_REL[this.state.lang]; if(suf&&dir.slice(-suf.length)===suf) dir=dir.slice(0,dir.length-suf.length); return dir; }
-  homeUrl(lang){ return this.siteRoot()+(this.HOME_REL[lang]||'')+'index.html'; }
-  productUrl(id, lang){ const s=this.PRODUCT_SLUGS[id]; if(!s) return this.homeUrl(lang); return this.siteRoot()+this.PROD_REL[lang]+s[lang]+'.html'; }
-  bootedProduct(){ return typeof window!=='undefined' && window.__RT_INIT && window.__RT_INIT.screen==='product'; }
-
   PRODUCTS = [
     { id:'carrinho', catKey:'passeio', price:53, rating:4.9, reviews:213,
       name:{ pt:'Carrinho de bebê', en:'Full-size stroller', es:'Carrito de bebé' },
+      tag:{ pt:'Mais alugado', en:'Most rented', es:'Más alquilado' },
       desc:{ pt:'Carrinho grande, confortável e firme, com reclínio e capota ampla. Feito pra encarar a orla — de Copacabana ao Leblon.', en:'Big, comfy, sturdy stroller with recline and a wide canopy. Made for the beachfront — from Copacabana to Leblon.', es:'Carrito grande, cómodo y firme, con reclinado y capota amplia. Hecho para el paseo por la orilla — de Copacabana a Leblon.' } },
     { id:'compacto', catKey:'passeio', price:35, rating:4.8, reviews:64,
       name:{ pt:'Carrinho compacto', en:'Compact stroller', es:'Carrito de paseo compacto' },
       desc:{ pt:'Leve, dobra com uma mão só e cabe no porta-malas e no elevador. O companheiro do dia a dia da viagem.', en:'Light, folds with one hand and fits in the trunk and the elevator. Your everyday travel companion.', es:'Ligero, se pliega con una mano y cabe en el maletero y el ascensor. El compañero del día a día del viaje.' } },
     { id:'cadeirinha', catKey:'auto', price:26, rating:4.9, reviews:178,
       name:{ pt:'Cadeirinha de auto', en:'Car seat', es:'Silla de coche' },
+      tag:{ pt:'Higienizada', en:'Sanitized', es:'Higienizada' },
       desc:{ pt:'Cadeirinha 0–4 anos, homologada e revisada. Instalamos junto com você na entrega, se precisar.', en:'Car seat for ages 0–4, approved and inspected. We install it with you at delivery if you need.', es:'Silla de auto 0–4 años, homologada y revisada. La instalamos contigo en la entrega, si lo necesitas.' } },
     { id:'cadeira', catKey:'refeicao', price:9, rating:4.6, reviews:57,
       name:{ pt:'Cadeira de alimentação', en:'High chair', es:'Trona para comer' },
@@ -1490,11 +1420,11 @@ class Component extends DCLogic {
     { q:{ pt:'Qual é a locação mínima?', en:'What\u2019s the minimum rental?', es:'¿Cuál es el alquiler mínimo?' },
       a:{ pt:'São 3 dias. A partir daí, você paga por diária.', en:'It\u2019s 3 days. After that, you pay per day.', es:'Son 3 días. A partir de ahí, pagas por día.' } },
     { q:{ pt:'Como funciona o pagamento?', en:'How does payment work?', es:'¿Cómo funciona el pago?' },
-      a:{ pt:'Você paga 100% na entrega dos produtos e uma caução de R$150 que é devolvida integralmente no momento da recolhida, após verificar que os produtos não têm nenhum dano significativo.', en:'You pay 100% on delivery of the products and a R$150 deposit that is refunded in full at pickup, after checking that the products have no significant damage.', es:'Pagas el 100% en la entrega de los productos y una fianza de 150RS que se devuelve integramente en el momento de la recogida. Despues de comprobar que los productos no tienen ningun daño significativo.' } },
+      a:{ pt:'Você paga 20% na reserva para garantir as datas e os 80% restantes na entrega. Aceitamos Pix, cartão, PayPal, Wise e Revolut. Na entrega deixamos também uma caução de 50% do valor dos itens, devolvida depois da coleta.', en:'You pay 20% at booking to lock in your dates and the remaining 80% on delivery. We accept Pix, card, PayPal, Wise and Revolut. At delivery we also take a 50% deposit on the item value, refunded after pickup.', es:'Pagas el 20% al reservar para asegurar las fechas y el 80% restante en la entrega. Aceptamos Pix, tarjeta, PayPal, Wise y Revolut. En la entrega dejamos también una fianza del 50% del valor de los artículos, que se devuelve en el momento de la recogida.' } },
     { q:{ pt:'Os equipamentos são higienizados?', en:'Is the gear sanitized?', es:'¿El equipamiento está higienizado?' },
       a:{ pt:'Sempre. Limpeza a fundo e a vapor entre cada locação. Chega tudo pronto para usar. Pode confiar.', en:'Always. Deep steam cleaning between every rental. It arrives ready to use. You can count on it.', es:'Siempre. Limpieza a fondo y al vapor entre cada alquiler. Llega todo listo para usar. Puedes confiar.' } },
     { q:{ pt:'Posso cancelar a reserva?', en:'Can I cancel my booking?', es:'¿Puedo cancelar la reserva?' },
-      a:{ pt:'Sim — escreva para nós por e-mail ou WhatsApp o quanto antes e cancelamos sua reserva sem custo.', en:'Yes — email or WhatsApp us as soon as possible and we\u2019ll cancel your booking at no cost.', es:'Sí — escríbenos por email o WhatsApp lo antes posible y cancelamos tu reserva sin costo.' } },
+      a:{ pt:'Pode sim — cancelamento grátis até 48h antes da entrega.', en:'Yes — free cancellation up to 48h before delivery.', es:'Sí — cancelación gratis hasta 48h antes de la entrega. Después de las 48h el importe es el 20% de la reserva.' } },
   ];
 
   REVIEWS = [
@@ -1523,9 +1453,9 @@ class Component extends DCLogic {
 
   waLink = (msg) => 'https://wa.me/'+this.wa+(msg?('?text='+encodeURIComponent(msg)):'');
   go = (screen, productId=null) => { this.setState({ screen, productId, cartOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null }); if(typeof window!=='undefined') window.scrollTo({top:0}); };
-  goHome = () => { if(this.bootedProduct() && typeof window!=='undefined'){ window.location.href = this.homeUrl(this.state.lang); } else { this.go('home'); } };
-  goCatalog = () => { if(this.bootedProduct() && typeof window!=='undefined'){ window.location.href = this.homeUrl(this.state.lang)+'#produtos'; } else { this.navSection('produtos'); } };
-  goProduct = (id) => { if(typeof window!=='undefined' && this.PRODUCT_SLUGS[id]){ window.location.href = this.productUrl(id, this.state.lang); } else { this.go('product', id); } };
+  goHome = () => this.go('home');
+  goCatalog = () => this.go('catalog');
+  goProduct = (id) => this.go('product', id);
   scrollTo = (id) => { const el=document.getElementById(id); if(!el) return; const target=()=>Math.max(0, el.getBoundingClientRect().top+window.scrollY-72); let __last=target(); window.scrollTo({top:__last,behavior:'smooth'}); let __n=0; const __fix=()=>{ const y=target(); if(Math.abs(y-__last)>4){ __last=y; window.scrollTo({top:y,behavior:'smooth'}); } if(++__n<10) setTimeout(__fix,90); }; setTimeout(__fix,100); };
   navSection = (id) => { this._lockScroll(false); if(this.state.screen!=='home'){ this.setState({screen:'home', mobileMenuOpen:false}); setTimeout(()=>this.scrollTo(id),80); } else { this.setState({mobileMenuOpen:false}); this.scrollTo(id); } };
   _lockScroll = (lock) => { if (typeof document === 'undefined') return; const de = document.documentElement; if (lock) { const h = document.querySelector('header'); const top = h ? Math.max(0, Math.round(h.getBoundingClientRect().bottom)) : 64; de.style.setProperty('--rt-menu-top', top + 'px'); de.style.overflow = 'hidden'; } else { de.style.overflow = ''; } };
@@ -1534,11 +1464,8 @@ class Component extends DCLogic {
     if (typeof window === 'undefined') { this.setState({ lang: code, langOpen:false }); return; }
     const cur = this.state.lang;
     if (code === cur) { this.setState({ langOpen:false }); return; }
-    if (this.bootedProduct() && this.state.productId && this.PRODUCT_SLUGS[this.state.productId]) {
-      window.location.href = this.productUrl(this.state.productId, code);
-    } else {
-      window.location.href = this.homeUrl(code);
-    }
+    const up = cur === 'pt' ? '' : '../';
+    window.location.href = (code === 'pt' ? up + 'index.html' : up + code + '/index.html');
   };
   toggleLangMenu = () => this.setState({ langOpen: !this.state.langOpen });
   closeLangMenu = () => this.setState({ langOpen:false });
@@ -1648,10 +1575,8 @@ class Component extends DCLogic {
     if (!resv || this.state.sendStatus === 'sent') return;
     this.setState({ sendStatus: 'sending' });
     try {
-      const { locationType, locationReference, deliveryTime, pickupTime, paymentMethod, referralSource } = this.state;
       await emailjs.send('service_9zabifv', 'template_0mol0tp', {
         name: resv.name, email: resv.email, country: resv.country, message: resv.body,
-        location_type: locationType, location_reference: locationReference, delivery_time: deliveryTime, pickup_time: pickupTime, payment_method: paymentMethod, referral_source: referralSource,
       });
       this.setState({ sendStatus: 'sent' });
     } catch (error) {
@@ -1660,12 +1585,6 @@ class Component extends DCLogic {
     }
   };
   setCustomerCountry = (e) => this.setState({ customerCountry: e.target.value });
-  setLocationType = (val) => this.setState({ locationType: val });
-  setLocationReference = (e) => this.setState({ locationReference: e.target.value });
-  setDeliveryTime = (e) => this.setState({ deliveryTime: e.target.value });
-  setPickupTime = (e) => this.setState({ pickupTime: e.target.value });
-  setPaymentMethod = (val) => this.setState({ paymentMethod: val });
-  setReferralSource = (e) => this.setState({ referralSource: e.target.value });
 
   renderVals(){
     const { screen, lang, scrolled, cart, catFilter, productId, openFaq } = this.state;
@@ -1673,7 +1592,7 @@ class Component extends DCLogic {
     const pick = (o) => (o ? (o[lang]!=null?o[lang]:o.pt) : undefined);
     const t_chooseDates = L('Escolher dias','Choose dates','Elegir días');
     const pickA = (o) => ((Array.isArray(o) ? o : (o ? (o[lang]!=null?o[lang]:o.pt) : [])) || []);
-    const decorate = (p) => { const name=pick(p.name), cat=pick(this.CATS[p.catKey]); return { ...p, name, cat, tag:pick(p.tag), desc:pick(p.desc), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:L('Aluguel de '+name+' no Rio de Janeiro','Rent '+name+' in Rio de Janeiro','Alquiler de '+name+' en Río de Janeiro'), open:(e)=>{ if(e&&e.preventDefault)e.preventDefault(); this.goProduct(p.id); }, href:this.productUrl(p.id, lang),
+    const decorate = (p) => { const name=pick(p.name), cat=pick(this.CATS[p.catKey]); return { ...p, name, cat, tag:pick(p.tag), desc:pick(p.desc), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:L('Aluguel de '+name+' no Rio de Janeiro','Rent '+name+' in Rio de Janeiro','Alquiler de '+name+' en Río de Janeiro'), open:()=>this.goProduct(p.id),
       wa:this.waLink(L('Olá! Quero alugar '+name+' (R$'+p.price+'/dia). Pode me ajudar?','Hi! I\u2019d like to rent the '+name+' (R$'+p.price+'/day). Can you help?','¡Hola! Quiero alquilar '+name+' (R$'+p.price+'/día). ¿Me pueden ayudar?')) }; };
     const products = this.PRODUCTS.map(decorate);
 
@@ -1725,8 +1644,8 @@ class Component extends DCLogic {
       return label;
     }).join('\n');
     const cartWa = this.waLink(L('Olá! Quero reservar na Rental Turtle:\n'+cartLinesText('pt')+'\nEntrega e coleta: R$'+this.fee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+cartLinesText('en')+'\nDelivery & pickup: R$'+this.fee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+cartLinesText('es')+'\nEntrega y recogida: R$'+this.fee+'\nTotal: R$'+cartTotal+'.'));
-    const { customerName, customerSurname, customerEmail, customerCountry, locationType, locationReference, deliveryTime, pickupTime, paymentMethod, referralSource } = this.state;
-    const canContinue = !!(customerName.trim() && customerSurname.trim() && /^\S+@\S+\.\S+$/.test(customerEmail.trim()) && customerCountry.trim() && locationType && (locationReference||'').trim() && deliveryTime && pickupTime && paymentMethod && referralSource);
+    const { customerName, customerSurname, customerEmail, customerCountry } = this.state;
+    const canContinue = !!(customerName.trim() && customerSurname.trim() && /^\S+@\S+\.\S+$/.test(customerEmail.trim()) && customerCountry.trim());
     const custLine = L('Nome: ','Name: ','Nombre: ')+customerName.trim()+'\n'+L('Sobrenome: ','Surname: ','Apellido: ')+customerSurname.trim()+'\nE-mail: '+customerEmail.trim()+'\n'+L('País de origem: ','Country of origin: ','País de origen: ')+customerCountry.trim()+'\n';
     const reservationBody = L('Olá! Quero reservar na Rental Turtle:\n'+custLine+cartLinesText('pt')+'\nEntrega e coleta: R$'+this.fee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+custLine+cartLinesText('en')+'\nDelivery and pickup: R$'+this.fee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+custLine+cartLinesText('es')+'\nEntrega y recogida: R$'+this.fee+'\nTotal: R$'+cartTotal+'.');
     const detailsWa = 'mailto:info@rentalturtle.com?cc='+encodeURIComponent(customerEmail.trim())+'&subject='+encodeURIComponent('Reserva Rental Turtle')+'&body='+encodeURIComponent(reservationBody);
@@ -1750,12 +1669,12 @@ class Component extends DCLogic {
       step1:L('Passo 1','Step 1','Paso 1'), step2:L('Passo 2','Step 2','Paso 2'), step3:L('Passo 3','Step 3','Paso 3'), step4:L('Passo 4','Step 4','Paso 4'),
       s1Title:L('Escolha o que precisa','Pick what you need','Elige lo que necesitas'),
       s1Desc:L('Monte o carrinho com os itens da sua viagem.','Add the items you need for your vacation to your cart.','Añade al carrito los artículos que necesitas para tus vacaciones.'),
-      s2Title:L('Faça sua reserva por e-mail','Book by email','Haz tu reserva por e-mail'),
-      s2Desc:L('Clique no botão Finalizar reserva para nos enviar seu pedido.','Click the Complete booking button to send us your request.','Haz clic en el botón de Finalizar reserva para enviarnos tu pedido.'),
+      s2Title:L('Envie o pedido','Send the request','Envía el pedido por Whatsapp'),
+      s2Desc:L('Clique no botão do WhatsApp e faça sua reserva.','Click the WhatsApp button and make your booking.','Haz clic en el botón de WhatsApp y realiza tu reserva.'),
       s3Title:L('Receba a confirmação','Get your confirmation','Recibe la confirmación'),
       s3Desc:L('Em até 24 horas confirmaremos a disponibilidade de todos os produtos para as datas da sua reserva.','Within 24h we confirm the availability of all products for your reservation dates.','En menos de 24h confirmamos si están todos los productos disponibles para tus fechas.'),
-      s4Title:L('Entrega e Pagamento','Delivery and Payment','Entrega y Pago'),
-      s4Desc:L('Pague 100% dos seus produtos alugados + R$50 pela entrega e recolhida + R$150 de caução','Pay 100% of your rented products + R$50 for delivery and pickup + R$150 deposit','Paga el 100% de tus productos alquilados+50RS por la entrega y recogida + 150RS de fianza'),
+      s4Title:L('Reserve','Book it','Reserva'),
+      s4Desc:L('Pague 20% para confirmar a reserva (via Pix, cartão de crédito, PayPal, Wise ou Revolut) e pronto!',"Pay a 20% deposit to confirm your reservation using Pix, credit card, PayPal, Wise, or Revolut—and you're all set.",'Paga el 20% en concepto de reversa (Pix, tarjeta de credito, PayPal, Wise o Revolut) y listo.'),
       // delivery
       delEye:L('Entrega e coleta','Delivery & pickup','Entrega y recogida'),
       delTitle:L('Nós entregamos e recolhemos','We drop it off and pick it up','Nosotros lo llevamos y lo recogemos'),
@@ -1765,7 +1684,7 @@ class Component extends DCLogic {
       del1Label:L('1 · Agendamento','1 · Scheduling','1 · Agenda'),
       del1Desc:L('Combinamos a entrega no endereço da sua casa de temporada ou hotel na Zona Sul do Rio.','We arrange delivery to your holiday rental or hotel in Rio\u2019s South Zone.','Coordinamos la entrega en tu apartamento de vacaciones, Airbnb, u hotel en la Zona Sur de Río.'),
       del2Label:L('2 · Entrega','2 · Delivery','2 · Entrega'),
-      del2Desc:L('1. Assinamos um contrato de aluguel.\n2. Você paga 100% na entrega dos produtos.\n3. Você paga R$50 pela entrega e recolhida.\n4. Você deixa uma caução de R$150, devolvida integralmente no momento da recolhida, após verificar que os produtos não têm nenhum dano significativo.','1. We sign a rental contract.\n2. You pay 100% on delivery of the products.\n3. You pay R$50 for delivery and pickup.\n4. You leave a R$150 deposit, refunded in full at pickup, after checking that the products have no significant damage.','1. Firmamos un contrato de alquiler.\n2. Pagas el 100% en la entrega de los productos.\n3. Pagas 50RS por la entrega y la recogida.\n4. Depositas una fianza de 150RS que se devuelve íntegramente en el momento de la recogida, después de comprobar que los productos no tienen ningún daño significativo.'),
+      del2Desc:L('Na data, horário e local combinados, você paga os 80% restantes do aluguel e um depósito caução equivalente a 50% do valor dos produtos.','At the agreed time and place. You pay the remaining 80% of the rental + a 50% deposit on the item value.','En el horario y lugar acordados. Pagas el 80% restante del alquiler + una fianza del 50% del valor de los artículos.'),
       del3Label:L('3 · Devolução','3 · Return','3 · Devolución'),
       del3Desc:L('Retiramos os produtos na data combinada e devolvemos a caução pelo mesmo método de pagamento utilizado na reserva.','We pick everything up on the agreed date and refund your deposit to the same card.','Recogemos los productos en la fecha acordada y te devolvemos la fianza en la misma tarjeta.'),
       // benefits
@@ -1836,7 +1755,7 @@ class Component extends DCLogic {
       fieldCountryPh:L('Ex: Argentina','E.g. Argentina','Ej: Argentina'),
       detailsPrivacyNote:L('Enviaremos os detalhes da sua reserva para info@rentalturtle.com com cópia para o seu e-mail.','We\u2019ll send your booking details to info@rentalturtle.com with a copy to your email.','Enviaremos los detalles de tu reserva a info@rentalturtle.com con copia a tu email.'),
       detailsContinueWa:L('Continuar no WhatsApp','Continue on WhatsApp','Continuar en WhatsApp'),
-      detailsFillNote:L('Preencha todos os campos obrigatórios para continuar','Fill in the 4 fields to continue','Completa los 4 campos para continuar'),
+      detailsFillNote:L('Preencha os 4 campos para continuar','Fill in the 4 fields to continue','Completa los 4 campos para continuar'),
       perDay:L('/dia','/day','/día'),
       perDaySpaced:L('/ dia','/ day','/ día'),
       deliveryShort:L('Entrega e coleta','Delivery & pickup','Entrega y recogida'),
@@ -1872,33 +1791,9 @@ class Component extends DCLogic {
       removeTitle:L('Remover','Remove','Quitar'),
     };
 
-    const payPre = (lang==='pt') ? 'assets/pay/' : '../assets/pay/';
-    const payTitle = L('Métodos de pagamento','Payment methods','Métodos de pago');
-    const paySub = L('Escolha a forma mais cômoda de acordo com o seu país.','Choose the most convenient method for your country.','Elige la forma más cómoda según tu país.');
-    const payMethods = [
-      { logos:[{src:payPre+'visa.png',alt:'Visa'},{src:payPre+'mastercard.png',alt:'Mastercard'}],
-        note:L('Aceitamos cartão no momento da entrega ou coleta do equipamento.','We accept card payment when we deliver or pick up the gear.','Aceptamos tarjeta en el momento de la entrega o recogida del equipo.'),
-        badge:L('Pagamento presencial','In-person payment','Pago presencial'), bg:'#FDF0D5', fg:'#8A5A00' },
-      { logos:[{src:payPre+'paypal.png',alt:'PayPal'}],
-        note:L('Transferência direta para a nossa conta PayPal, disponível para a maioria dos países.','Direct transfer to our PayPal account, available for most countries.','Transferencia directa a nuestra cuenta PayPal, disponible para la mayoría de países.'),
-        badge:L('Internacional','International','Internacional'), bg:'#DCF3E8', fg:'#16794F' },
-      { logos:[{src:payPre+'wise.png',alt:'Wise'}],
-        note:L('Transferência internacional com câmbio real e taxas baixas.','International transfer with the real exchange rate and low fees.','Transferencia internacional con cambio real y comisiones bajas.'),
-        badge:L('Internacional','International','Internacional'), bg:'#DCF3E8', fg:'#16794F' },
-      { logos:[{src:payPre+'revolut.png',alt:'Revolut'}],
-        note:L('Transferência rápida entre contas Revolut ou para conta bancária.','Fast transfer between Revolut accounts or to a bank account.','Transferencia rápida entre cuentas Revolut o a cuenta bancaria.'),
-        badge:L('Internacional','International','Internacional'), bg:'#DCF3E8', fg:'#16794F' },
-      { logos:[{src:payPre+'pix.png',alt:'Pix'}],
-        note:L('Disponível apenas para clientes com conta bancária no Brasil.','Available only for customers with a bank account in Brazil.','Disponible solo para clientes con cuenta bancaria en Brasil.'),
-        badge:L('Conta no Brasil','Brazil account','Cuenta en Brasil'), bg:'#E4E9FC', fg:'#3B4FB0' },
-      { logos:[{src:payPre+'bizum.png',alt:'Bizum'}],
-        note:L('Disponível apenas para clientes com conta bancária na Espanha.','Available only for customers with a bank account in Spain.','Disponible solo para clientes con cuenta bancaria en España.'),
-        badge:L('Conta na Espanha','Spain account','Cuenta en España'), bg:'#E4E9FC', fg:'#3B4FB0' },
-    ];
     const navItems = [
       { label:L('Catálogo','Catalog','Catálogo'),          onClick:this.goCatalog },
       { label:L('Como funciona','How it works','Cómo funciona'), onClick:()=>this.navSection('como-funciona') },
-      { label:L('Método de pagamento','Payment method','Método de pago'), onClick:()=>this.navSection('pagamento') },
       { label:L('Entrega','Delivery','Entrega'),           onClick:()=>this.navSection('entrega') },
       { label:L('Dúvidas','FAQ','Preguntas'),              onClick:()=>this.navSection('faq') },
       { label:L('Sobre nós','About','Nosotros'),           onClick:()=>this.navSection('sobre') },
@@ -1911,15 +1806,14 @@ class Component extends DCLogic {
       promoText: L('Entrega e coleta em toda a Zona Sul do Rio por apenas R$50 · Reserve por e-mail e confirmamos em menos de 24h',
                    'Delivery & pickup across Rio\u2019s South Zone for just R$50 · Book by email, confirmed in under 24h',
                    'Entrega y recogida en toda la Zona Sur de Río por solo R$50 · Reserva por e-mail y te confirmamos en menos de 24h'),
-      isHome: screen==='home', isCatalog: screen==='catalog', isProduct: screen==='product', isPt: lang==='pt',
+      isHome: screen==='home', isCatalog: screen==='catalog', isProduct: screen==='product',
       goHome:this.goHome, goCatalog:this.goCatalog,
-      navItems, payMethods, payTitle, paySub, navProdutos:()=>this.navSection('produtos'),
+      navItems, navProdutos:()=>this.navSection('produtos'),
       mobileMenuOpen: this.state.mobileMenuOpen, mobileMenuClosed: !this.state.mobileMenuOpen, toggleMobileMenu:this.toggleMobileMenu,
       navComoFunciona:()=>this.navSection('como-funciona'), navEntrega:()=>this.navSection('entrega'), navSobre:()=>this.navSection('sobre'),
       toggleLangMenu:this.toggleLangMenu, closeLangMenu:this.closeLangMenu, langOpen:this.state.langOpen,
       langCode: lang.toUpperCase(), langFlag: lang==='pt'?'🇧🇷':(lang==='es'?'🇪🇸':'🇺🇸'),
       langChevron: this.state.langOpen?'rotate(180deg)':'rotate(0deg)',
-      isNotPt: lang!=='pt',
       langOthers: (()=>[{code:'pt',label:'Português'},{code:'es',label:'Español'},{code:'en',label:'English'}].filter(o=>o.code!==lang).map(o=>({ code:o.code, label:o.label, dataCta:'idioma_'+o.code, onClick:()=>this.setLang(o.code), isPt:o.code==='pt', isEs:o.code==='es', isEn:o.code==='en' })))(),
       langCurrent: { isPt: lang==='pt', isEs: lang==='es', isEn: lang==='en' },
       langLabel: (lang==='pt'?'Português':(lang==='es'?'Español':'English')),
@@ -1930,9 +1824,9 @@ class Component extends DCLogic {
         op:o.code===lang?'1':'0.55',
         scale:o.code===lang?'scale(1)':'scale(0.9)' })),
       waHref:this.waLink(L('Olá! Vim pelo site da Rental Turtle e quero alugar equipamento de bebê no Rio.','Hi! I found Rental Turtle online and want to rent baby gear in Rio.','¡Hola! Entré por la web de Rental Turtle y quiero alquilar equipamiento de bebé en Río.')),
-      headerBg: '#264653',
+      headerBg: scrolled?'rgba(251,248,242,.92)':'transparent',
       headerShadow: scrolled?'var(--shadow-sm)':'none',
-      headerBorder: 'transparent',
+      headerBorder: scrolled?'var(--color-border)':'transparent',
       hasCart: cart.length>0, cartCount:cart.length, openCart:this.openCart,
       deliveryFee:this.fee,
       products,
@@ -1971,14 +1865,6 @@ class Component extends DCLogic {
       goToDetails:this.goToDetails, backToCart:this.backToCart,
       customerName:this.state.customerName, customerSurname:this.state.customerSurname, customerEmail:this.state.customerEmail, customerCountry:this.state.customerCountry,
       setCustomerName:this.setCustomerName, setCustomerSurname:this.setCustomerSurname, setCustomerEmail:this.setCustomerEmail, setCustomerCountry:this.setCustomerCountry,
-      locationType:(this.state.locationType||''), locationReference:(this.state.locationReference||''), deliveryTime:(this.state.deliveryTime||''), pickupTime:(this.state.pickupTime||''), paymentMethod:(this.state.paymentMethod||''), referralSource:(this.state.referralSource||''),
-      locEndAria:(this.state.locationType==='Endereço')?'true':'false', locHotelAria:(this.state.locationType==='Hotel')?'true':'false',
-      locEndBorder:(this.state.locationType==='Endereço')?'var(--color-primary)':'var(--color-border)', locHotelBorder:(this.state.locationType==='Hotel')?'var(--color-primary)':'var(--color-border)',
-      locEndBg:(this.state.locationType==='Endereço')?'var(--green-50)':'var(--color-surface)', locHotelBg:(this.state.locationType==='Hotel')?'var(--green-50)':'var(--color-surface)',
-      setLocEndereco:()=>this.setLocationType('Endereço'), setLocHotel:()=>this.setLocationType('Hotel'),
-      locationRefPlaceholder:(this.state.locationType==='Hotel')?'Nome do hotel':'Nome da rua',
-      setLocationReference:this.setLocationReference, setDeliveryTime:this.setDeliveryTime, setPickupTime:this.setPickupTime, setReferralSource:this.setReferralSource,
-      paymentOptions:(()=>{ const base=(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen==='product')?'../assets/pay/':'./assets/pay/'; const sel=this.state.paymentMethod; const defs=[{value:'Visa/Mastercard',files:['visa.png','mastercard.png'],span:'span 2'},{value:'PayPal',files:['paypal.png'],span:'span 1'},{value:'Wise',files:['wise.png'],span:'span 1'},{value:'Revolut',files:['revolut.png'],span:'span 1'},{value:'Pix',files:['pix.png'],span:'span 1'},{value:'Bizum',files:['bizum.png'],span:'span 1'}]; return defs.map(d=>({ key:d.value, name:d.value, icons:d.files.map(f=>base+f), span:d.span, aria:(sel===d.value)?'true':'false', border:(sel===d.value)?'var(--color-primary)':'var(--color-border)', bg:(sel===d.value)?'var(--green-50)':'var(--color-surface)', onClick:()=>this.setPaymentMethod(d.value) })); })(),
       detailsHref: canContinue ? detailsWa : '#',
       sendReservation: canContinue ? (()=>this.sendReservation({ name:(customerName.trim()+' '+customerSurname.trim()).trim(), email:customerEmail.trim(), country:customerCountry.trim(), body:reservationBody, mailto:detailsWa })) : null,
       sendBtnLabel: this.state.sendStatus==='sending' ? L('Enviando…','Sending…','Enviando…') : this.state.sendStatus==='sent' ? L('Reserva enviada ✓','Booking sent ✓','Reserva enviada ✓') : t.cartSend,

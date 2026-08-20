@@ -152,8 +152,18 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </style>
 <script src="../image-slot.js"></script>
 <style>
+/*
+ * 🔒 CHECKLIST DE BREAKPOINTS — ficha de producto individual (no eliminar este bloque)
+ * - max-width: 900px  -> el layout de 2 columnas (imagen | tarjeta de reserva) colapsa a 1 columna apilada
+ * - max-width: 768px  -> breakpoint móvil de referencia del proyecto
+ * - max-width: 640px  -> ajustes de tipografía, padding lateral (--container-pad) y ancho del calendario
+ * Regla de oro: los hijos directos de .rt-g2 deben conservar min-width:0 en móvil, si no el contenido
+ * (imagen del producto, tarjeta de días/carrito) fuerza el ancho del grid y desborda el viewport.
+ */
 @media (max-width:900px){
-  .rt-g2{grid-template-columns:1fr !important;}
+  /* 🔒 MOBILE-LOCK: no modificar ancho fijo aquí — minmax(0,1fr) + min-width:0 evitan overflow horizontal */
+  .rt-g2{grid-template-columns:minmax(0,1fr) !important;}
+  .rt-g2>*{min-width:0 !important;}
   .rt-g4{grid-template-columns:repeat(2,1fr) !important;}
   .rt-footer{grid-template-columns:repeat(2,1fr) !important;}
   .rt-sticky{position:static !important;}

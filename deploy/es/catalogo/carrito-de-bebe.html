@@ -194,6 +194,17 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
   .rt-specs-grid{grid-template-columns:1fr !important;}
 }
 </style>
+<style>
+/* Product card image: 16/9 en móvil, fondo blanco, producto completo */
+@media (max-width:640px){
+  .rt-pcard-img{background:#ffffff !important;}
+  .rt-pcard-img>image-slot{height:auto !important;aspect-ratio:16/9 !important;--is-bg:#ffffff;}
+}
+@media (min-width:641px){
+  .rt-pcard-img{background:#ffffff !important;}
+  .rt-pcard-img>image-slot{height:auto !important;aspect-ratio:16/9 !important;--is-bg:#ffffff;}
+}
+</style>
 </helmet>
 <div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:clip;">
 
@@ -315,7 +326,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div class="rt-g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
 <sc-for list="{{ products }}" as="item" hint-placeholder-count="6">
 <a href="{{ item.href }}" onClick="{{ item.open }}" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;text-decoration:none;color:inherit;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-lg);">
-<div style="position:relative;background:var(--white);border-bottom:1px solid var(--sand-100);">
+<div class="rt-pcard-img" style="position:relative;background:var(--white);border-bottom:1px solid var(--sand-100);">
 <image-slot id="{{ item.imgId }}" src="{{ item.imgFallback }}" alt="{{ item.imgAlt }}" style="width: 100%; height: 200px; display: block; z-index: auto" shape="rect" fit="contain" placeholder="Solte a foto do produto"></image-slot>
 <sc-if value="{{ item.tag }}" hint-placeholder-val="Mais alugado"><div style="position:absolute;top:12px;left:12px;padding:5px 12px;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:800;font-size:12px;background:var(--color-primary);color:#fff;box-shadow:var(--shadow-sm);">{{ item.tag }}</div></sc-if>
 </div>
@@ -590,7 +601,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div class="rt-g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
 <sc-for list="{{ filteredProducts }}" as="item" hint-placeholder-count="6">
 <a href="{{ item.href }}" onClick="{{ item.open }}" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;text-decoration:none;color:inherit;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-lg);">
-<div style="position:relative;background:#FFFFFF;border-bottom:1px solid var(--sand-100);">
+<div class="rt-pcard-img" style="position:relative;background:#FFFFFF;border-bottom:1px solid var(--sand-100);">
 <image-slot id="{{ item.imgId }}" src="{{ item.imgFallback }}" alt="{{ item.imgAlt }}" style="width:100%;height:200px;display:block;" shape="rect" fit="contain" placeholder="Solte a foto do produto"></image-slot>
 <sc-if value="{{ item.tag }}" hint-placeholder-val="Mais alugado"><div style="position:absolute;top:12px;left:12px;padding:5px 12px;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:800;font-size:12px;background:var(--color-primary);color:#fff;box-shadow:var(--shadow-sm);">{{ item.tag }}</div></sc-if>
 </div>
@@ -624,7 +635,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <section style="max-width:var(--container-max);margin:0 auto;padding:0 var(--container-pad) 40px;">
 <div class="rt-g2 rt-detail" style="display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;">
 <div class="rt-sticky" style="position:sticky;top:88px;">
-<div style="background:#FFFFFF;border:1px solid var(--color-border);border-radius:var(--radius-2xl);box-shadow:var(--shadow-sm);overflow:hidden;position:relative;">
+<div class="rt-pcard-img" style="background:#FFFFFF;border:1px solid var(--color-border);border-radius:var(--radius-2xl);box-shadow:var(--shadow-sm);overflow:hidden;position:relative;">
 <image-slot id="{{ cur.imgId }}" src="{{ cur.imgFallback }}" alt="{{ cur.imgAlt }}" style="width:100%;height:440px;display:block;" shape="rect" fit="contain" placeholder="Solte a foto do produto"></image-slot>
 <sc-if value="{{ cur.tag }}"><div style="position:absolute;top:16px;left:16px;padding:6px 14px;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:800;font-size:13px;background:var(--color-primary);color:#fff;box-shadow:var(--shadow-sm);">{{ cur.tag }}</div></sc-if>
 </div>
@@ -744,7 +755,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div class="rt-g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
 <sc-for list="{{ cur.related }}" as="item" hint-placeholder-count="3">
 <a href="{{ item.href }}" onClick="{{ item.open }}" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;text-decoration:none;color:inherit;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-lg);">
-<div style="background:var(--white);border-bottom:1px solid var(--sand-100);"><image-slot id="{{ item.imgId }}" src="{{ item.imgFallback }}" alt="{{ item.imgAlt }}" style="width:100%;height:170px;display:block;" shape="rect" fit="contain" placeholder="Foto"></image-slot></div>
+<div class="rt-pcard-img" style="background:var(--white);border-bottom:1px solid var(--sand-100);"><image-slot id="{{ item.imgId }}" src="{{ item.imgFallback }}" alt="{{ item.imgAlt }}" style="width:100%;height:170px;display:block;" shape="rect" fit="contain" placeholder="Foto"></image-slot></div>
 <div style="padding:16px;display:flex;flex-direction:column;gap:6px;">
 <h3 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--ink-500);">{{ item.name }}</h3>
 <div style="font-family:var(--font-display);font-weight:800;font-size:17px;color:var(--ink-500);">R${{ item.price }}<span style="font-size:12px;font-weight:600;color:var(--color-text-secondary);">{{ t.perDay }}</span></div>
@@ -941,7 +952,7 @@ class Component extends DCLogic {
   HOME_REL = {"pt":"","es":"es/","en":"en/"};
   PROD_REL = {"pt":"catalogo/","es":"es/catalogo/","en":"en/catalog/"};
   siteRoot(){ if(typeof window==='undefined') return '/'; var dir=window.location.pathname.replace(/[^/]*$/,''); var suf=this.bootedProduct()?this.PROD_REL[this.state.lang]:this.HOME_REL[this.state.lang]; if(suf&&dir.slice(-suf.length)===suf) dir=dir.slice(0,dir.length-suf.length); return dir; }
-  homeUrl(lang){ return this.siteRoot()+(this.HOME_REL[lang]||'')+'index.html'; }
+  homeUrl(lang){ return this.siteRoot()+(this.HOME_REL[lang]||''); }
   productUrl(id, lang){ const s=this.PRODUCT_SLUGS[id]; if(!s) return this.homeUrl(lang); return this.siteRoot()+this.PROD_REL[lang]+s[lang]+'.html'; }
   bootedProduct(){ return typeof window!=='undefined' && window.__RT_INIT && window.__RT_INIT.screen==='product'; }
 
@@ -1556,7 +1567,7 @@ class Component extends DCLogic {
   waLink = (msg) => 'https://wa.me/'+this.wa+(msg?('?text='+encodeURIComponent(msg)):'');
   go = (screen, productId=null) => { this.setState({ screen, productId, cartOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null }); if(typeof window!=='undefined') window.scrollTo({top:0}); };
   goHome = () => { if(this.bootedProduct() && typeof window!=='undefined'){ window.location.href = this.homeUrl(this.state.lang); } else { this.go('home'); } };
-  goCatalog = () => { if(this.bootedProduct() && typeof window!=='undefined'){ window.location.href = '../index.html#produtos'; } else { this.navSection('produtos'); } };
+  goCatalog = () => { if(this.bootedProduct() && typeof window!=='undefined'){ window.location.href = '../#produtos'; } else { this.navSection('produtos'); } };
   goProduct = (id) => { if(typeof window!=='undefined' && this.PRODUCT_SLUGS[id]){ window.location.href = this.productUrl(id, this.state.lang); } else { this.go('product', id); } };
   scrollTo = (id) => { const el=document.getElementById(id); if(!el) return; const target=()=>Math.max(0, el.getBoundingClientRect().top+window.scrollY-72); let __last=target(); window.scrollTo({top:__last,behavior:'smooth'}); let __n=0; const __fix=()=>{ const y=target(); if(Math.abs(y-__last)>4){ __last=y; window.scrollTo({top:y,behavior:'smooth'}); } if(++__n<10) setTimeout(__fix,90); }; setTimeout(__fix,100); };
   navSection = (id) => { this._lockScroll(false); if(this.state.screen!=='home'){ this.setState({screen:'home', mobileMenuOpen:false}); setTimeout(()=>this.scrollTo(id),80); } else { this.setState({mobileMenuOpen:false}); this.scrollTo(id); } };

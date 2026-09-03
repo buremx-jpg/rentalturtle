@@ -996,7 +996,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;deliveryFee&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:50,&quot;unit&quot;:&quot;R$&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;minRentalDays&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;unit&quot;:&quot;dias&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+5521975855044&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;showPromoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Conteúdo&quot;}}">
 class Component extends DCLogic {
-  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{return JSON.parse(localStorage.getItem('rt-cart')||'[]')}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle' };
+  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{return JSON.parse(localStorage.getItem('rt-cart')||'[]')}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle', paymentMethod:'Visa/Mastercard' };
 
   CATS = {
     todos:   { pt:'Todos',    en:'All',       es:'Todos' },
@@ -1782,7 +1782,7 @@ class Component extends DCLogic {
   ];
   get selectedZona(){ return this.ZONAS.find(z=>z.id===this.state.deliveryZone) || null; }
   toggleZoneOpen = () => this.setState(s=>({ zoneOpen: !s.zoneOpen }));
-  setDeliveryZone = (id) => this.setState({ deliveryZone:id, zoneOpen:false });
+  setDeliveryZone = (id) => { const z = this.ZONAS.find(x=>x.id===id); this.setState(s=>({ deliveryZone:id, zoneOpen:false, locationType:(z && z.tipo==='normal') ? 'Hotel' : s.locationType })); };
   setFlightNumber = (e) => this.setState({ flightNumber: e.target.value });
   setAirline = (e) => this.setState({ airline: e.target.value });
 

@@ -690,9 +690,9 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </sc-if>
 </div>
 <div style="border-top:1px solid var(--color-divider);padding-top:16px;display:flex;flex-direction:column;gap:9px;">
-<div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>R${{ cur.price }} × {{ rentalDays }} {{ t.daysWord }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cur.subtotal }}</span></div>
-<div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ deliveryFee }}</span></div>
-<div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);margin-top:6px;padding-top:12px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink-500);">{{ t.totalEst }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--color-primary);">R${{ cur.total }}</span></div>
+<div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--ink-500);"><span style="font-weight:700;color:var(--ink-500);">R${{ cur.price }} × {{ rentalDays }} {{ t.daysWord }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cur.subtotal }}</span></div>
+<div style="display:flex;flex-direction:column;gap:3px;"><div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--color-text-secondary);">{{ t.deliveryFromValue }}</span></div><div style="font-family:var(--font-body);font-size:12px;line-height:1.45;color:var(--color-text-secondary);">{{ t.deliveryZoneNote }}</div></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);margin-top:6px;padding-top:12px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink-500);">{{ t.totalProducts }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--color-primary);">R${{ cur.subtotal }}</span></div>
 </div>
 <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;">
 <button onClick="{{ cur.add }}" data-cta="reservar_producto" style="height:var(--control-lg);border:none;border-radius:var(--radius-pill);background:var(--color-cta);color:#fff;box-shadow:var(--shadow-lift);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);display:flex;align-items:center;justify-content:center;gap:10px;transition:transform var(--dur-fast) var(--ease-out),background var(--dur-base) var(--ease-out);opacity:{{ cur.addOpacity }};cursor:{{ cur.addCursor }};pointer-events:{{ cur.addPE }};" style-hover="background:var(--color-cta-hover);" style-active="transform:scale(.97);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle><path d="M2 3h3l2.4 12.5a1.5 1.5 0 0 0 1.5 1.2h8.2a1.5 1.5 0 0 0 1.5-1.2L21 7H6"></path></svg>{{ t.addCart }}</button>
@@ -858,6 +858,28 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.fieldCountry }} <span style="color:var(--color-danger);">*</span></label>
 <input value="{{ customerCountry }}" onChange="{{ setCustomerCountry }}" placeholder="{{ t.fieldCountryPh }}" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
 </div>
+<div style="position:relative;">
+<label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.zoneLabel }} <span style="color:var(--color-danger);">*</span></label>
+<div onClick="{{ toggleZoneOpen }}" role="button" aria-haspopup="listbox" aria-expanded="{{ zoneAria }}" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 12px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+<sc-if value="{{ zoneSelected }}"><span style="flex:1;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:10px;"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ zoneName }}</span><span style="font-weight:700;">{{ zonePriceLabel }}</span></span></sc-if>
+<sc-if value="{{ zoneEmpty }}"><span style="color:var(--ink-300);">{{ t.zonePlaceholder }}</span></sc-if>
+<span style="font-size:10px;margin-left:8px;">▼</span>
+</div>
+<sc-if value="{{ zoneOpen }}">
+<div role="listbox" style="position:absolute;left:0;right:0;top:100%;margin-top:6px;z-index:30;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);box-shadow:0 4px 12px rgba(0,0,0,0.08);overflow:hidden;">
+<sc-for list="{{ zonaOptions }}" as="z" hint-placeholder-count="5">
+<div role="option" onClick="{{ z.onClick }}" style="padding:10px 12px;cursor:pointer;" style-hover="background:var(--sand-100);">
+<div style="display:flex;justify-content:space-between;align-items:baseline;">
+<span style="font-family:var(--font-body);font-size:14px;color:var(--ink-500);">{{ z.nome }}</span>
+<span style="font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--ink-500);min-width:48px;text-align:right;padding-left:16px;">{{ z.priceLabel }}</span>
+</div>
+<sc-if value="{{ z.hasBairros }}"><div style="font-size:11px;color:var(--ink-300);margin-top:2px;">{{ z.bairros }}</div></sc-if>
+</div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{ showAddressFields }}">
 <div>
 <label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.locRefLabel }} <span style="color:var(--color-danger);">*</span></label>
 <div role="radiogroup" aria-label="{{ t.locRefLabel }}" style="display:flex;gap:8px;margin-bottom:8px;">
@@ -866,6 +888,19 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </div>
 <input value="{{ locationReference }}" onChange="{{ setLocationReference }}" placeholder="{{ locationRefPlaceholder }}" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
 </div>
+</sc-if>
+<sc-if value="{{ showFlightFields }}">
+<div style="display:flex;flex-direction:column;gap:14px;">
+<div>
+<label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.flightNumLabel }} <span style="color:var(--color-danger);">*</span></label>
+<input value="{{ flightNumber }}" onChange="{{ setFlightNumber }}" placeholder="{{ t.flightNumPh }}" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
+</div>
+<div>
+<label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.airlineLabel }} <span style="color:var(--color-danger);">*</span></label>
+<input value="{{ airline }}" onChange="{{ setAirline }}" placeholder="{{ t.airlinePh }}" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
+</div>
+</div>
+</sc-if>
 <div>
 <label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.deliveryTimeLabel }} <span style="color:var(--color-danger);">*</span></label>
 <input type="time" value="{{ deliveryTime }}" onChange="{{ setDeliveryTime }}" step="60" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
@@ -897,7 +932,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="border-top:1px solid var(--color-divider);padding-top:16px;display:flex;flex-direction:column;gap:8px;">
 <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.cartSubtotalLabel }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cartSubtotal }}</span></div>
-<div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ deliveryFee }}</span></div>
+<div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--ink-500);">{{ deliveryFeeLabel }}</span></div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);padding-top:10px;margin-top:2px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink-500);">{{ t.totalEst }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--color-primary);">R${{ cartTotal }}</span></div>
 </div>
 <button onClick="{{ goCatalogFromCart }}" style="width:100%;height:var(--control-lg);border:var(--border-regular) solid var(--color-primary);border-radius:var(--radius-pill);background:var(--color-surface);color:var(--color-primary);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px;box-sizing:border-box;transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--green-50);">{{ t.chooseMore }}</button>
@@ -937,7 +972,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;deliveryFee&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:50,&quot;unit&quot;:&quot;R$&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;minRentalDays&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;unit&quot;:&quot;dias&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+5521975855044&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;showPromoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Conteúdo&quot;}}">
 class Component extends DCLogic {
-  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{return JSON.parse(localStorage.getItem('rt-cart')||'[]')}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle' };
+  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{return JSON.parse(localStorage.getItem('rt-cart')||'[]')}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle' };
 
   CATS = {
     todos:   { pt:'Todos',    en:'All',       es:'Todos' },
@@ -1691,9 +1726,13 @@ class Component extends DCLogic {
     if (!resv || this.state.sendStatus === 'sent') return;
     this.setState({ sendStatus: 'sending' });
     try {
+      const zona = this.selectedZona;
+      const isAirportZone = !!zona && zona.tipo === 'aeroporto';
       await emailjs.send('service_9zabifv', 'template_0mol0tp', {
         name: resv.name, email: resv.email, country: resv.country, message: resv.body,
         location_type: resv.location_type, location_reference: resv.location_reference, delivery_time: resv.delivery_time, pickup_time: resv.pickup_time, payment_method: resv.payment_method, referral_source: resv.referral_source,
+        zona_entrega: zona ? zona.nome : '', taxa_entrega: zona ? ('R$'+zona.preco) : '',
+        numero_voo: isAirportZone ? ((this.state.flightNumber||'')) : '', companhia_aerea: isAirportZone ? ((this.state.airline||'')) : '',
       });
       this.setState({ sendStatus: 'sent' });
     } catch (error) {
@@ -1708,6 +1747,19 @@ class Component extends DCLogic {
   setPickupTime = (e) => this.setState({ pickupTime: e.target.value });
   setPaymentMethod = (val) => this.setState({ paymentMethod: val });
   setReferralSource = (e) => this.setState({ referralSource: e.target.value });
+
+  ZONAS = [
+    { id:'zona-sul', nome:'Zona Sul + Centro', nomeEn:'South Zone + Centro', nomeEs:'Zona Sur + Centro', bairros:'Copacabana, Ipanema, Leblon, Botafogo, Flamengo, Lapa, Santa Teresa…', bairrosEn:'Copacabana, Ipanema, Leblon, Botafogo, Flamengo, Lapa, Santa Teresa…', bairrosEs:'Copacabana, Ipanema, Leblon, Botafogo, Flamengo, Lapa, Santa Teresa…', preco:50, tipo:'normal' },
+    { id:'sdu', nome:'Aeroporto Santos Dumont (SDU)', nomeEn:'Santos Dumont Airport (SDU)', nomeEs:'Aeropuerto Santos Dumont (SDU)', bairros:null, preco:60, tipo:'aeroporto' },
+    { id:'barra', nome:'Barra da Tijuca', nomeEn:'Barra da Tijuca', nomeEs:'Barra da Tijuca', bairros:null, preco:120, tipo:'normal' },
+    { id:'niteroi', nome:'Niterói', nomeEn:'Niterói', nomeEs:'Niterói', bairros:null, preco:120, tipo:'normal' },
+    { id:'galeao', nome:'Aeroporto Intl. Galeão (GIG)', nomeEn:'Galeão Intl. Airport (GIG)', nomeEs:'Aeropuerto Intl. Galeão (GIG)', bairros:null, preco:200, tipo:'aeroporto' },
+  ];
+  get selectedZona(){ return this.ZONAS.find(z=>z.id===this.state.deliveryZone) || null; }
+  toggleZoneOpen = () => this.setState(s=>({ zoneOpen: !s.zoneOpen }));
+  setDeliveryZone = (id) => this.setState({ deliveryZone:id, zoneOpen:false });
+  setFlightNumber = (e) => this.setState({ flightNumber: e.target.value });
+  setAirline = (e) => this.setState({ airline: e.target.value });
 
   renderVals(){
     const { screen, lang, scrolled, cart, catFilter, productId, openFaq } = this.state;
@@ -1759,18 +1811,23 @@ class Component extends DCLogic {
         lineTotal, remove:()=>this.removeFromCart(p.id) };
     }).filter(Boolean);
     const cartSubtotal = cartItems.reduce((s,p)=>s+p.lineTotal,0);
-    const cartTotal = cartItems.length ? cartSubtotal + this.fee : 0;
+    const zona = this.selectedZona;
+    const zoneFee = zona ? zona.preco : 0;
+    const isAirport = !!zona && zona.tipo === 'aeroporto';
+    const cartTotal = cartItems.length ? cartSubtotal + zoneFee : 0;
     const cartLinesText = (lng) => cartItems.map(p => {
       const label = lng==='en' ? (p.name+' — '+p.dateRange+' ('+p.days+' days) — R$'+p.price+'/day — R$'+p.lineTotal)
         : lng==='es' ? (p.name+' — '+p.dateRange+' ('+p.days+' días) — R$'+p.price+'/día — R$'+p.lineTotal)
         : (p.name+' — '+p.dateRange+' ('+p.days+' dias) — R$'+p.price+'/dia — R$'+p.lineTotal);
       return label;
     }).join('\n');
-    const cartWa = this.waLink(L('Olá! Quero reservar na Rental Turtle:\n'+cartLinesText('pt')+'\nEntrega e coleta: R$'+this.fee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+cartLinesText('en')+'\nDelivery & pickup: R$'+this.fee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+cartLinesText('es')+'\nEntrega y recogida: R$'+this.fee+'\nTotal: R$'+cartTotal+'.'));
+    const cartWa = this.waLink(L('Olá! Quero reservar na Rental Turtle:\n'+cartLinesText('pt')+'\nEntrega e coleta: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+cartLinesText('en')+'\nDelivery & pickup: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+cartLinesText('es')+'\nEntrega y recogida: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.'));
     const { customerName, customerSurname, customerEmail, customerCountry, locationType, locationReference, deliveryTime, pickupTime, paymentMethod, referralSource } = this.state;
-    const canContinue = !!(customerName.trim() && customerSurname.trim() && /^\S+@\S+\.\S+$/.test(customerEmail.trim()) && customerCountry.trim() && locationType && (locationReference||'').trim() && deliveryTime && pickupTime && paymentMethod && referralSource);
+    const locOk = isAirport ? true : !!(locationType && (locationReference||'').trim());
+    const flightOk = isAirport ? !!((this.state.flightNumber||'').trim() && (this.state.airline||'').trim()) : true;
+    const canContinue = !!(customerName.trim() && customerSurname.trim() && /^\S+@\S+\.\S+$/.test(customerEmail.trim()) && customerCountry.trim() && zona && locOk && flightOk && deliveryTime && pickupTime && paymentMethod && referralSource);
     const custLine = L('Nome: ','Name: ','Nombre: ')+customerName.trim()+'\n'+L('Sobrenome: ','Surname: ','Apellido: ')+customerSurname.trim()+'\nE-mail: '+customerEmail.trim()+'\n'+L('País de origem: ','Country of origin: ','País de origen: ')+customerCountry.trim()+'\n';
-    const reservationBody = L('Olá! Quero reservar na Rental Turtle:\n'+custLine+cartLinesText('pt')+'\nEntrega e coleta: R$'+this.fee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+custLine+cartLinesText('en')+'\nDelivery and pickup: R$'+this.fee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+custLine+cartLinesText('es')+'\nEntrega y recogida: R$'+this.fee+'\nTotal: R$'+cartTotal+'.');
+    const reservationBody = L('Olá! Quero reservar na Rental Turtle:\n'+custLine+cartLinesText('pt')+'\nEntrega e coleta: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+custLine+cartLinesText('en')+'\nDelivery and pickup: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+custLine+cartLinesText('es')+'\nEntrega y recogida: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.');
     const detailsWa = 'mailto:info@rentalturtle.com?cc='+encodeURIComponent(customerEmail.trim())+'&subject='+encodeURIComponent('Reserva Rental Turtle')+'&body='+encodeURIComponent(reservationBody);
 
     const faqs = this.FAQS.map((f,i)=>({ q:pick(f.q), a:pick(f.a), open:i===openFaq, toggle:()=>this.toggleFaq(i), iconRot:i===openFaq?'rotate(180deg)':'rotate(0deg)' }));
@@ -1881,6 +1938,12 @@ class Component extends DCLogic {
       fieldEmailPh:L('Ex: maria@email.com','E.g. maria@email.com','Ej: maria@email.com'),
       fieldCountry:L('País de origem','Country of origin','País de origen'),
       fieldCountryPh:L('Ex: Argentina','E.g. Argentina','Ej: Argentina'),
+      zoneLabel:L('Zona de entrega','Delivery zone','Zona de entrega'),
+      zonePlaceholder:L('Selecione sua zona','Select your delivery zone','Seleccioná tu zona'),
+      flightNumLabel:L('Número do voo','Flight number','Número de vuelo'),
+      flightNumPh:L('Ex.: LA3210','E.g. LA3210','Ej.: LA3210'),
+      airlineLabel:L('Companhia aérea','Airline','Compañía aérea'),
+      airlinePh:L('Ex.: LATAM','E.g. LATAM','Ej.: LATAM'),
       detailsPrivacyNote:L('Enviaremos os detalhes da sua reserva para info@rentalturtle.com com cópia para o seu e-mail.','We\u2019ll send your booking details to info@rentalturtle.com with a copy to your email.','Enviaremos los detalles de tu reserva a info@rentalturtle.com con copia a tu email.'),
       detailsContinueWa:L('Continuar no WhatsApp','Continue on WhatsApp','Continuar en WhatsApp'),
       locRefLabel:L('Referência de localização','Location reference','Referencia de ubicación'),
@@ -1901,6 +1964,9 @@ class Component extends DCLogic {
       perDay:L('/dia','/day','/día'),
       perDaySpaced:L('/ dia','/ day','/ día'),
       deliveryShort:L('Entrega e coleta','Delivery & pickup','Entrega y recogida'),
+      deliveryFromValue:L('a partir de R$'+this.fee,'from R$'+this.fee,'a partir de R$'+this.fee),
+      deliveryZoneNote:L('Taxa calculada no carrinho conforme sua zona de entrega e coleta.','Fee calculated at checkout based on your delivery zone.','Tarifa calculada en el carrito según tu zona de entrega y recogida.'),
+      totalProducts:L('Total (produtos)','Total (products)','Total (productos)'),
       // product detail
       badgeSan:L('Higienizado e revisado','Sanitized & inspected','Higienizado y revisado'),
       badgeDel:L('Entrega e coleta na Zona Sul','Delivery & pickup in the South Zone','Entrega y recogida en la Zona Sur'),
@@ -2014,6 +2080,12 @@ class Component extends DCLogic {
       setLocEndereco:()=>this.setLocationType('endereco'), setLocHotel:()=>this.setLocationType('hotel'),
       locationRefPlaceholder:(this.state.locationType==='hotel')?t.locHotelPh:t.locStreetPh,
       setLocationReference:this.setLocationReference, setDeliveryTime:this.setDeliveryTime, setPickupTime:this.setPickupTime, setReferralSource:this.setReferralSource,
+      zoneOpen:this.state.zoneOpen, zoneAria:this.state.zoneOpen?'true':'false', toggleZoneOpen:this.toggleZoneOpen,
+      zoneSelected:!!zona, zoneEmpty:!zona, zoneName: zona?L(zona.nome, zona.nomeEn||zona.nome, zona.nomeEs||zona.nome):'', zonePriceLabel: zona?('R$'+zona.preco):'',
+      zonaOptions: this.ZONAS.map(z=>({ key:z.id, nome:L(z.nome, z.nomeEn||z.nome, z.nomeEs||z.nome), bairros:L(z.bairros||'', z.bairrosEn||z.bairros||'', z.bairrosEs||z.bairros||''), hasBairros:!!z.bairros, priceLabel:'R$'+z.preco, onClick:()=>this.setDeliveryZone(z.id) })),
+      showAddressFields:!isAirport, showFlightFields:isAirport,
+      flightNumber:(this.state.flightNumber||''), airline:(this.state.airline||''), setFlightNumber:this.setFlightNumber, setAirline:this.setAirline,
+      deliveryFeeLabel: zona ? ('R$'+zona.preco) : '—',
       paymentOptions:(()=>{ const base=(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen==='product')?'../assets/pay/':'./assets/pay/'; const sel=this.state.paymentMethod; const defs=[{value:'Visa/Mastercard',files:['visa.png','mastercard.png'],span:'span 2'},{value:'PayPal',files:['paypal.png'],span:'span 1'},{value:'Wise',files:['wise.png'],span:'span 1'},{value:'Revolut',files:['revolut.png'],span:'span 1'},{value:'Pix',files:['pix.png'],span:'span 1'},{value:'Bizum',files:['bizum.png'],span:'span 1'}]; return defs.map(d=>({ key:d.value, name:d.value, icons:d.files.map(f=>base+f), span:d.span, aria:(sel===d.value)?'true':'false', border:(sel===d.value)?'var(--color-primary)':'var(--color-border)', bg:(sel===d.value)?'var(--green-50)':'var(--color-surface)', onClick:()=>this.setPaymentMethod(d.value) })); })(),
       detailsHref: canContinue ? detailsWa : '#',
       sendReservation: canContinue ? (()=>this.sendReservation({ name:(customerName.trim()+' '+customerSurname.trim()).trim(), email:customerEmail.trim(), country:customerCountry.trim(), body:reservationBody, mailto:detailsWa, location_type:(locationType==='endereco'?t.locEnderecoLabel:(locationType==='hotel'?t.locHotelLabel:'')), location_reference:(locationReference||'').trim(), delivery_time:(deliveryTime||''), pickup_time:(pickupTime||''), payment_method:(paymentMethod||''), referral_source:({ai:t.referralAi,google:'Google',social:t.referralSocial,recommendation:t.referralRec,other:t.referralOther}[referralSource]||'') })) : null,

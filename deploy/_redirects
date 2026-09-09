@@ -1,2 +1,11 @@
 /es/index.html  /es/  301
 /en/index.html  /en/  301
+
+# Redirigir variables de plantilla sin resolver a catálogos correspondientes
+/catalogo/%7B%7B*          /catalogo/      301
+/en/catalog/%7B%7B*        /en/catalog/    301
+/es/catalogo/%7B%7B*       /es/catalogo/   301
+/%7B%7B*                   /               301
+
+# Redirigir carrito al home (no es página pública)
+/carrito.html              /               301

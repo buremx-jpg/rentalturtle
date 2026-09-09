@@ -51,10 +51,6 @@
   }
 }
 </script>
-<link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/">
-<link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/">
-<link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/">
-<link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/">
 <link rel="icon" type="image/png" href="./assets/favicon.png">
 <script>window.__RT_INIT={cartOpen:true};</script>
 <script src="./support.js"></script>
@@ -931,6 +927,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.cartSubtotalLabel }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cartSubtotal }}</span></div>
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--ink-500);">{{ deliveryFeeLabel }}</span></div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);padding-top:10px;margin-top:2px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink-500);">{{ t.totalEst }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--color-primary);">R${{ cartTotal }}</span></div>
+<p class="fianza-nota" style="font-family:var(--font-body);font-size:12px;color:var(--color-danger);margin:6px 0 0;line-height:1.5;text-align:left;"><span style="display:block;">🔒 {{ t.cautionNoteA }}</span><span style="display:block;">{{ t.cautionNoteB }}</span></p>
 </div>
 <button onClick="{{ goCatalogFromCart }}" style="width:100%;height:var(--control-lg);border:var(--border-regular) solid var(--color-primary);border-radius:var(--radius-pill);background:var(--color-surface);color:var(--color-primary);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px;box-sizing:border-box;transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--green-50);">{{ t.chooseMore }}</button>
 <button onClick="{{ sendReservation }}" data-cta="carrinho_finalizar_reserva" style="width:100%;height:var(--control-lg);border:none;border-radius:var(--radius-pill);background:{{ detailsBtnBg }};color:#fff;box-shadow:var(--shadow-lift);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-sizing:border-box;opacity:{{ detailsBtnOpacity }};pointer-events:{{ detailsBtnPE }};transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--color-cta-hover);">{{ sendBtnLabel }}</button>
@@ -985,7 +982,7 @@ class Component extends DCLogic {
   PROD_REL = {"pt":"catalogo/","es":"es/catalogo/","en":"en/catalog/"};
   siteRoot(){ if(typeof window==='undefined') return '/'; var dir=window.location.pathname.replace(/[^/]*$/,''); var suf=this.bootedProduct()?this.PROD_REL[this.state.lang]:this.HOME_REL[this.state.lang]; if(suf&&dir.slice(-suf.length)===suf) dir=dir.slice(0,dir.length-suf.length); return dir; }
   homeUrl(lang){ return this.siteRoot()+(this.HOME_REL[lang]||''); }
-  productUrl(id, lang){ const s=this.PRODUCT_SLUGS[id]; if(!s) return this.homeUrl(lang); return this.siteRoot()+this.PROD_REL[lang]+s[lang]+'.html'; }
+  productUrl(id, lang){ const s=this.PRODUCT_SLUGS[id]; if(!s) return this.homeUrl(lang)||'#'; if(!this.PROD_REL[lang]||!s[lang]) return '#'; return (this.siteRoot()+this.PROD_REL[lang]+s[lang]+'.html')||'#'; }
   bootedProduct(){ return typeof window!=='undefined' && window.__RT_INIT && window.__RT_INIT.screen==='product'; }
 
   PRODUCTS = [
@@ -1596,7 +1593,7 @@ class Component extends DCLogic {
   reviewsRef = React.createRef();
   scrollReviewsBy = (dir) => { const el=this.reviewsRef.current; if(!el) return; const card=el.firstElementChild; const amt=card?(card.getBoundingClientRect().width+24):320; el.scrollBy({left:dir*amt, behavior:'smooth'}); };
 
-  waLink = (msg) => 'https://wa.me/'+this.wa+(msg?('?text='+encodeURIComponent(msg)):'');
+  waLink = (msg) => { const WA_FALLBACK='https://api.whatsapp.com/send?phone=5521975855044'; if(!this.wa) return WA_FALLBACK; return 'https://wa.me/'+this.wa+(msg?('?text='+encodeURIComponent(msg)):''); };
   go = (screen, productId=null) => { this.setState({ screen, productId, cartOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null }); if(typeof window!=='undefined') window.scrollTo({top:0}); };
   goHome = () => { if(this.bootedProduct() && typeof window!=='undefined'){ window.location.href = this.homeUrl(this.state.lang); } else { this.go('home'); } };
   goCatalog = () => { if(this.bootedProduct() && typeof window!=='undefined'){ window.location.href = this.homeUrl(this.state.lang)+'#produtos'; } else { this.navSection('produtos'); } };
@@ -1982,6 +1979,9 @@ class Component extends DCLogic {
       // cart
       cartTitle:L('Seu carrinho','Your cart','Tu carrito'),
       cartSubtotalLabel:L('Subtotal','Subtotal','Subtotal'),
+      cautionNoteA:L('Caução reembolsável de R$150 cobrada na entrega','Refundable R$150 security deposit, collected on delivery','Depósito reembolsable de R$150, cobrado en la entrega'),
+      cautionNoteB:L('e devolvida na retirada dos equipamentos.','and returned upon equipment pick-up.','y devuelto al retirar los equipos.'),
+      cautionNote:L('Caução reembolsável de R$150 cobrada na entrega e devolvida na retirada dos equipamentos.','Refundable R$150 security deposit, collected on delivery and returned upon equipment pick-up.','Depósito reembolsable de R$150, cobrado en la entrega y devuelto al retirar los equipos.'),
       chooseMore:L('Escolher mais produtos','Choose more products','Elegir más productos'),
       cartSend:L('Finalizar reserva','Complete booking','Finalizar reserva'),
       cartNote:L('Confirmamos a disponibilidade em até 24h. Você paga 20% para reservar.','We confirm availability within 24h. You pay 20% to book.','Confirmamos la disponibilidad en hasta 24h. Pagas el 20% para reservar.'),
@@ -1996,26 +1996,27 @@ class Component extends DCLogic {
       removeTitle:L('Remover','Remove','Quitar'),
     };
 
+    const LOGO_FB = '/assets/logo-rental-turtle-full.png';
     const payPre = (lang==='pt') ? 'assets/pay/' : '../assets/pay/';
     const payTitle = L('Métodos de pagamento','Payment methods','Métodos de pago');
     const paySub = L('Escolha a forma mais cômoda de acordo com o seu país.','Choose the most convenient method for your country.','Elige la forma más cómoda según tu país.');
     const payMethods = [
-      { logos:[{src:payPre+'visa.png',alt:'Visa'},{src:payPre+'mastercard.png',alt:'Mastercard'}],
+      { logos:[{src:payPre?payPre+'visa.png':LOGO_FB,alt:'Visa'},{src:payPre?payPre+'mastercard.png':LOGO_FB,alt:'Mastercard'}],
         note:L('Aceitamos cartão no momento da entrega ou coleta do equipamento.','We accept card payment when we deliver or pick up the gear.','Aceptamos tarjeta en el momento de la entrega o recogida del equipo.'),
         badge:L('Pagamento presencial','In-person payment','Pago presencial'), bg:'#FDF0D5', fg:'#8A5A00' },
-      { logos:[{src:payPre+'paypal.png',alt:'PayPal'}],
+      { logos:[{src:payPre?payPre+'paypal.png':LOGO_FB,alt:'PayPal'}],
         note:L('Transferência direta para a nossa conta PayPal, disponível para a maioria dos países.','Direct transfer to our PayPal account, available for most countries.','Transferencia directa a nuestra cuenta PayPal, disponible para la mayoría de países.'),
         badge:L('Internacional','International','Internacional'), bg:'#DCF3E8', fg:'#16794F' },
-      { logos:[{src:payPre+'wise.png',alt:'Wise'}],
+      { logos:[{src:payPre?payPre+'wise.png':LOGO_FB,alt:'Wise'}],
         note:L('Transferência internacional com câmbio real e taxas baixas.','International transfer with the real exchange rate and low fees.','Transferencia internacional con cambio real y comisiones bajas.'),
         badge:L('Internacional','International','Internacional'), bg:'#DCF3E8', fg:'#16794F' },
-      { logos:[{src:payPre+'revolut.png',alt:'Revolut'}],
+      { logos:[{src:payPre?payPre+'revolut.png':LOGO_FB,alt:'Revolut'}],
         note:L('Transferência rápida entre contas Revolut ou para conta bancária.','Fast transfer between Revolut accounts or to a bank account.','Transferencia rápida entre cuentas Revolut o a cuenta bancaria.'),
         badge:L('Internacional','International','Internacional'), bg:'#DCF3E8', fg:'#16794F' },
-      { logos:[{src:payPre+'pix.png',alt:'Pix'}],
+      { logos:[{src:payPre?payPre+'pix.png':LOGO_FB,alt:'Pix'}],
         note:L('Disponível apenas para clientes com conta bancária no Brasil.','Available only for customers with a bank account in Brazil.','Disponible solo para clientes con cuenta bancaria en Brasil.'),
         badge:L('Conta no Brasil','Brazil account','Cuenta en Brasil'), bg:'#E4E9FC', fg:'#3B4FB0' },
-      { logos:[{src:payPre+'bizum.png',alt:'Bizum'}],
+      { logos:[{src:payPre?payPre+'bizum.png':LOGO_FB,alt:'Bizum'}],
         note:L('Disponível apenas para clientes com conta bancária na Espanha.','Available only for customers with a bank account in Spain.','Disponible solo para clientes con cuenta bancaria en España.'),
         badge:L('Conta na Espanha','Spain account','Cuenta en España'), bg:'#E4E9FC', fg:'#3B4FB0' },
     ];
@@ -2108,7 +2109,7 @@ class Component extends DCLogic {
       showAddressFields:!isAirport, showFlightFields:isAirport,
       flightNumber:(this.state.flightNumber||''), airline:(this.state.airline||''), setFlightNumber:this.setFlightNumber, setAirline:this.setAirline,
       deliveryFeeLabel: zona ? ('R$'+zona.preco) : '—',
-      paymentOptions:(()=>{ const base=(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen==='product')?'../assets/pay/':'./assets/pay/'; const sel=this.state.paymentMethod; const defs=[{value:'Visa/Mastercard',files:['visa.png','mastercard.png'],span:'span 2'},{value:'PayPal',files:['paypal.png'],span:'span 1'},{value:'Wise',files:['wise.png'],span:'span 1'},{value:'Revolut',files:['revolut.png'],span:'span 1'},{value:'Pix',files:['pix.png'],span:'span 1'},{value:'Bizum',files:['bizum.png'],span:'span 1'}]; return defs.map(d=>({ key:d.value, name:d.value, icons:d.files.map(f=>base+f), span:d.span, aria:(sel===d.value)?'true':'false', border:(sel===d.value)?'var(--color-primary)':'var(--color-border)', bg:(sel===d.value)?'var(--green-50)':'var(--color-surface)', onClick:()=>this.setPaymentMethod(d.value) })); })(),
+      paymentOptions:(()=>{ const base=(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen==='product')?'../assets/pay/':'./assets/pay/'; const sel=this.state.paymentMethod; const defs=[{value:'Visa/Mastercard',files:['visa.png','mastercard.png'],span:'span 2'},{value:'PayPal',files:['paypal.png'],span:'span 1'},{value:'Wise',files:['wise.png'],span:'span 1'},{value:'Revolut',files:['revolut.png'],span:'span 1'},{value:'Pix',files:['pix.png'],span:'span 1'},{value:'Bizum',files:['bizum.png'],span:'span 1'}]; return defs.map(d=>({ key:d.value, name:d.value, icons:d.files.map(f=>(f?base+f:'/assets/logo-turtle-sm.png')), span:d.span, aria:(sel===d.value)?'true':'false', border:(sel===d.value)?'var(--color-primary)':'var(--color-border)', bg:(sel===d.value)?'var(--green-50)':'var(--color-surface)', onClick:()=>this.setPaymentMethod(d.value) })); })(),
       detailsHref: canContinue ? detailsWa : '#',
       sendReservation: canContinue ? (()=>this.sendReservation({ name:(customerName.trim()+' '+customerSurname.trim()).trim(), email:customerEmail.trim(), country:customerCountry.trim(), body:reservationBody, mailto:detailsWa })) : null,
       sendBtnLabel: this.state.sendStatus==='sending' ? L('Enviando…','Sending…','Enviando…') : this.state.sendStatus==='sent' ? L('Reserva enviada ✓','Booking sent ✓','Reserva enviada ✓') : t.cartSend,

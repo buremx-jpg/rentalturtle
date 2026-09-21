@@ -248,10 +248,10 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <img src="../assets/logo-rental-turtle-full.png" alt="Rental Turtle" style="height:44px;width:auto;object-fit:contain;">
 </div>
 <nav class="rt-nav-desktop" style="display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-left:12px;">
-<a onClick="{{ firstNavItem.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:14px;color:#fff;text-decoration:none;cursor:pointer;white-space:nowrap;transition:color var(--dur-fast) var(--ease-out);" style-hover="color:var(--green-50);">{{ firstNavItem.label }}</a>
+<a href="{{ firstNavItem.href }}" onClick="{{ firstNavItem.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:14px;color:#fff;text-decoration:none;cursor:pointer;white-space:nowrap;transition:color var(--dur-fast) var(--ease-out);" style-hover="color:var(--green-50);">{{ firstNavItem.label }}</a>
 <a href="/es/pack-descuento.html" style="display:inline-flex;align-items:center;height:40px;box-sizing:border-box;font-family:var(--font-body);font-weight:700;font-size:14px;color:#fff;text-decoration:none;cursor:pointer;white-space:nowrap;padding:0 16px;border-radius:20px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.30);transition:background var(--dur-fast) var(--ease-out);" style-hover="background:rgba(255,255,255,.25);">Pack Descuento</a>
 <sc-for list="{{ restNavItems }}" as="n" hint-placeholder-count="5">
-<a onClick="{{ n.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:14px;color:#fff;text-decoration:none;cursor:pointer;white-space:nowrap;transition:color var(--dur-fast) var(--ease-out);" style-hover="color:var(--green-50);">{{ n.label }}</a>
+<a href="{{ n.href }}" onClick="{{ n.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:14px;color:#fff;text-decoration:none;cursor:pointer;white-space:nowrap;transition:color var(--dur-fast) var(--ease-out);" style-hover="color:var(--green-50);">{{ n.label }}</a>
 </sc-for>
 </nav>
 <button onClick="{{ toggleMobileMenu }}" aria-label="Menu" class="rt-hamburger" style="width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
@@ -298,10 +298,10 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 
 <sc-if value="{{ mobileMenuOpen }}">
 <div class="rt-mobile-nav" style="background:var(--color-surface);border-bottom:1px solid var(--color-border);box-shadow:var(--shadow-md);padding:14px var(--container-pad) 18px;display:flex;flex-direction:column;gap:2px;">
-<a onClick="{{ firstNavItem.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:16px;color:var(--ink-500);text-decoration:none;cursor:pointer;padding:12px 4px;border-bottom:1px solid var(--color-border);">{{ firstNavItem.label }}</a>
+<a href="{{ firstNavItem.href }}" onClick="{{ firstNavItem.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:16px;color:var(--ink-500);text-decoration:none;cursor:pointer;padding:12px 4px;border-bottom:1px solid var(--color-border);">{{ firstNavItem.label }}</a>
 <a href="/es/pack-descuento.html" style="font-family:var(--font-body);font-weight:700;font-size:16px;color:var(--ink-500);text-decoration:none;cursor:pointer;padding:10px 14px;border-radius:20px;background:var(--green-50);border:1px solid var(--green-100);text-align:center;">Pack Descuento</a>
 <sc-for list="{{ restNavItems }}" as="n" hint-placeholder-count="5">
-<a onClick="{{ n.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:16px;color:var(--ink-500);text-decoration:none;cursor:pointer;padding:12px 4px;border-bottom:1px solid var(--color-border);">{{ n.label }}</a>
+<a href="{{ n.href }}" onClick="{{ n.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:16px;color:var(--ink-500);text-decoration:none;cursor:pointer;padding:12px 4px;border-bottom:1px solid var(--color-border);">{{ n.label }}</a>
 </sc-for>
 <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:16px;">
 <div style="display:flex;align-items:center;gap:10px;">
@@ -339,7 +339,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </div>
 </div>
 <div style="border-radius:var(--radius-2xl);overflow:hidden;box-shadow:var(--shadow-md);background:#fff;">
-<image-slot id="packHeroImg" src="../assets/pack-hero.webp" style="width:100%;height:auto;aspect-ratio:16/9;display:block;" shape="rect" fit="contain" placeholder="Foto del pack: carrito + silla + cuna juntos"></image-slot>
+<image-slot id="packHeroImg" src="../uploads/imagen 4-6c5bc80c.webp" alt="Pack Descuento Rental Turtle" style="width:100%;height:auto;aspect-ratio:16/9;display:block;" shape="rect" fit="contain" placeholder="Foto del pack: carrito + silla + cuna juntos"></image-slot>
 </div>
 </div>
 </div>
@@ -1328,7 +1328,7 @@ class Component extends DCLogic {
 
   waLink = (msg) => { const WA_FALLBACK='https://api.whatsapp.com/send?phone=5521975855044'; if(!this.wa) return WA_FALLBACK; return 'https://wa.me/'+this.wa+(msg?('?text='+encodeURIComponent(msg)):''); };
   go = (screen, productId=null) => { this.setState({ screen, productId, cartOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null }); if(typeof window!=='undefined') window.scrollTo({top:0}); };
-  goHome = () => { if(this.bootedProduct() && typeof window!=='undefined'){ window.location.href = this.homeUrl(this.state.lang); } else { this.go('home'); } };
+  goHome = () => { if(typeof window!=='undefined'){ window.location.href = '/es/'; } else { this.go('home'); } };
   goCatalog = () => { if(this.bootedProduct() && typeof window!=='undefined'){ window.location.href = this.homeUrl(this.state.lang)+'#produtos'; } else { this.navSection('produtos'); } };
   goProduct = (id) => { if(typeof window!=='undefined' && this.PRODUCT_SLUGS[id]){ window.location.href = this.productUrl(id, this.state.lang); } else { this.go('product', id); } };
   scrollTo = (id) => { const el=document.getElementById(id); if(!el) return; const target=()=>Math.max(0, el.getBoundingClientRect().top+window.scrollY-72); let __last=target(); window.scrollTo({top:__last,behavior:'smooth'}); let __n=0; const __fix=()=>{ const y=target(); if(Math.abs(y-__last)>4){ __last=y; window.scrollTo({top:y,behavior:'smooth'}); } if(++__n<10) setTimeout(__fix,90); }; setTimeout(__fix,100); };
@@ -1827,13 +1827,13 @@ class Component extends DCLogic {
         badge:L('Conta na Espanha','Spain account','Cuenta en España'), bg:'#E4E9FC', fg:'#3B4FB0' },
     ];
     const navItems = [
-      { label:L('Catálogo','Catalog','Catálogo'),          onClick:this.goCatalog },
-      { label:L('Como funciona','How it works','Cómo funciona'), onClick:()=>this.navSection('como-funciona') },
-      { label:L('Método de pagamento','Payment method','Método de pago'), onClick:()=>this.navSection('pagamento') },
-      { label:L('Entrega','Delivery','Entrega'),           onClick:()=>this.navSection('entrega') },
-      { label:L('Dúvidas','FAQ','Preguntas'),              onClick:()=>this.navSection('faq') },
-      { label:L('Sobre nós','About','Nosotros'),           onClick:()=>this.navSection('sobre') },
-      { label:L('Contato','Contact','Contacto'),           onClick:()=>this.navSection('contato') },
+      { label:L('Catálogo','Catalog','Catálogo'),          href:'/es/#produtos', onClick:this.goCatalog },
+      { label:L('Como funciona','How it works','Cómo funciona'), href:'/es/#como-funciona', onClick:()=>this.navSection('como-funciona') },
+      { label:L('Método de pagamento','Payment method','Método de pago'), href:'/es/#pagamento', onClick:()=>this.navSection('pagamento') },
+      { label:L('Entrega','Delivery','Entrega'),           href:'/es/#entrega', onClick:()=>this.navSection('entrega') },
+      { label:L('Dúvidas','FAQ','Preguntas'),              href:'/es/#faq', onClick:()=>this.navSection('faq') },
+      { label:L('Sobre nós','About','Nosotros'),           href:'/es/#sobre', onClick:()=>this.navSection('sobre') },
+      { label:L('Contato','Contact','Contacto'),           href:'/es/#contato', onClick:()=>this.navSection('contato') },
     ];
     const firstNavItem = navItems[0];
     const restNavItems = navItems.slice(1);

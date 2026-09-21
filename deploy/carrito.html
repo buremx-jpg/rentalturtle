@@ -936,7 +936,14 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <button onClick="{{ goCatalogFromCart }}" style="width:100%;height:var(--control-lg);border:var(--border-regular) solid var(--color-primary);border-radius:var(--radius-pill);background:var(--color-surface);color:var(--color-primary);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px;box-sizing:border-box;transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--green-50);">{{ t.chooseMore }}</button>
 <button onClick="{{ sendReservation }}" data-cta="carrinho_finalizar_reserva" style="width:100%;height:var(--control-lg);border:none;border-radius:var(--radius-pill);background:{{ detailsBtnBg }};color:#fff;box-shadow:var(--shadow-lift);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-sizing:border-box;opacity:{{ detailsBtnOpacity }};pointer-events:{{ detailsBtnPE }};transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--color-cta-hover);">{{ sendBtnLabel }}</button>
 <sc-if value="{{ showSentNote }}"><p style="margin:8px 0 0;font-family:var(--font-body);font-size:12px;font-weight:700;text-align:center;color:var(--color-primary);">{{ sentNoteText }}</p></sc-if>
-<sc-if value="{{ showFillNote }}"><p style="margin:8px 0 0;font-family:var(--font-body);font-size:11px;text-align:center;color:var(--color-text-secondary);">{{ t.detailsFillNote }}</p></sc-if>
+<sc-if value="{{ showFillNote }}">
+<div style="margin:8px 0 0;background:#FFF8E7;border-left:3px solid #F4A261;border-radius:8px;padding:12px 14px;box-sizing:border-box;">
+<p style="margin:0 0 6px;font-family:var(--font-body);font-size:13px;color:#264653;font-weight:700;">{{ t.fillFieldsIntro }}</p>
+<sc-for list="{{ missingFieldsList }}" as="field" hint-placeholder-count="3">
+<p style="margin:0;font-family:var(--font-body);font-size:13px;color:#264653;line-height:1.6;">⚠️ {{ field.label }}</p>
+</sc-for>
+</div>
+</sc-if>
 </div>
 </div>
 <div class="rt-cart-items-col" style="flex:1.3 1 440px;min-width:min(380px,100%);padding:24px;display:flex;flex-direction:column;gap:14px;box-sizing:border-box;">
@@ -970,7 +977,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;deliveryFee&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:50,&quot;unit&quot;:&quot;R$&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;minRentalDays&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;unit&quot;:&quot;dias&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+5521975855044&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;showPromoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Conteúdo&quot;}}">
 class Component extends DCLogic {
-  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{return JSON.parse(localStorage.getItem('rt-cart')||'[]')}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle' };
+  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{return JSON.parse(localStorage.getItem('rt-cart')||'[]')}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle', locationType:'Endereço', paymentMethod:'Visa/Mastercard' };
 
   CATS = {
     todos:   { pt:'Todos',    en:'All',       es:'Todos' },
@@ -2002,7 +2009,20 @@ class Component extends DCLogic {
       catRefBanho:L('Refeição e banho','Mealtime & bath','Comida y baño'),
       cartWord:L('Carrinho','Cart','Carrito'),
       removeTitle:L('Remover','Remove','Quitar'),
+      fillFieldsIntro:L('Preencha os campos obrigatórios:','Please fill in the required fields:','Completa los campos obligatorios:'),
     };
+    const missingFieldsList = [];
+    if (!customerName.trim()) missingFieldsList.push({ key:'name', label:t.fieldName });
+    if (!customerSurname.trim()) missingFieldsList.push({ key:'surname', label:t.fieldSurname });
+    if (!/^\S+@\S+\.\S+$/.test(customerEmail.trim())) missingFieldsList.push({ key:'email', label:t.fieldEmail });
+    if (!customerCountry.trim()) missingFieldsList.push({ key:'country', label:t.fieldCountry });
+    if (!zona) missingFieldsList.push({ key:'zone', label:t.zoneLabel });
+    if (!locOk) missingFieldsList.push({ key:'loc', label:t.locRefLabel });
+    if (!flightOk) missingFieldsList.push({ key:'flight', label:t.flightNumLabel+' / '+t.airlineLabel });
+    if (!deliveryTime) missingFieldsList.push({ key:'delivery', label:t.deliveryTimeLabel });
+    if (!pickupTime) missingFieldsList.push({ key:'pickup', label:t.pickupTimeLabel });
+    if (!paymentMethod) missingFieldsList.push({ key:'payment', label:t.paymentLabel });
+    if (!referralSource) missingFieldsList.push({ key:'referral', label:t.referralLabel });
 
     const LOGO_FB = '/assets/logo-rental-turtle-full.png';
     const payPre = (lang==='pt') ? 'assets/pay/' : '../assets/pay/';
@@ -2129,6 +2149,7 @@ class Component extends DCLogic {
       detailsBtnOpacity: canContinue ? 1 : 0.75,
       detailsBtnPE: canContinue ? 'auto' : 'none',
       showFillNote: !canContinue,
+      missingFieldsList,
       faqs, reviews, reviewsRef, scrollReviews,
     };
   }

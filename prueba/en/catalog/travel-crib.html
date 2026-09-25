@@ -1637,7 +1637,7 @@ class Component extends DCLogic {
   get computedRentalDays(){
     const { checkIn, checkOut } = this.state;
     if (checkIn && checkOut) {
-      const diff = Math.round((this.fromDateStr(checkOut) - this.fromDateStr(checkIn)) / 86400000);
+      const diff = Math.round((this.fromDateStr(checkOut) - this.fromDateStr(checkIn)) / 86400000) + 1;
       return Math.max(this.minDays, diff);
     }
     return this.minDays;
@@ -1800,7 +1800,7 @@ class Component extends DCLogic {
       const pUnit = hasPack ? (line.packBase!=null ? Math.round(line.packBase*(1-__pkPct/100)) : line.packPrice) : 0;
       const pQty = hasPack ? (line.packQty||1) : 1;
       const hasDates = !!(line.checkIn && line.checkOut);
-      const days = hasDates ? Math.max(this.minDays, Math.round((this.fromDateStr(line.checkOut)-this.fromDateStr(line.checkIn))/86400000)) : 0;
+      const days = hasDates ? Math.max(this.minDays, Math.round((this.fromDateStr(line.checkOut)-this.fromDateStr(line.checkIn))/86400000)+1) : 0;
       const lineTotal = hasPack ? pUnit*pQty : p.price*days;
       return { ...p, name:pick(p.name)+(pQty>1?' ×'+pQty:'')+(hasPack&&line.packBase!=null&&__pkPct>0?' (Pack −'+__pkPct+'%)':''), cat:pick(this.CATS[p.catKey]), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:L('Aluguel de '+pick(p.name)+' no Rio de Janeiro','Rent '+pick(p.name)+' in Rio de Janeiro','Alquiler de '+pick(p.name)+' en Río de Janeiro'),
         days, dateRange: hasDates ? (this.formatShortDate(line.checkIn,lang)+' – '+this.formatShortDate(line.checkOut,lang)) : L('Datas a definir no carrinho','Set dates in cart','Fechas por definir en el carrito'),

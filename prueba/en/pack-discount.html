@@ -1884,9 +1884,9 @@ class Component extends DCLogic {
     const pkMkItem = (p) => {
       const qty = this.state.packQtys[p.id]||0;
       const base = this.packBasePrice(p.id, pkNights);
-      const unitCur = pkHasDates ? this.packDiscounted(base, pkDiscPct) : base;
+      const unitCur = (pkHasDates && qty>0) ? this.packDiscounted(base, pkDiscPct) : base;
       const q = Math.max(qty,1);
-      const hasDisc = pkHasDates && pkDiscPct>0;
+      const hasDisc = pkHasDates && pkDiscPct>0 && qty>0;
       const unitLine = pkHasDates ? (q+' × R$'+unitCur+' · −R$'+(base-unitCur)+' per unit') : (q+' × R$'+base+'/day');
       return {
         id:p.id, name:p.name, brand:p.brand, imgSlotId:'pack-'+p.id, imgSrc:p.img, imgAlt:p.alt,

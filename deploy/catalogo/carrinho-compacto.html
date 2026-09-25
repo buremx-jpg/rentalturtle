@@ -235,8 +235,10 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div onClick="{{ goHome }}" class="rt-logo" style="display:flex;align-items:center;cursor:pointer;flex-shrink:0;">
 <img src="../assets/logo-rental-turtle-full.png" alt="Rental Turtle" style="height:44px;width:auto;object-fit:contain;">
 </div>
-<nav class="rt-nav-desktop" style="display:flex;flex-wrap:wrap;gap:20px;margin-left:12px;">
-<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+<nav class="rt-nav-desktop" style="display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-left:12px;">
+<a onClick="{{ firstNavItem.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:14px;color:#fff;text-decoration:none;cursor:pointer;white-space:nowrap;transition:color var(--dur-fast) var(--ease-out);" style-hover="color:var(--green-50);">{{ firstNavItem.label }}</a>
+<a href="/pack-desconto.html" style="display:inline-flex;align-items:center;height:40px;box-sizing:border-box;font-family:var(--font-body);font-weight:700;font-size:14px;color:#fff;text-decoration:none;cursor:pointer;white-space:nowrap;padding:0 16px;border-radius:20px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.30);transition:background var(--dur-fast) var(--ease-out);" style-hover="background:rgba(255,255,255,.25);">Pack Desconto</a>
+<sc-for list="{{ restNavItems }}" as="n" hint-placeholder-count="5">
 <a onClick="{{ n.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:14px;color:#fff;text-decoration:none;cursor:pointer;white-space:nowrap;transition:color var(--dur-fast) var(--ease-out);" style-hover="color:var(--green-50);">{{ n.label }}</a>
 </sc-for>
 </nav>
@@ -284,7 +286,9 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 
 <sc-if value="{{ mobileMenuOpen }}">
 <div class="rt-mobile-nav" style="background:var(--color-surface);border-bottom:1px solid var(--color-border);box-shadow:var(--shadow-md);padding:14px var(--container-pad) 18px;display:flex;flex-direction:column;gap:2px;">
-<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+<a onClick="{{ firstNavItem.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:16px;color:var(--ink-500);text-decoration:none;cursor:pointer;padding:12px 4px;border-bottom:1px solid var(--color-border);">{{ firstNavItem.label }}</a>
+<a href="/pack-desconto.html" style="font-family:var(--font-body);font-weight:700;font-size:16px;color:var(--ink-500);text-decoration:none;cursor:pointer;padding:10px 14px;border-radius:20px;background:var(--green-50);border:1px solid var(--green-100);text-align:center;">Pack Desconto</a>
+<sc-for list="{{ restNavItems }}" as="n" hint-placeholder-count="5">
 <a onClick="{{ n.onClick }}" style="font-family:var(--font-body);font-weight:700;font-size:16px;color:var(--ink-500);text-decoration:none;cursor:pointer;padding:12px 4px;border-bottom:1px solid var(--color-border);">{{ n.label }}</a>
 </sc-for>
 <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:16px;">
@@ -1713,7 +1717,7 @@ class Component extends DCLogic {
     const startWeekday = first.getDay();
     const daysInMonth = new Date(year, month+1, 0).getDate();
     const todayStr = this.toDateStr(new Date());
-    const minCheckoutStr = checkIn ? this.toDateStr(this.addDays(this.fromDateStr(checkIn), this.minDays)) : null;
+    const minCheckoutStr = checkIn ? this.toDateStr(this.addDays(this.fromDateStr(checkIn), this.minDays - 1)) : null;
     const cells = [];
     for (let i=0;i<startWeekday;i++) cells.push({ isPad:true, label:'', style:this.dayStyle({isPad:true}), onClick:null });
     for (let d=1; d<=daysInMonth; d++){
@@ -2094,7 +2098,7 @@ class Component extends DCLogic {
                    'Entrega y recogida en la Zona Sur por R$50 · Barra, Niterói y aeropuertos: consultar · Reserva por e-mail y te confirmamos en menos de 24h'),
       isHome: screen==='home', isCatalog: screen==='catalog', isProduct: screen==='product', isPt: lang==='pt',
       goHome:this.goHome, goCatalog:this.goCatalog,
-      navItems, payMethods, payTitle, paySub, navProdutos:()=>this.navSection('produtos'),
+      navItems, firstNavItem:navItems[0], restNavItems:navItems.slice(1), payMethods, payTitle, paySub, navProdutos:()=>this.navSection('produtos'),
       mobileMenuOpen: this.state.mobileMenuOpen, mobileMenuClosed: !this.state.mobileMenuOpen, toggleMobileMenu:this.toggleMobileMenu,
       navComoFunciona:()=>this.navSection('como-funciona'), navEntrega:()=>this.navSection('entrega'), navSobre:()=>this.navSection('sobre'),
       toggleLangMenu:this.toggleLangMenu, closeLangMenu:this.closeLangMenu, langOpen:this.state.langOpen,

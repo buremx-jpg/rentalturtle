@@ -1727,7 +1727,7 @@ class Component extends DCLogic {
     const startWeekday = first.getDay();
     const daysInMonth = new Date(year, month+1, 0).getDate();
     const todayStr = this.toDateStr(new Date());
-    const minCheckoutStr = checkIn ? this.toDateStr(this.addDays(this.fromDateStr(checkIn), this.minDays)) : null;
+    const minCheckoutStr = checkIn ? this.toDateStr(this.addDays(this.fromDateStr(checkIn), this.minDays - 1)) : null;
     const cells = [];
     for (let i=0;i<startWeekday;i++) cells.push({ isPad:true, label:'', style:this.dayStyle({isPad:true}), onClick:null });
     for (let d=1; d<=daysInMonth; d++){

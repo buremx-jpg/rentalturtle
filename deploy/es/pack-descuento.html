@@ -112,6 +112,7 @@
 <link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/pack-desconto.html">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script src="../precios.js"></script>
 <script src="../support.js"></script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -743,7 +744,7 @@ class Component extends DCLogic {
     { id:'cadeira', catKey:'refeicao', price:23, rating:4.6, reviews:57,
       name:{ pt:'Cadeira de alimentação', en:'High chair', es:'Trona para comer' },
       desc:{ pt:'Cadeira alta e firme, com bandeja removível. Limpa fácil e já chega pronta pras refeições no apê ou hotel.', en:'Tall, sturdy high chair with a removable tray. Easy to clean and ready for mealtimes at your flat or hotel.', es:'Trona alta y firme, con bandeja extraíble. Se limpia fácil y llega lista para las comidas en el apartamento u hotel.' } },
-    { id:'berco', catKey:'dormir', price:47, rating:4.8, reviews:121,
+    { id:'berco', catKey:'dormir', price:window.RT_PRECIOS.berco, rating:4.8, reviews:121,
       name:{ pt:'Berço de viagem', en:'Travel crib', es:'Cuna de viaje' },
       desc:{ pt:'Berço portátil com colchão higienizado. Montamos em minutos para o seu bebê dormir tranquilo.', en:'Portable crib with a sanitized mattress. We set it up in minutes so your baby sleeps soundly.', es:'Cuna portátil con colchón higienizado. La montamos en minutos para que tu bebé duerma tranquilo.' } },
     { id:'banheira', catKey:'banho', price:17, rating:4.7, reviews:44,
@@ -1509,16 +1510,7 @@ class Component extends DCLogic {
     { id:'banheira', name:'Bañera Plegable', brand:'Yuupi', img:'../assets/prod-banheira.webp', alt:'Bañera Plegable', row:2, colLabel:'Baño' },
     { id:'cadeira', name:'Trona para Comer', brand:'Graco', img:'../assets/prod-cadeira.webp', alt:'Trona para Comer', row:2, colLabel:'Alimentación' },
   ];
-  PACK_PRICES = {
-    carrinho:  {3:189,5:245,7:295,10:348,14:386,21:469},
-    compacto:  {3:125,5:162,7:195,10:230,14:255,21:310},
-    cadeirinha:{3:98, 5:132,7:165,10:185,14:210,21:245},
-    berco:     {3:110,5:145,7:175,10:200,14:210,21:240},
-    banheira:  {3:40, 5:56, 7:70, 10:80, 14:90, 21:105},
-    cadeira:   {3:58, 5:78, 7:95, 10:108,14:128,21:150},
-  };
-  PACK_DAY_LIST = [3,5,7,10,14,21];
-  PACK_DAILY = { carrinho:53, compacto:41, cadeirinha:37, cadeira:23, berco:47, banheira:17 };
+  PACK_DAILY = { carrinho:53, compacto:41, cadeirinha:37, cadeira:23, berco:window.RT_PRECIOS.berco, banheira:17 };
   PACK_TIERS_DEF = [ {pct:5,threshold:2,label:'2 unidades'}, {pct:10,threshold:3,label:'3 unidades'}, {pct:15,threshold:4,label:'4+ unidades'} ];
 
   get packMaxUnits(){ return 4; }
@@ -1541,12 +1533,6 @@ class Component extends DCLogic {
     const diff = Math.round((outD-inD)/86400000);
     return diff>0 ? diff+1 : null;
   }
-  get packBracketDays(){
-    const n = this.packNights;
-    if (n==null) return 7;
-    for (const d of this.PACK_DAY_LIST) if (n<=d) return d;
-    return 21;
-  }
   get packDateError(){
     if (!this.state.packCheckIn || !this.state.packCheckOut) return false;
     return Math.round((new Date(this.state.packCheckOut)-new Date(this.state.packCheckIn))/86400000) <= 0;
@@ -1555,11 +1541,7 @@ class Component extends DCLogic {
   packBasePrice(id, nights){
     const daily = this.PACK_DAILY[id];
     if (nights==null) return daily;
-    const days = this.packChargedDays(nights);
-    if (days>21) return daily*days;
-    let bracket = 21;
-    for (const d of this.PACK_DAY_LIST) if (d>=days){ bracket=d; break; }
-    return Math.min(this.PACK_PRICES[id][bracket], daily*days);
+    return daily*this.packChargedDays(nights);
   }
   packDiscounted(base, pct){ return Math.round(base*(1-pct/100)); }
   packScrollToDates(){

@@ -737,19 +737,19 @@ class Component extends DCLogic {
 
   PRODUCTS = [
     { id:'compacto', catKey:'passeio', price:41, rating:4.8, reviews:64,
-      name:{ pt:'Carrinho compacto', en:'Compact stroller', es:'Carrito de paseo compacto' },
+      name:{ pt:'Carrinho compacto', en:'Compact stroller', es:'Carrito compacto' },
       desc:{ pt:'Leve, dobra com uma mão só e cabe no porta-malas e no elevador. O companheiro do dia a dia da viagem.', en:'Light, folds with one hand and fits in the trunk and the elevator. Your everyday travel companion.', es:'Ligero, se pliega con una mano y cabe en el maletero y el ascensor. El compañero del día a día del viaje.' } },
     { id:'bebe-conforto', catKey:'auto', price:39, rating:4.9, reviews:0,
-      name:{ pt:'bebê conforto', en:'infant car seat', es:'silla de coche para bebé' },
-      desc:{ pt:'Para bebês de 0 a 13 kg. Fixa com cinto de 3 pontos. Ideal para o trajeto do aeroporto ao hotel.', en:'For babies 0 to 13 kg. Fits with 3-point seatbelt. Ideal for the airport-to-hotel trip.', es:'Para bebés de 0 a 13 kg. Se fija con cinturón de 3 puntos. Ideal para el trayecto del aeropuerto al hotel.' } },
+      name:{ pt:'Bebê conforto', en:'Infant car seat', es:'Silla de coche para bebé' },
+      desc:{ pt:'Para bebês de 0 a 13 kg. Fixa-se com cinto de 3 pontos. Ideal para viagens longas e para o transporte do dia a dia.', en:'For babies 0 to 13 kg. Fits with 3-point seatbelt. Ideal for long trips and daily use.', es:'Para bebés de 0 a 13 kg. Se fija con cinturón de 3 puntos. Ideal para viajes largos y para el transporte del día a día.' } },
     { id:'cadeirinha', catKey:'auto', price:37, rating:4.9, reviews:178,
-      name:{ pt:'Cadeirinha de auto', en:'Car seat', es:'Silla de coche' },
+      name:{ pt:'Cadeirinha de auto', en:'Child car seat', es:'Silla de coche para niños' },
       desc:{ pt:'Cadeirinha 0–4 anos, homologada e revisada. Instalamos junto com você na entrega, se precisar.', en:'Car seat for ages 0–4, approved and inspected. We install it with you at delivery if you need.', es:'Silla de auto 0–4 años, homologada y revisada. La instalamos contigo en la entrega, si lo necesitas.' } },
     { id:'cadeira', catKey:'refeicao', price:23, rating:4.6, reviews:57,
-      name:{ pt:'Cadeira de alimentação', en:'High chair', es:'Trona para comer' },
+      name:{ pt:'Cadeira de alimentação', en:'High chair', es:'Trona' },
       desc:{ pt:'Cadeira alta e firme, com bandeja removível. Limpa fácil e já chega pronta pras refeições no apê ou hotel.', en:'Tall, sturdy high chair with a removable tray. Easy to clean and ready for mealtimes at your flat or hotel.', es:'Trona alta y firme, con bandeja extraíble. Se limpia fácil y llega lista para las comidas en el apartamento u hotel.' } },
     { id:'berco', catKey:'dormir', price:window.RT_PRECIOS.berco, rating:4.8, reviews:121,
-      name:{ pt:'Berço de viagem', en:'Travel crib', es:'Cuna de viaje' },
+      name:{ pt:'Berço de viagem', en:'Travel cot', es:'Cuna de viaje' },
       desc:{ pt:'Berço portátil com colchão higienizado. Montamos em minutos para o seu bebê dormir tranquilo.', en:'Portable crib with a sanitized mattress. We set it up in minutes so your baby sleeps soundly.', es:'Cuna portátil con colchón higienizado. La montamos en minutos para que tu bebé duerma tranquilo.' } },
     { id:'banheira', catKey:'banho', price:17, rating:4.7, reviews:44,
       name:{ pt:'Banheira de bebê', en:'Baby bathtub', es:'Bañera de bebé' },
@@ -1474,7 +1474,7 @@ class Component extends DCLogic {
 
   PACK_PRODUCTS = [
     { id:'compacto', name:'Carrinho Compacto', brand:'Joie', img:'./assets/prod-compacto.webp', alt:'Carrinho Compacto', row:1 },
-    { id:'bebe-conforto', name:'bebê conforto', brand:'Maxi-Cosi', img:'./assets/prod-bebe-conforto.webp', alt:'bebê conforto', row:1 },
+    { id:'bebe-conforto', name:'Bebê conforto', brand:'Maxi-Cosi', img:'./assets/prod-bebe-conforto.webp', alt:'Bebê conforto', row:1 },
     { id:'cadeirinha', name:'Cadeira para Auto com Isofix', brand:'Safety 1st', img:'./assets/prod-cadeirinha.webp', alt:'Cadeira para Auto com Isofix', row:1 },
     { id:'berco', name:'Berço Portátil + Colchão', brand:'Burigotto', img:'./assets/prod-berco.webp', alt:'Berço Portátil', row:2, colLabel:'Dormir' },
     { id:'banheira', name:'Banheira Dobrável', brand:'Yuupi', img:'./assets/prod-banheira.webp', alt:'Banheira Dobrável', row:2, colLabel:'Banho' },
@@ -1575,7 +1575,7 @@ class Component extends DCLogic {
     const curSaving = (current && !curTooLong) ? this.r2(__curRaw-__curSub) : 0;
     const __canAdd = hasValidDates && !curTooLong;
     const cur = current ? { ...decorate(current),
-      subtotal: this.money(__curSub,lang), total: this.money(__curSub+this.fee,lang), hasSaving: curSaving>0, savingMsg: L('Preço semanal aplicado — você economiza R$'+this.money(curSaving,lang)+' em comparação com a diária','Weekly price applied — you save R$'+this.money(curSaving,lang)+' compared to the daily rate','Precio semanal aplicado — ahorras R$'+this.money(curSaving,lang)+' en comparación con la tarifa diaria'), tooLong: curTooLong, notTooLong: !curTooLong,
+      subtotal: this.money(__curSub,lang), total: this.money(__curSub+this.fee,lang), hasSaving: curSaving>0, savingAmt: '\u2212R$'+this.money(curSaving,lang), imgW: current.id==='bebe-conforto'?'76%':'100%', imgM: current.id==='bebe-conforto'?'6.75% auto':'0', savingMsg: L('Preço semanal aplicado — você economiza R$'+this.money(curSaving,lang)+' em comparação com a diária','Weekly price applied — you save R$'+this.money(curSaving,lang)+' compared to the daily rate','Precio semanal aplicado — ahorras R$'+this.money(curSaving,lang)+' en comparación con la tarifa diaria'), tooLong: curTooLong, notTooLong: !curTooLong,
       hasSpecs: !!detail, hasProsCons: !!(detail && detail.pros), hasCons: !!(dCons && pickA(dCons).length), model: detail?.model,
       prosLabel: L('Prós','Pros','Pros'),
       longDesc: pickA(dLong), pros: pickA(dPros), cons: pickA(dCons), specs: pickA(dSpecs),
@@ -1620,7 +1620,7 @@ class Component extends DCLogic {
     const flightOk = isAirport ? !!((this.state.flightNumber||'').trim() && (this.state.airline||'').trim()) : true;
     const canContinue = !cartTooLong && !!(customerName.trim() && customerSurname.trim() && /^\S+@\S+\.\S+$/.test(customerEmail.trim()) && customerCountry.trim() && zona && locOk && flightOk && deliveryTime && pickupTime && paymentMethod && referralSource);
     const custLine = L('Nome: ','Name: ','Nombre: ')+customerName.trim()+'\n'+L('Sobrenome: ','Surname: ','Apellido: ')+customerSurname.trim()+'\nE-mail: '+customerEmail.trim()+'\n'+L('País de origem: ','Country of origin: ','País de origen: ')+customerCountry.trim()+'\n';
-    const reservationBody = L('Olá! Quero reservar na Rental Turtle:\n'+custLine+cartLinesText('pt')+'\nEntrega e coleta: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+custLine+cartLinesText('en')+'\nDelivery and pickup: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+custLine+cartLinesText('es')+'\nEntrega y recogida: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.');
+    const reservationBody = L('Olá! Quero reservar na Rental Turtle:\n'+custLine+cartLinesText('pt')+'\nEntrega e coleta: R$'+zoneFee+'\nFiança: R$150 (devolvida no final da locação)\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+custLine+cartLinesText('en')+'\nDelivery and pickup: R$'+zoneFee+'\nDeposit: R$150 (refunded at the end of the rental)\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+custLine+cartLinesText('es')+'\nEntrega y recogida: R$'+zoneFee+'\nFianza: R$150 (devuelta al final del alquiler)\nTotal: R$'+cartTotal+'.');
     const detailsWa = 'mailto:info@rentalturtle.com?cc='+encodeURIComponent(customerEmail.trim())+'&subject='+encodeURIComponent('Reserva Rental Turtle')+'&body='+encodeURIComponent(reservationBody);
 
     const faqs = this.FAQS.map((f,i)=>({ q:pick(f.q), a:pick(f.a), open:i===openFaq, toggle:()=>this.toggleFaq(i), iconRot:i===openFaq?'rotate(180deg)':'rotate(0deg)' }));
@@ -1754,15 +1754,17 @@ class Component extends DCLogic {
       detailsFillNote:L('Preencha todos os campos obrigatórios para continuar','Fill in the 4 fields to continue','Completa los 4 campos para continuar'),
       perDay:L('/dia','/day','/día'),
       perWeek:L('/semana','/week','/semana'),
+      weekFrom:L('Desde\u00a0','From\u00a0','Desde\u00a0'),
+      weeklyDiscount:L('Desconto semanal','Weekly discount','Descuento semanal'),
       cartRemovedMsg:L('Alguns itens do seu carrinho não estão mais disponíveis e foram removidos.','Some items in your cart are no longer available and have been removed.','Algunos artículos de tu carrito ya no están disponibles y se han eliminado.'),
       cartRemovedLink:L('Ver catálogo.','View catalog.','Ver catálogo.'),
-      heroStrip:L('Sem mínimo de 7 dias · Pague só os dias que usar · Entrega e coleta no seu hotel ou Airbnb','No 7-day minimum · Pay only the days you use · No Brazilian ID needed · PayPal, Wise, Revolut','Sin mínimo de 7 días · Paga solo los días que uses · Sin CPF · PayPal, Wise, Revolut'),
+      heroStrip:L('Sem mínimo de 7 dias · Pague só os dias que usar','No 7-day minimum · Pay only the days you use · No CPF needed (Brazilian tax ID)','Sin mínimo de 7 días · Paga solo los días que uses · Sin CPF (documento de identificación fiscal brasileño)'),
       longMsg:L('Para aluguéis de mais de 56 dias, fale com a gente pelo WhatsApp.','For rentals longer than 56 days, contact us on WhatsApp.','Para alquileres de más de 56 días, habla con nosotros por WhatsApp.'),
       longBtn:L('Falar no WhatsApp','Chat on WhatsApp','Hablar por WhatsApp'),
       durationNote:L('Preços com desconto por duração aplicado automaticamente','Length-of-rental discount applied automatically','Precios con descuento por duración aplicado automáticamente'),
       perDaySpaced:L('/ dia','/ day','/ día'),
       deliveryShort:L('Entrega e coleta','Delivery & pickup','Entrega y recogida'),
-      cardDelivery:L('Entrega e coleta a partir de R$'+this.fee,'Delivery & pickup from R$'+this.fee,'Entrega y recogida a partir de R$'+this.fee),
+      cardDelivery:L('Entrega e coleta a partir de R$'+this.fee,'Delivery and pickup from R$'+this.fee,'Entrega y recogida desde R$'+this.fee),
       deliveryFromValue:L('a partir de R$'+this.fee,'from R$'+this.fee,'a partir de R$'+this.fee),
       deliveryZoneNote:L('Taxa calculada no carrinho conforme sua zona de entrega e coleta.','Fee calculated in the cart based on your delivery and pickup area.','Tarifa calculada en el carrito según tu zona de entrega y recogida.'),
       totalProducts:L('Total (produtos)','Total (products)','Total (productos)'),

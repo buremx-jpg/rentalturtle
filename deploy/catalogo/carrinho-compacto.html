@@ -9,10 +9,10 @@
     emailjs.init({ publicKey: "zZevy4-YLmMl16Kxj" });
   })();
 </script>
-<title>Alugar Carrinho Compacto no Rio — R$41/dia | Rental Turtle</title>
+<title>Alugar Carrinho compacto no Rio — R$41/dia | Rental Turtle</title>
 <meta name="description" content="Carrinho compacto e leve, dobra com uma mão. Entrega higienizado no seu hotel ou Airbnb na Zona Sul do Rio de Janeiro.">
 <link rel="canonical" href="https://rentalturtle.com/catalogo/carrinho-compacto.html">
-<meta property="og:title" content="Aluguel de Carrinho de Bebê e Criança no Rio">
+<meta property="og:title" content="Aluguel de carrinho de bebê e criança no Rio">
 <meta property="og:description" content="Carrinho leve e compacto, entregue higienizado no seu hotel ou Airbnb na Zona Sul. Mínimo 3 dias.">
 <meta property="og:image" content="https://rentalturtle.com/og-carrito-de-bebe-1200x630.png">
 <meta property="og:image:width" content="1200">
@@ -358,8 +358,8 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="font-family:var(--font-body);font-weight:800;font-size:11px;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);">{{ item.cat }}</div>
 <h3 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:var(--text-md);color:var(--ink-500);line-height:1.15;">{{ item.name }}</h3>
 <div style="margin-top:auto;padding-top:10px;">
-<div style="font-family:var(--font-display);font-weight:800;font-size:var(--text-xl);color:var(--ink-500);line-height:1;">R${{ item.price }}<span style="font-size:13px;font-weight:600;color:var(--color-text-secondary);">{{ t.perDay }}</span></div>
-<div style="margin-top:4px;font-family:var(--font-body);font-size:13px;font-weight:800;color:var(--color-primary);">R${{ item.week }}{{ t.perWeek }}</div>
+<div style="font-family:var(--font-display);font-weight:800;font-size:15px;color:var(--ink-500);line-height:1.2;">R${{ item.price }}{{ t.perDay }}</div>
+<div style="margin-top:4px;font-family:var(--font-body);font-size:13px;font-weight:800;color:#2A9D8F;">{{ t.weekFrom }}R${{ item.week }}{{ t.perWeek }}</div>
 <div style="margin-top:4px;font-family:var(--font-body);font-size:12px;color:var(--color-text-secondary);">{{ t.cardDelivery }}</div>
 </div>
 <button onClick="{{ item.open }}" style="margin-top: 8px; height: var(--control-md); border-radius: var(--radius-pill); border: var(--border-regular) solid var(--color-primary); color: #FFFFFF; font-family: var(--font-body); font-weight: 800; font-size: var(--text-sm); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background var(--dur-base) var(--ease-out); background-color: #E76F51; border-width: 0px; border-color: #E76F51" style-hover="background:var(--green-50);">{{ chooseDates }}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
@@ -657,8 +657,8 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="font-family:var(--font-body);font-weight:800;font-size:11px;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);">{{ item.cat }}</div>
 <h3 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:var(--text-md);color:var(--ink-500);line-height:1.15;">{{ item.name }}</h3>
 <div style="margin-top:auto;padding-top:10px;">
-<div style="font-family:var(--font-display);font-weight:800;font-size:var(--text-xl);color:var(--ink-500);line-height:1;">R${{ item.price }}<span style="font-size:13px;font-weight:600;color:var(--color-text-secondary);">{{ t.perDay }}</span></div>
-<div style="margin-top:4px;font-family:var(--font-body);font-size:13px;font-weight:800;color:var(--color-primary);">R${{ item.week }}{{ t.perWeek }}</div>
+<div style="font-family:var(--font-display);font-weight:800;font-size:15px;color:var(--ink-500);line-height:1.2;">R${{ item.price }}{{ t.perDay }}</div>
+<div style="margin-top:4px;font-family:var(--font-body);font-size:13px;font-weight:800;color:#2A9D8F;">{{ t.weekFrom }}R${{ item.week }}{{ t.perWeek }}</div>
 <div style="margin-top:4px;font-family:var(--font-body);font-size:12px;color:var(--color-text-secondary);">{{ t.cardDelivery }}</div>
 </div>
 <div style="display:flex;gap:8px;margin-top:8px;">
@@ -686,7 +686,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div class="rt-g2 rt-detail" style="display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;">
 <div class="rt-sticky" style="position:sticky;top:88px;">
 <div class="rt-pcard-img" style="background:#FFFFFF;border:1px solid var(--color-border);border-radius:var(--radius-2xl);box-shadow:var(--shadow-sm);overflow:hidden;position:relative;">
-<image-slot id="{{ cur.imgId }}" src="{{ cur.imgFallback }}" alt="{{ cur.imgAlt }}" style="width:100%;height:440px;display:block;" shape="rect" fit="contain" placeholder="Solte a foto do produto"></image-slot>
+<image-slot id="{{ cur.imgId }}" src="{{ cur.imgFallback }}" alt="{{ cur.imgAlt }}" style="width:{{ cur.imgW }};margin:{{ cur.imgM }};height:440px;display:block;" shape="rect" fit="contain" placeholder="Solte a foto do produto"></image-slot>
 <sc-if value="{{ cur.tag }}"><div style="position:absolute;top:16px;left:16px;padding:6px 14px;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:800;font-size:13px;background:var(--color-primary);color:#fff;box-shadow:var(--shadow-sm);">{{ cur.tag }}</div></sc-if>
 </div>
 <div style="display:flex;gap:12px;margin-top:16px;">
@@ -743,9 +743,9 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <sc-if value="{{ cur.notTooLong }}">
 <div style="border-top:1px solid var(--color-divider);padding-top:16px;display:flex;flex-direction:column;gap:9px;">
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--ink-500);"><span style="font-weight:700;color:var(--ink-500);">R${{ cur.price }} × {{ rentalDays }} {{ t.daysWord }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cur.subtotal }}</span></div>
-<sc-if value="{{ cur.hasSaving }}"><div style="font-family:var(--font-body);font-size:12px;font-weight:700;line-height:1.45;color:var(--color-primary);">{{ cur.savingMsg }}</div></sc-if>
 <div style="display:flex;flex-direction:column;gap:3px;"><div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--color-text-secondary);">{{ t.deliveryFromValue }}</span></div><div style="font-family:var(--font-body);font-size:12px;line-height:1.45;color:var(--color-text-secondary);">{{ t.deliveryZoneNote }}</div></div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);margin-top:6px;padding-top:12px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink-500);">{{ t.totalProducts }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--color-primary);">R${{ cur.subtotal }}</span></div>
+<sc-if value="{{ cur.hasSaving }}"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:#E76F51;">{{ t.weeklyDiscount }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:#E76F51;">{{ cur.savingAmt }}</span></div></sc-if>
 </div>
 </sc-if>
 <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;">
@@ -1052,19 +1052,19 @@ class Component extends DCLogic {
 
   PRODUCTS = [
     { id:'compacto', catKey:'passeio', price:41, rating:4.8, reviews:64,
-      name:{ pt:'Carrinho compacto', en:'Compact stroller', es:'Carrito de paseo compacto' },
+      name:{ pt:'Carrinho compacto', en:'Compact stroller', es:'Carrito compacto' },
       desc:{ pt:'Leve, dobra com uma mão só e cabe no porta-malas e no elevador. O companheiro do dia a dia da viagem.', en:'Light, folds with one hand and fits in the trunk and the elevator. Your everyday travel companion.', es:'Ligero, se pliega con una mano y cabe en el maletero y el ascensor. El compañero del día a día del viaje.' } },
     { id:'bebe-conforto', catKey:'auto', price:39, rating:4.9, reviews:0,
-      name:{ pt:'bebê conforto', en:'infant car seat', es:'silla de coche para bebé' },
-      desc:{ pt:'Para bebês de 0 a 13 kg. Fixa com cinto de 3 pontos. Ideal para o trajeto do aeroporto ao hotel.', en:'For babies 0 to 13 kg. Fits with 3-point seatbelt. Ideal for the airport-to-hotel trip.', es:'Para bebés de 0 a 13 kg. Se fija con cinturón de 3 puntos. Ideal para el trayecto del aeropuerto al hotel.' } },
+      name:{ pt:'Bebê conforto', en:'Infant car seat', es:'Silla de coche para bebé' },
+      desc:{ pt:'Para bebês de 0 a 13 kg. Fixa-se com cinto de 3 pontos. Ideal para viagens longas e para o transporte do dia a dia.', en:'For babies 0 to 13 kg. Fits with 3-point seatbelt. Ideal for long trips and daily use.', es:'Para bebés de 0 a 13 kg. Se fija con cinturón de 3 puntos. Ideal para viajes largos y para el transporte del día a día.' } },
     { id:'cadeirinha', catKey:'auto', price:37, rating:4.9, reviews:178,
-      name:{ pt:'Cadeirinha de auto', en:'Car seat', es:'Silla de coche' },
+      name:{ pt:'Cadeirinha de auto', en:'Child car seat', es:'Silla de coche para niños' },
       desc:{ pt:'Cadeirinha 0–4 anos, homologada e revisada. Instalamos junto com você na entrega, se precisar.', en:'Car seat for ages 0–4, approved and inspected. We install it with you at delivery if you need.', es:'Silla de auto 0–4 años, homologada y revisada. La instalamos contigo en la entrega, si lo necesitas.' } },
     { id:'cadeira', catKey:'refeicao', price:23, rating:4.6, reviews:57,
-      name:{ pt:'Cadeira de alimentação', en:'High chair', es:'Trona para comer' },
+      name:{ pt:'Cadeira de alimentação', en:'High chair', es:'Trona' },
       desc:{ pt:'Cadeira alta e firme, com bandeja removível. Limpa fácil e já chega pronta pras refeições no apê ou hotel.', en:'Tall, sturdy high chair with a removable tray. Easy to clean and ready for mealtimes at your flat or hotel.', es:'Trona alta y firme, con bandeja extraíble. Se limpia fácil y llega lista para las comidas en el apartamento u hotel.' } },
     { id:'berco', catKey:'dormir', price:window.RT_PRECIOS.berco, rating:4.8, reviews:121,
-      name:{ pt:'Berço de viagem', en:'Travel crib', es:'Cuna de viaje' },
+      name:{ pt:'Berço de viagem', en:'Travel cot', es:'Cuna de viaje' },
       desc:{ pt:'Berço portátil com colchão higienizado. Montamos em minutos para o seu bebê dormir tranquilo.', en:'Portable crib with a sanitized mattress. We set it up in minutes so your baby sleeps soundly.', es:'Cuna portátil con colchón higienizado. La montamos en minutos para que tu bebé duerma tranquilo.' } },
     { id:'banheira', catKey:'banho', price:17, rating:4.7, reviews:44,
       name:{ pt:'Banheira de bebê', en:'Baby bathtub', es:'Bañera de bebé' },
@@ -1823,7 +1823,7 @@ class Component extends DCLogic {
     const curSaving = (current && !curTooLong) ? this.r2(__curRaw-__curSub) : 0;
     const __canAdd = hasValidDates && !curTooLong;
     const cur = current ? { ...decorate(current),
-      subtotal: this.money(__curSub,lang), total: this.money(__curSub+this.fee,lang), hasSaving: curSaving>0, savingMsg: L('Preço semanal aplicado — você economiza R$'+this.money(curSaving,lang)+' em comparação com a diária','Weekly price applied — you save R$'+this.money(curSaving,lang)+' compared to the daily rate','Precio semanal aplicado — ahorras R$'+this.money(curSaving,lang)+' en comparación con la tarifa diaria'), tooLong: curTooLong, notTooLong: !curTooLong,
+      subtotal: this.money(__curSub,lang), total: this.money(__curSub+this.fee,lang), hasSaving: curSaving>0, savingAmt: '\u2212R$'+this.money(curSaving,lang), imgW: current.id==='bebe-conforto'?'76%':'100%', imgM: current.id==='bebe-conforto'?'6.75% auto':'0', savingMsg: L('Preço semanal aplicado — você economiza R$'+this.money(curSaving,lang)+' em comparação com a diária','Weekly price applied — you save R$'+this.money(curSaving,lang)+' compared to the daily rate','Precio semanal aplicado — ahorras R$'+this.money(curSaving,lang)+' en comparación con la tarifa diaria'), tooLong: curTooLong, notTooLong: !curTooLong,
       hasSpecs: !!detail, hasProsCons: !!(detail && detail.pros), hasCons: !!(dCons && pickA(dCons).length), model: detail?.model,
       prosLabel: L('Prós','Pros','Pros'),
       longDesc: pickA(dLong), pros: pickA(dPros), cons: pickA(dCons), specs: pickA(dSpecs),
@@ -1868,7 +1868,7 @@ class Component extends DCLogic {
     const flightOk = isAirport ? !!((this.state.flightNumber||'').trim() && (this.state.airline||'').trim()) : true;
     const canContinue = !cartTooLong && !!(customerName.trim() && customerSurname.trim() && /^\S+@\S+\.\S+$/.test(customerEmail.trim()) && customerCountry.trim() && zona && locOk && flightOk && deliveryTime && pickupTime && paymentMethod && referralSource);
     const custLine = L('Nome: ','Name: ','Nombre: ')+customerName.trim()+'\n'+L('Sobrenome: ','Surname: ','Apellido: ')+customerSurname.trim()+'\nE-mail: '+customerEmail.trim()+'\n'+L('País de origem: ','Country of origin: ','País de origen: ')+customerCountry.trim()+'\n';
-    const reservationBody = L('Olá! Quero reservar na Rental Turtle:\n'+custLine+cartLinesText('pt')+'\nEntrega e coleta: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+custLine+cartLinesText('en')+'\nDelivery and pickup: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+custLine+cartLinesText('es')+'\nEntrega y recogida: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.');
+    const reservationBody = L('Olá! Quero reservar na Rental Turtle:\n'+custLine+cartLinesText('pt')+'\nEntrega e coleta: R$'+zoneFee+'\nFiança: R$150 (devolvida no final da locação)\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+custLine+cartLinesText('en')+'\nDelivery and pickup: R$'+zoneFee+'\nDeposit: R$150 (refunded at the end of the rental)\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+custLine+cartLinesText('es')+'\nEntrega y recogida: R$'+zoneFee+'\nFianza: R$150 (devuelta al final del alquiler)\nTotal: R$'+cartTotal+'.');
     const detailsWa = 'mailto:info@rentalturtle.com?cc='+encodeURIComponent(customerEmail.trim())+'&subject='+encodeURIComponent('Reserva Rental Turtle')+'&body='+encodeURIComponent(reservationBody);
 
     const faqs = this.FAQS.map((f,i)=>({ q:pick(f.q), a:pick(f.a), open:i===openFaq, toggle:()=>this.toggleFaq(i), iconRot:i===openFaq?'rotate(180deg)':'rotate(0deg)' }));
@@ -2002,15 +2002,17 @@ class Component extends DCLogic {
       detailsFillNote:L('Preencha todos os campos obrigatórios para continuar','Fill in the 4 fields to continue','Completa los 4 campos para continuar'),
       perDay:L('/dia','/day','/día'),
       perWeek:L('/semana','/week','/semana'),
+      weekFrom:L('Desde\u00a0','From\u00a0','Desde\u00a0'),
+      weeklyDiscount:L('Desconto semanal','Weekly discount','Descuento semanal'),
       cartRemovedMsg:L('Alguns itens do seu carrinho não estão mais disponíveis e foram removidos.','Some items in your cart are no longer available and have been removed.','Algunos artículos de tu carrito ya no están disponibles y se han eliminado.'),
       cartRemovedLink:L('Ver catálogo.','View catalog.','Ver catálogo.'),
-      heroStrip:L('Sem mínimo de 7 dias · Pague só os dias que usar · Entrega e coleta no seu hotel ou Airbnb','No 7-day minimum · Pay only the days you use · No Brazilian ID needed · PayPal, Wise, Revolut','Sin mínimo de 7 días · Paga solo los días que uses · Sin CPF · PayPal, Wise, Revolut'),
+      heroStrip:L('Sem mínimo de 7 dias · Pague só os dias que usar','No 7-day minimum · Pay only the days you use · No CPF needed (Brazilian tax ID)','Sin mínimo de 7 días · Paga solo los días que uses · Sin CPF (documento de identificación fiscal brasileño)'),
       longMsg:L('Para aluguéis de mais de 56 dias, fale com a gente pelo WhatsApp.','For rentals longer than 56 days, contact us on WhatsApp.','Para alquileres de más de 56 días, habla con nosotros por WhatsApp.'),
       longBtn:L('Falar no WhatsApp','Chat on WhatsApp','Hablar por WhatsApp'),
       durationNote:L('Preços com desconto por duração aplicado automaticamente','Length-of-rental discount applied automatically','Precios con descuento por duración aplicado automáticamente'),
       perDaySpaced:L('/ dia','/ day','/ día'),
       deliveryShort:L('Entrega e coleta','Delivery & pickup','Entrega y recogida'),
-      cardDelivery:L('Entrega e coleta a partir de R$'+this.fee,'Delivery & pickup from R$'+this.fee,'Entrega y recogida a partir de R$'+this.fee),
+      cardDelivery:L('Entrega e coleta a partir de R$'+this.fee,'Delivery and pickup from R$'+this.fee,'Entrega y recogida desde R$'+this.fee),
       deliveryFromValue:L('a partir de R$'+this.fee,'from R$'+this.fee,'a partir de R$'+this.fee),
       deliveryZoneNote:L('Taxa calculada no carrinho conforme sua zona de entrega e coleta.','Fee calculated in the cart based on your delivery and pickup area.','Tarifa calculada en el carrito según tu zona de entrega y recogida.'),
       totalProducts:L('Total (produtos)','Total (products)','Total (productos)'),

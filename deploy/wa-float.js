@@ -1,3 +1,4 @@
+(function(){ try{ var IDS=['bebe-conforto','compacto','cadeirinha','cadeira','berco','banheira']; var c=JSON.parse(localStorage.getItem('rt-cart')||'[]'); if(Array.isArray(c)){ var k=c.filter(function(l){ return l && IDS.indexOf(l.id)>=0; }); if(k.length!==c.length){ localStorage.setItem('rt-cart', JSON.stringify(k)); localStorage.setItem('rt-cart-purged','1'); } } }catch(e){} })();
 (function(){
   if (window.__rtWaFloat) return; window.__rtWaFloat = true;
   var PHONE = '5521975855044';

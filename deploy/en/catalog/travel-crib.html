@@ -27,7 +27,7 @@
   "url": "https://rentalturtle.com/en/",
   "email": "info@rentalturtle.com",
   "telephone": "+5521975855044",
-  "priceRange": "R$17 - R$53",
+  "priceRange": "R$17 - R$41",
   "currenciesAccepted": "BRL",
   "openingHours": "Mo-Su 05:00-23:00",
   "areaServed": [
@@ -96,7 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="jteSwV0XZE7eEJIoSIHQ8w" async></script>
 <meta name="ext-resource-dependency" content="../assets/prod-compacto.webp" data-resource-id="prodCompacto" />
-<meta name="ext-resource-dependency" content="../assets/prod-carrinho.webp" data-resource-id="prodCarrinho" />
+<meta name="ext-resource-dependency" content="../assets/prod-bebe-conforto.webp" data-resource-id="prodBebeConforto" />
 <meta name="ext-resource-dependency" content="../assets/prod-cadeirinha.webp" data-resource-id="prodCadeirinha" />
 <meta name="ext-resource-dependency" content="../assets/prod-cadeira.webp" data-resource-id="prodCadeira" />
 <meta name="ext-resource-dependency" content="../assets/prod-berco.webp" data-resource-id="prodBerco" />
@@ -318,11 +318,12 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="background: url(&quot;../padres-paseando-2-mr51rbxv.png&quot;) center / cover no-repeat; border-radius: var(--radius-2xl); padding: 40px; display: flex; align-items: center; justify-content: center; position: relative; min-height: 400px; align-self: {{ heroImgAlign }}; margin-top: {{ heroImgMt }}">
 
 
-<div style="position: absolute; bottom: 30px; right: 14px; background: var(--color-cta); color: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lift); padding: 10px 16px; font-family: var(--font-display); font-weight: 800; font-size: 18px">{{ heroFloat2 }}<span style="font-size: 12px; font-weight: 600">{{ t.perDay }}</span></div>
+<div style="position: absolute; bottom: 30px; right: 14px; background: var(--color-cta); color: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lift); padding: 10px 16px; font-family: var(--font-display); font-weight: 800; font-size: 18px">{{ heroFloat2 }}<span style="font-size: 12px; font-weight: 600">{{ t.perWeek }}</span></div>
 </div>
 </div>
 </section>
 
+<div style="background:var(--sand-200);border-top:1px solid var(--sand-300);border-bottom:1px solid var(--sand-300);padding:12px var(--container-pad);text-align:center;font-family:var(--font-body);font-size:14px;font-weight:700;line-height:1.5;color:var(--ink-500);text-wrap:pretty;">{{ t.heroStrip }}</div>
 <section id="produtos" style="background:#FFFFFF;">
 <div style="max-width: var(--container-max); margin: 0 auto; padding: 40px var(--container-pad) 64px;">
 <div style="text-align:center;max-width:640px;margin:0 auto 40px;">
@@ -341,6 +342,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <h3 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:var(--text-md);color:var(--ink-500);line-height:1.15;">{{ item.name }}</h3>
 <div style="margin-top:auto;padding-top:10px;">
 <div style="font-family:var(--font-display);font-weight:800;font-size:var(--text-xl);color:var(--ink-500);line-height:1;">R${{ item.price }}<span style="font-size:13px;font-weight:600;color:var(--color-text-secondary);">{{ t.perDay }}</span></div>
+<div style="margin-top:4px;font-family:var(--font-body);font-size:13px;font-weight:800;color:var(--color-primary);">R${{ item.week }}{{ t.perWeek }}</div>
 <div style="margin-top:4px;font-family:var(--font-body);font-size:12px;color:var(--color-text-secondary);">{{ t.deliveryShort }} R${{ deliveryFee }}</div>
 </div>
 <button onClick="{{ item.open }}" style="margin-top: 8px; height: var(--control-md); border-radius: var(--radius-pill); border: var(--border-regular) solid var(--color-primary); color: #FFFFFF; font-family: var(--font-body); font-weight: 800; font-size: var(--text-sm); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background var(--dur-base) var(--ease-out); background-color: #E76F51; border-width: 0px; border-color: #E76F51" style-hover="background:var(--green-50);">{{ chooseDates }}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
@@ -616,6 +618,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <h3 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:var(--text-md);color:var(--ink-500);line-height:1.15;">{{ item.name }}</h3>
 <div style="margin-top:auto;padding-top:10px;">
 <div style="font-family:var(--font-display);font-weight:800;font-size:var(--text-xl);color:var(--ink-500);line-height:1;">R${{ item.price }}<span style="font-size:13px;font-weight:600;color:var(--color-text-secondary);">{{ t.perDay }}</span></div>
+<div style="margin-top:4px;font-family:var(--font-body);font-size:13px;font-weight:800;color:var(--color-primary);">R${{ item.week }}{{ t.perWeek }}</div>
 <div style="margin-top:4px;font-family:var(--font-body);font-size:12px;color:var(--color-text-secondary);">{{ t.deliveryShort }} R${{ deliveryFee }}</div>
 </div>
 <div style="display:flex;gap:8px;margin-top:8px;">
@@ -695,11 +698,15 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </div>
 </sc-if>
 </div>
+<sc-if value="{{ cur.tooLong }}"><div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--color-divider);padding-top:16px;"><p style="margin:0;font-family:var(--font-body);font-size:14px;line-height:1.5;font-weight:700;color:var(--ink-500);">{{ t.longMsg }}</p><a href="{{ waLongHref }}" target="_blank" data-cta="whatsapp_mais_56_dias" style="display:flex;align-items:center;justify-content:center;height:var(--control-md);border-radius:var(--radius-pill);background:var(--color-primary);color:#fff;font-family:var(--font-body);font-weight:800;font-size:var(--text-sm);text-decoration:none;">{{ t.longBtn }}</a></div></sc-if>
+<sc-if value="{{ cur.notTooLong }}">
 <div style="border-top:1px solid var(--color-divider);padding-top:16px;display:flex;flex-direction:column;gap:9px;">
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--ink-500);"><span style="font-weight:700;color:var(--ink-500);">R${{ cur.price }} × {{ rentalDays }} {{ t.daysWord }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cur.subtotal }}</span></div>
+<sc-if value="{{ cur.hasSaving }}"><div style="font-family:var(--font-body);font-size:12px;font-weight:700;line-height:1.45;color:var(--color-primary);">{{ cur.savingMsg }}</div></sc-if>
 <div style="display:flex;flex-direction:column;gap:3px;"><div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--color-text-secondary);">{{ t.deliveryFromValue }}</span></div><div style="font-family:var(--font-body);font-size:12px;line-height:1.45;color:var(--color-text-secondary);">{{ t.deliveryZoneNote }}</div></div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);margin-top:6px;padding-top:12px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink-500);">{{ t.totalProducts }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--color-primary);">R${{ cur.subtotal }}</span></div>
 </div>
+</sc-if>
 <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;">
 <button onClick="{{ cur.add }}" data-cta="reservar_producto" style="height:var(--control-lg);border:none;border-radius:var(--radius-pill);background:var(--color-cta);color:#fff;box-shadow:var(--shadow-lift);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);display:flex;align-items:center;justify-content:center;gap:10px;transition:transform var(--dur-fast) var(--ease-out),background var(--dur-base) var(--ease-out);opacity:{{ cur.addOpacity }};cursor:{{ cur.addCursor }};pointer-events:{{ cur.addPE }};" style-hover="background:var(--color-cta-hover);" style-active="transform:scale(.97);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle><path d="M2 3h3l2.4 12.5a1.5 1.5 0 0 0 1.5 1.2h8.2a1.5 1.5 0 0 0 1.5-1.2L21 7H6"></path></svg>{{ t.addCart }}</button>
 </div>
@@ -843,6 +850,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"></circle><circle cx="18" cy="20" r="1.4"></circle><path d="M2 3h3l2.4 12.5a1.5 1.5 0 0 0 1.5 1.2h8.2a1.5 1.5 0 0 0 1.5-1.2L21 7H6"></path></svg><span style="font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--ink-500);">{{ t.cartTitle }}</span></div>
 <button onClick="{{ closeCart }}" style="width:36px;height:36px;border-radius:50%;border:none;background:var(--color-surface-sunk);color:var(--ink-500);cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:var(--sand-300);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 </div>
+<sc-if value="{{ cartRemovedNotice }}"><div style="padding:10px 24px;background:var(--sand-100);border-bottom:1px solid var(--color-border);font-family:var(--font-body);font-size:12px;line-height:1.5;color:var(--color-text-secondary);">{{ t.cartRemovedMsg }} <a onClick="{{ goCatalogFromCart }}" style="color:var(--color-primary);font-weight:700;cursor:pointer;text-decoration:underline;">{{ t.cartRemovedLink }}</a></div></sc-if>
 <sc-if value="{{ hasCartItems }}">
 <sc-if value="{{ cartStepIsCart }}">
 <div style="flex:1;min-height:0;overflow-y:auto;display:flex;flex-wrap:wrap;align-items:stretch;align-content:flex-start;">
@@ -938,9 +946,12 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="border-top:1px solid var(--color-divider);padding-top:16px;display:flex;flex-direction:column;gap:8px;">
 <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.cartSubtotalLabel }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cartSubtotal }}</span></div>
+<sc-if value="{{ cartHasPack }}"><div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-primary);"><span>{{ cartPackLabel }}</span><span style="font-weight:700;color:var(--color-primary);">−R${{ cartPackDiscount }}</span></div></sc-if>
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--ink-500);">{{ deliveryFeeLabel }}</span></div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);padding-top:10px;margin-top:2px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink-500);">{{ t.totalEst }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--color-primary);">R${{ cartTotal }}</span></div>
 <p class="fianza-nota" style="font-family:var(--font-body);font-size:12px;color:var(--color-danger);margin:6px 0 0;line-height:1.5;text-align:left;"><span style="display:block;">🔒 {{ t.cautionNoteA }}</span><span style="display:block;">{{ t.cautionNoteB }}</span></p>
+<p style="font-family:var(--font-body);font-size:11px;color:var(--color-text-secondary);margin:2px 0 0;line-height:1.5;text-align:left;">{{ t.durationNote }}</p>
+<sc-if value="{{ cartTooLong }}"><div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;"><p style="margin:0;font-family:var(--font-body);font-size:14px;line-height:1.5;font-weight:700;color:var(--ink-500);">{{ t.longMsg }}</p><a href="{{ waLongHref }}" target="_blank" data-cta="whatsapp_mais_56_dias" style="display:flex;align-items:center;justify-content:center;height:var(--control-md);border-radius:var(--radius-pill);background:var(--color-primary);color:#fff;font-family:var(--font-body);font-weight:800;font-size:var(--text-sm);text-decoration:none;">{{ t.longBtn }}</a></div></sc-if>
 </div>
 <button onClick="{{ goCatalogFromCart }}" style="width:100%;height:var(--control-lg);border:var(--border-regular) solid var(--color-primary);border-radius:var(--radius-pill);background:var(--color-surface);color:var(--color-primary);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px;box-sizing:border-box;transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--green-50);">{{ t.chooseMore }}</button>
 <button onClick="{{ sendReservation }}" data-cta="carrinho_finalizar_reserva" style="width:100%;height:var(--control-lg);border:none;border-radius:var(--radius-pill);background:{{ detailsBtnBg }};color:#fff;box-shadow:var(--shadow-lift);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-sizing:border-box;opacity:{{ detailsBtnOpacity }};pointer-events:{{ detailsBtnPE }};transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--color-cta-hover);">{{ sendBtnLabel }}</button>
@@ -979,7 +990,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;deliveryFee&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:50,&quot;unit&quot;:&quot;R$&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;minRentalDays&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;unit&quot;:&quot;dias&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+5521975855044&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;showPromoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Conteúdo&quot;}}">
 class Component extends DCLogic {
-  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{return JSON.parse(localStorage.getItem('rt-cart')||'[]')}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle', paymentMethod:'Visa/Mastercard' };
+  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{const c=JSON.parse(localStorage.getItem('rt-cart')||'[]');const ids=window.RT_PRODUCT_IDS||['bebe-conforto','compacto','cadeirinha','cadeira','berco','banheira'];const k=(Array.isArray(c)?c:[]).filter(l=>l&&ids.indexOf(l.id)>=0);if(k.length!==c.length){window.__rtCartPurged=true;localStorage.setItem('rt-cart',JSON.stringify(k));}return k;}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle', paymentMethod:'Visa/Mastercard', cartRemovedNotice:(typeof window!=='undefined'&&(()=>{try{const f=!!window.__rtCartPurged||localStorage.getItem('rt-cart-purged')==='1';localStorage.removeItem('rt-cart-purged');return f;}catch(e){return !!window.__rtCartPurged;}})()) };
 
   CATS = {
     todos:   { pt:'Todos',    en:'All',       es:'Todos' },
@@ -990,7 +1001,7 @@ class Component extends DCLogic {
     banho:   { pt:'Banho',    en:'Bath',      es:'Baño' },
   };
 
-  PRODUCT_SLUGS = {"carrinho":{"pt":"carrinho-de-bebe","es":"carrito-de-bebe","en":"full-size-stroller"},"compacto":{"pt":"carrinho-compacto","es":"carrito-de-paseo-compacto","en":"compact-stroller"},"cadeirinha":{"pt":"cadeirinha-de-auto","es":"silla-de-coche","en":"car-seat"},"cadeira":{"pt":"cadeira-de-alimentacao","es":"trona-para-comer","en":"high-chair"},"berco":{"pt":"berco-de-viagem","es":"cuna-de-viaje","en":"travel-crib"},"banheira":{"pt":"banheira-de-bebe","es":"banera-de-bebe","en":"baby-bathtub"}};
+  PRODUCT_SLUGS = {"bebe-conforto":{"pt":"bebe-conforto","es":"silla-de-coche-para-bebe","en":"infant-car-seat"},"compacto":{"pt":"carrinho-compacto","es":"carrito-de-paseo-compacto","en":"compact-stroller"},"cadeirinha":{"pt":"cadeirinha-de-auto","es":"silla-de-coche-ninos","en":"child-car-seat"},"cadeira":{"pt":"cadeira-de-alimentacao","es":"trona-para-comer","en":"high-chair"},"berco":{"pt":"berco-de-viagem","es":"cuna-de-viaje","en":"travel-crib"},"banheira":{"pt":"banheira-de-bebe","es":"banera-de-bebe","en":"baby-bathtub"}};
   HOME_REL = {"pt":"","es":"es/","en":"en/"};
   PROD_REL = {"pt":"catalogo/","es":"es/catalogo/","en":"en/catalog/"};
   siteRoot(){ if(typeof window==='undefined') return '/'; var dir=window.location.pathname.replace(/[^/]*$/,''); var suf=this.bootedProduct()?this.PROD_REL[this.state.lang]:this.HOME_REL[this.state.lang]; if(suf&&dir.slice(-suf.length)===suf) dir=dir.slice(0,dir.length-suf.length); return dir; }
@@ -999,12 +1010,12 @@ class Component extends DCLogic {
   bootedProduct(){ return typeof window!=='undefined' && window.__RT_INIT && window.__RT_INIT.screen==='product'; }
 
   PRODUCTS = [
-    { id:'carrinho', catKey:'passeio', price:53, rating:4.9, reviews:213,
-      name:{ pt:'Carrinho de bebê', en:'Full-size stroller', es:'Carrito de bebé' },
-      desc:{ pt:'Carrinho grande, confortável e firme, com reclínio e capota ampla. Feito pra encarar a orla — de Copacabana ao Leblon.', en:'Big, comfy, sturdy stroller with recline and a wide canopy. Made for the beachfront — from Copacabana to Leblon.', es:'Carrito grande, cómodo y firme, con reclinado y capota amplia. Hecho para el paseo por la orilla — de Copacabana a Leblon.' } },
     { id:'compacto', catKey:'passeio', price:41, rating:4.8, reviews:64,
       name:{ pt:'Carrinho compacto', en:'Compact stroller', es:'Carrito de paseo compacto' },
       desc:{ pt:'Leve, dobra com uma mão só e cabe no porta-malas e no elevador. O companheiro do dia a dia da viagem.', en:'Light, folds with one hand and fits in the trunk and the elevator. Your everyday travel companion.', es:'Ligero, se pliega con una mano y cabe en el maletero y el ascensor. El compañero del día a día del viaje.' } },
+    { id:'bebe-conforto', catKey:'auto', price:39, rating:4.9, reviews:0,
+      name:{ pt:'bebê conforto', en:'infant car seat', es:'silla de coche para bebé' },
+      desc:{ pt:'Para bebês de 0 a 13 kg. Fixa com cinto de 3 pontos. Ideal para o trajeto do aeroporto ao hotel.', en:'For babies 0 to 13 kg. Fits with 3-point seatbelt. Ideal for the airport-to-hotel trip.', es:'Para bebés de 0 a 13 kg. Se fija con cinturón de 3 puntos. Ideal para el trayecto del aeropuerto al hotel.' } },
     { id:'cadeirinha', catKey:'auto', price:37, rating:4.9, reviews:178,
       name:{ pt:'Cadeirinha de auto', en:'Car seat', es:'Silla de coche' },
       desc:{ pt:'Cadeirinha 0–4 anos, homologada e revisada. Instalamos junto com você na entrega, se precisar.', en:'Car seat for ages 0–4, approved and inspected. We install it with you at delivery if you need.', es:'Silla de auto 0–4 años, homologada y revisada. La instalamos contigo en la entrega, si lo necesitas.' } },
@@ -1018,6 +1029,14 @@ class Component extends DCLogic {
       name:{ pt:'Banheira de bebê', en:'Baby bathtub', es:'Bañera de bebé' },
       desc:{ pt:'Banheira ergonômica e antiderrapante, higienizada antes de cada locação. Banho seguro longe de casa.', en:'Ergonomic, non-slip bathtub, sanitized before every rental. A safe bath away from home.', es:'Bañera ergonómica y antideslizante, higienizada antes de cada alquiler. Un baño seguro lejos de casa.' } },
   ];
+
+  // Topes por duração (7 / 14 / 28 dias). Diária vem de PRODUCTS.price.
+  TOPES = { 'bebe-conforto':[209,269,339], compacto:[199,259,329], cadeirinha:[189,239,299], berco:[159,199,249], cadeira:[129,169,219], banheira:[99,129,159] };
+  MAX_ONLINE_DAYS = 56;
+  r2(n){ return Math.round((n||0)*100)/100; }
+  tierPrice(id, daily, d){ if (d>this.MAX_ONLINE_DAYS) return null; const t=this.TOPES[id]; if(!t) return this.r2(daily*d); const t7=t[0], t14=t[1], t28=t[2]; if(d<=7) return Math.min(d*daily,t7); if(d<=14) return Math.min(t7+(d-7)*daily,t14); if(d<=28) return Math.min(t14+(d-14)*daily,t28); return this.r2(t28+(d-28)*(t28/28)); }
+  money(n, lng){ const v=this.r2(n); if(Number.isInteger(v)) return String(v); const x=v.toFixed(2); return lng==='en'?x:x.replace('.',','); }
+  packPctFor(n){ return n>=4?15:n===3?10:n===2?5:0; }
 
   DETAILS = {
     cadeirinha: {
@@ -1112,28 +1131,28 @@ class Component extends DCLogic {
         { label:'Acessórios inclusos', value:'Bolso traseiro com zíper, alça de transporte, guidão em ecocouro' },
       ],
     },
-    carrinho: {
-      model:'Bugaboo Fox 5 All-Terrain',
-      longDesc:[
-        'O Bugaboo Fox 5 All-Terrain é um carrinho premium todo-em-um para bebês do nascimento até 22 kg. Destaca-se pelo conforto superior, pela facilidade de uso com uma só mão e por um design sustentável, com tecidos e chassi feitos de materiais reciclados.',
-      ],
-      pros:[
-        'Passeio suave em qualquer terreno: rodas XL à prova de furos e dupla suspensão (eixo central e rodas dianteiras) absorvem os buracos do caminho.',
-        'Uso com uma só mão: dobre o carrinho, recline o assento ou ajuste o guidão sem soltar o bebê.',
-        'Cresce com a criança: assento ergonômico, capota e apoio para os pés se estendem até 10 cm a mais.',
-        'Dobra compacta: fecha numa peça única autoportante, fácil de guardar no porta-malas.',
-      ],
-      specs:[
-        { label:'Marca', value:'Bugaboo' },
-        { label:'Modelo', value:'Fox 5 All-Terrain' },
-        { label:'Faixa de idade', value:'Do nascimento até ~4 anos' },
-        { label:'Peso do carrinho', value:'10,4 kg a 12,2 kg' },
-        { label:'Peso máximo da criança', value:'22 kg no assento / 9 kg no moisés' },
-        { label:'Medidas aberto', value:'93 × 60 × 105 cm (C × L × A)' },
-        { label:'Medidas dobrado (peça única)', value:'89 × 53 × 34 cm (C × L × A)' },
-        { label:'Capacidade da cesta', value:'Até 10 kg (39 litros)' },
-        { label:'Sustentabilidade', value:'Tecidos e chassi com materiais reciclados' },
-      ],
+    'bebe-conforto': {
+      model:'Maxi-Cosi Citi\u00B2',
+      longDesc:{
+        pt:['O bebê conforto Maxi-Cosi Citi² é um dispositivo de retenção grupo 0+ para bebês de 0 a 13 kg (aprox. 0 a 12 meses). Instala-se virado para trás (a contramão) com o cinto de 3 pontos do carro — não precisa de base isofix e cabe em qualquer táxi, Uber ou carro alugado. Leve (2,8 kg), com alça para carregar e capota solar removível. Homologado pela norma brasileira (INMETRO) e pela norma europeia ECE R44/04. Entregamos higienizado no seu hotel ou Airbnb.'],
+        en:['The Maxi-Cosi Citi² infant car seat is a Group 0+ restraint for babies from 0 to 13 kg (approx. 0 to 12 months). It installs rear-facing with the car\u2019s 3-point seatbelt — no isofix base needed, so it fits in any taxi, Uber or rental car. Lightweight (2.8 kg), with carry handle and removable sun canopy. Certified under Brazilian INMETRO and European ECE R44/04 standards. We deliver it sanitized to your hotel or Airbnb.'],
+        es:['La silla de coche para bebé Maxi-Cosi Citi² es un sistema de retención grupo 0+ para bebés de 0 a 13 kg (aprox. 0 a 12 meses). Se instala a contramarcha con el cinturón de 3 puntos del coche — no necesita base isofix y cabe en cualquier taxi, Uber o coche de alquiler. Ligera (2,8 kg), con asa para transportar y capota solar extraíble. Homologada según la norma brasileña (INMETRO) y la norma europea ECE R44/04. La entregamos higienizada en tu hotel o Airbnb.'],
+      },
+      pros:{
+        pt:['Leve: apenas 2,8 kg.','Versátil: cabe em qualquer carro, táxi ou Uber, sem base isofix.','Ideal para o trajeto do aeroporto ao hotel.','Marca reconhecida internacionalmente.','Homologado no Brasil (INMETRO) e na Europa (ECE R44/04).'],
+        en:['Lightweight: just 2.8 kg.','Versatile: fits in any car, taxi or Uber, no isofix base needed.','Ideal for the airport-to-hotel trip.','Internationally recognized brand.','Certified in Brazil (INMETRO) and Europe (ECE R44/04).'],
+        es:['Ligera: solo 2,8 kg.','Versátil: cabe en cualquier coche, taxi o Uber, sin base isofix.','Ideal para el trayecto del aeropuerto al hotel.','Marca reconocida internacionalmente.','Homologada en Brasil (INMETRO) y en Europa (ECE R44/04).'],
+      },
+      cons:{
+        pt:['Só até 13 kg: para bebês maiores, alugue a cadeirinha de auto.','O bebê viaja a contramão: é mais seguro, mas alguns pais acham menos cômodo em trajetos longos.'],
+        en:['Only up to 13 kg: for older babies, rent our car seat.','Your baby rides rear-facing: it\u2019s safer, but some parents find it less comfortable on long trips.'],
+        es:['Solo hasta 13 kg: para bebés mayores, alquila nuestra silla de coche.','El bebé viaja a contramarcha: es más seguro, pero algunos padres lo encuentran menos cómodo para distancias largas.'],
+      },
+      specs:{
+        pt:[{ label:'Grupo', value:'0+' },{ label:'Peso do bebê', value:'0 a 13 kg' },{ label:'Idade aproximada', value:'0 a 12 meses' },{ label:'Altura máxima do bebê', value:'75 cm' },{ label:'Instalação', value:'Virado para trás (a contramão), com cinto de 3 pontos' },{ label:'Isofix', value:'Não' },{ label:'Peso da cadeira', value:'2,8 kg' },{ label:'Marca e modelo', value:'Maxi-Cosi Citi²' },{ label:'Homologação', value:'INMETRO (Brasil) e ECE R44/04 (Europa)' }],
+        en:[{ label:'Group', value:'0+' },{ label:'Baby weight', value:'0 to 13 kg' },{ label:'Approximate age', value:'0 to 12 months' },{ label:'Max baby height', value:'75 cm' },{ label:'Installation', value:'Rear-facing, with 3-point seatbelt' },{ label:'Isofix', value:'No' },{ label:'Seat weight', value:'2.8 kg' },{ label:'Brand and model', value:'Maxi-Cosi Citi²' },{ label:'Certification', value:'INMETRO (Brazil) and ECE R44/04 (Europe)' }],
+        es:[{ label:'Grupo', value:'0+' },{ label:'Peso del bebé', value:'0 a 13 kg' },{ label:'Edad aproximada', value:'0 a 12 meses' },{ label:'Altura máxima del bebé', value:'75 cm' },{ label:'Instalación', value:'A contramarcha, con cinturón de 3 puntos' },{ label:'Isofix', value:'No' },{ label:'Peso de la silla', value:'2,8 kg' },{ label:'Marca y modelo', value:'Maxi-Cosi Citi²' },{ label:'Homologación', value:'INMETRO (Brasil) y ECE R44/04 (Europa)' }],
+      },
     },
     cadeira: {
       model:'Prima Pappa Zero 3 Gold — Burigotto',
@@ -1317,48 +1336,6 @@ class Component extends DCLogic {
           { label:'Tipo de arn\u00E9s', value:'5 puntos' },
           { label:'Peso del carrito', value:'6,2 kg' },
           { label:'Accesorios incluidos', value:'Bolsillo trasero con cremallera, correa de transporte, manillar de ecopiel' },
-        ],
-      },
-    },
-    carrinho: {
-      en: {
-        longDesc:['The Bugaboo Fox 5 All-Terrain is a premium all-in-one stroller for babies from birth up to 22 kg. It stands out for its superior comfort, easy one-handed use and a sustainable design, with fabrics and a chassis made from recycled materials.'],
-        pros:[
-          'Smooth ride on any terrain: puncture-proof XL wheels and dual suspension (central axle and front wheels) absorb bumps in the road.',
-          'One-handed use: fold the stroller, recline the seat or adjust the handlebar without letting go of your baby.',
-          'Grows with your child: the ergonomic seat, canopy and footrest extend up to 10 cm more.',
-          'Compact fold: folds into a single free-standing piece, easy to store in the trunk.',
-        ],
-        specs:[
-          { label:'Brand', value:'Bugaboo' },
-          { label:'Model', value:'Fox 5 All-Terrain' },
-          { label:'Age range', value:'From birth to ~4 years' },
-          { label:'Stroller weight', value:'10.4 kg to 12.2 kg' },
-          { label:'Max child weight', value:'22 kg in the seat / 9 kg in the carrycot' },
-          { label:'Open dimensions', value:'93 \u00D7 60 \u00D7 105 cm (L \u00D7 W \u00D7 H)' },
-          { label:'Folded dimensions (one piece)', value:'89 \u00D7 53 \u00D7 34 cm (L \u00D7 W \u00D7 H)' },
-          { label:'Basket capacity', value:'Up to 10 kg (39 liters)' },
-          { label:'Sustainability', value:'Fabrics and chassis from recycled materials' },
-        ],
-      },
-      es: {
-        longDesc:['El Bugaboo Fox 5 All-Terrain es un carrito premium todo en uno para beb\u00E9s desde el nacimiento hasta los 22 kg. Destaca por su confort superior, su f\u00E1cil manejo con una sola mano y un dise\u00F1o sostenible, con tejidos y chasis fabricados con materiales reciclados.'],
-        pros:[
-          'Paseo suave en cualquier terreno: ruedas XL a prueba de pinchazos y doble suspensi\u00F3n (eje central y ruedas delanteras) absorben los baches del camino.',
-          'Manejo con una sola mano: pliega el carrito, reclina el asiento o ajusta el manillar sin soltar al beb\u00E9.',
-          'Crece con el ni\u00F1o: el asiento ergon\u00F3mico, la capota y el reposapi\u00E9s se extienden hasta 10 cm m\u00E1s.',
-          'Plegado compacto: se pliega en una sola pieza autoportante, f\u00E1cil de guardar en el maletero.',
-        ],
-        specs:[
-          { label:'Marca', value:'Bugaboo' },
-          { label:'Modelo', value:'Fox 5 All-Terrain' },
-          { label:'Franja de edad', value:'Desde el nacimiento hasta ~4 a\u00F1os' },
-          { label:'Peso del carrito', value:'10,4 kg a 12,2 kg' },
-          { label:'Peso m\u00E1ximo del ni\u00F1o', value:'22 kg en el asiento / 9 kg en el capazo' },
-          { label:'Medidas abierto', value:'93 \u00D7 60 \u00D7 105 cm (L \u00D7 An \u00D7 Al)' },
-          { label:'Medidas plegado (una pieza)', value:'89 \u00D7 53 \u00D7 34 cm (L \u00D7 An \u00D7 Al)' },
-          { label:'Capacidad de la cesta', value:'Hasta 10 kg (39 litros)' },
-          { label:'Sostenibilidad', value:'Tejidos y chasis con materiales reciclados' },
         ],
       },
     },
@@ -1561,7 +1538,7 @@ class Component extends DCLogic {
     { q:{ pt:'Quanto custa a entrega?', en:'How much is delivery?', es:'¿Cuánto cuesta la entrega?' },
       a:{ pt:'Taxa única de R$50 pela entrega e pela coleta — não importa quantos itens você alugar.', en:'A single R$50 fee covers delivery and pickup — no matter how many items you rent.', es:'Una tasa única de 50 R$ cubre la entrega y la recogida — no importa cuántos artículos alquiles.' } },
     { q:{ pt:'Qual é a locação mínima?', en:'What\u2019s the minimum rental?', es:'¿Cuál es el alquiler mínimo?' },
-      a:{ pt:'São 3 dias. A partir daí, você paga por diária.', en:'It\u2019s 3 days. After that, you pay per day.', es:'Son 3 días. A partir de ahí, pagas por día.' } },
+      a:{ pt:'A locação mínima é de 3 dias. A partir dos 5 ou 6 dias ativamos automaticamente o preço semanal, que é mais barato que pagar diária a diária. Você paga só os dias que usar e nunca mais que o preço da semana.', en:'The minimum rental is 3 days. From day 5 or 6 we automatically apply the weekly price, which is cheaper than paying day by day. You pay only the days you use, never more than the weekly price.', es:'El alquiler mínimo es de 3 días. A partir de los 5 o 6 días activamos automáticamente el precio semanal, más barato que pagar día a día. Pagas solo los días que uses y nunca más que el precio de la semana.' } },
     { q:{ pt:'Como funciona o pagamento?', en:'How does payment work?', es:'¿Cómo funciona el pago?' },
       a:{ pt:'Você paga 100% na entrega dos produtos e uma caução de R$150 que é devolvida integralmente no momento da recolhida, após verificar que os produtos não têm nenhum dano significativo.', en:'You pay 100% on delivery of the products and a R$150 deposit that is refunded in full at pickup, after checking that the products have no significant damage.', es:'Pagas el 100% en la entrega de los productos y una fianza de 150RS que se devuelve integramente en el momento de la recogida. Despues de comprobar que los productos no tienen ningun daño significativo.' } },
     { q:{ pt:'Os equipamentos são higienizados?', en:'Is the gear sanitized?', es:'¿El equipamiento está higienizado?' },
@@ -1584,10 +1561,10 @@ class Component extends DCLogic {
   get minDays(){ return this.props.minRentalDays ?? 3; }
   get wa(){ return (this.props.whatsappNumber ?? '5521975855044').replace(/\D/g,''); }
 
-  RES_KEYS = { compacto:'prodCompacto', carrinho:'prodCarrinho', cadeirinha:'prodCadeirinha', cadeira:'prodCadeira', berco:'prodBerco', banheira:'prodBanheira' };
+  RES_KEYS = { compacto:'prodCompacto', 'bebe-conforto':'prodBebeConforto', cadeirinha:'prodCadeirinha', cadeira:'prodCadeira', berco:'prodBerco', banheira:'prodBanheira' };
   imgFallbackFor(id){ const key=this.RES_KEYS[id]; if (typeof window!=='undefined' && window.__resources && key && window.__resources[key]) return window.__resources[key]; return '../assets/prod-'+id+'.webp'; }
 
-  componentDidMount(){ try{ const __prev=this.state.cart||[]; const __c=__prev.filter(l=>!(l.packPrice!=null && !(l.checkIn&&l.checkOut))); if(__c.length!==__prev.length){ try{ localStorage.setItem('rt-cart', JSON.stringify(__c)); }catch(e){} this.setState({ cart:__c }); } }catch(e){} this._os=()=>{ const s=window.scrollY>40; if(s!==this.state.scrolled) this.setState({scrolled:s}); }; window.addEventListener('scroll',this._os,{passive:true}); if(typeof window!=='undefined' && /#(produtos|catalogo)/.test(window.location.hash)){ setTimeout(()=>this.scrollTo('produtos'),160); } }
+  componentDidMount(){ try{ const __prev=this.state.cart||[]; const __c=__prev.filter(l=>!(l.packPrice!=null && !(l.checkIn&&l.checkOut))); if(__c.length!==__prev.length){ try{ localStorage.setItem('rt-cart', JSON.stringify(__c)); }catch(e){} this.setState({ cart:__c }); } }catch(e){} this.setState(st=>{ const ids=this.PRODUCTS.map(p=>p.id); const cur=st.cart||[]; const c=cur.filter(l=>l&&ids.indexOf(l.id)>=0); if(c.length===cur.length) return null; try{ localStorage.setItem('rt-cart', JSON.stringify(c)); }catch(e){} return { cart:c, cartRemovedNotice:true }; }); this._os=()=>{ const s=window.scrollY>40; if(s!==this.state.scrolled) this.setState({scrolled:s}); }; window.addEventListener('scroll',this._os,{passive:true}); if(typeof window!=='undefined' && /#(produtos|catalogo)/.test(window.location.hash)){ setTimeout(()=>this.scrollTo('produtos'),160); } }
   componentWillUnmount(){ window.removeEventListener('scroll',this._os); this._lockScroll(false); }
   componentDidUpdate(prevProps, prevState){ try{ const s=JSON.stringify(this.state.cart); if(s!==this.__lastCart){ this.__lastCart=s; localStorage.setItem('rt-cart', s); } }catch(e){} if(prevState && prevState.mobileMenuOpen && !this.state.mobileMenuOpen && typeof document!=='undefined' && document.documentElement.style.overflow==='hidden'){ this._lockScroll(false); } }
 
@@ -1762,7 +1739,7 @@ class Component extends DCLogic {
     const pick = (o) => (o ? (o[lang]!=null?o[lang]:o.pt) : undefined);
     const t_chooseDates = L('Escolher dias','Choose dates','Elegir días');
     const pickA = (o) => ((Array.isArray(o) ? o : (o ? (o[lang]!=null?o[lang]:o.pt) : [])) || []);
-    const decorate = (p) => { const name=pick(p.name), cat=pick(this.CATS[p.catKey]); return { ...p, name, cat, tag:pick(p.tag), desc:pick(p.desc), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:L('Aluguel de '+name+' no Rio de Janeiro','Rent '+name+' in Rio de Janeiro','Alquiler de '+name+' en Río de Janeiro'), open:(e)=>{ if(e&&e.preventDefault)e.preventDefault(); this.goProduct(p.id); }, href:this.productUrl(p.id, lang),
+    const decorate = (p) => { const name=pick(p.name), cat=pick(this.CATS[p.catKey]); return { ...p, name, cat, week:this.money((this.TOPES[p.id]||[p.price*7])[0], lang), tag:pick(p.tag), desc:pick(p.desc), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:L('Aluguel de '+name+' no Rio de Janeiro','Rent '+name+' in Rio de Janeiro','Alquiler de '+name+' en Río de Janeiro'), open:(e)=>{ if(e&&e.preventDefault)e.preventDefault(); this.goProduct(p.id); }, href:this.productUrl(p.id, lang),
       wa:this.waLink(L('Olá! Quero alugar '+name+' (R$'+p.price+'/dia). Pode me ajudar?','Hi! I\u2019d like to rent the '+name+' (R$'+p.price+'/day). Can you help?','¡Hola! Quiero alquilar '+name+' (R$'+p.price+'/día). ¿Me pueden ayudar?')) }; };
     const products = this.PRODUCTS.map(decorate);
 
@@ -1785,49 +1762,57 @@ class Component extends DCLogic {
     const dCons = di18n ? di18n.cons : (detail && detail.cons);
     const curName = current ? pick(current.name) : '';
     const curDateRange = hasValidDates ? (this.formatShortDate(checkIn,lang)+' – '+this.formatShortDate(checkOut,lang)) : null;
+    const __curRaw = current ? current.price*rentalDays : 0;
+    const __curTier = current ? this.tierPrice(current.id, current.price, rentalDays) : null;
+    const curTooLong = !!current && __curTier==null;
+    const __curSub = __curTier==null ? __curRaw : __curTier;
+    const curSaving = (current && !curTooLong) ? this.r2(__curRaw-__curSub) : 0;
+    const __canAdd = hasValidDates && !curTooLong;
     const cur = current ? { ...decorate(current),
-      subtotal: current.price*rentalDays, total: current.price*rentalDays + this.fee,
+      subtotal: this.money(__curSub,lang), total: this.money(__curSub+this.fee,lang), hasSaving: curSaving>0, savingMsg: L('Preço semanal aplicado — você economiza R$'+this.money(curSaving,lang)+' em comparação com a diária','Weekly price applied — you save R$'+this.money(curSaving,lang)+' compared to the daily rate','Precio semanal aplicado — ahorras R$'+this.money(curSaving,lang)+' en comparación con la tarifa diaria'), tooLong: curTooLong, notTooLong: !curTooLong,
       hasSpecs: !!detail, hasProsCons: !!(detail && detail.pros), hasCons: !!(dCons && pickA(dCons).length), model: detail?.model,
       prosLabel: L('Prós','Pros','Pros'),
       longDesc: pickA(dLong), pros: pickA(dPros), cons: pickA(dCons), specs: pickA(dSpecs),
       related: this.PRODUCTS.filter(p=>p.id!==current.id).slice(0,3).map(decorate),
-      canAdd: hasValidDates,
-      addOpacity: hasValidDates?1:0.55, addCursor: hasValidDates?'pointer':'not-allowed', addPE: hasValidDates?'auto':'none',
-      add: hasValidDates ? (()=>this.addToCart(current.id, checkIn, checkOut)) : null,
-      reserveWaClick: hasValidDates ? (()=>{ this.addToCart(current.id, checkIn, checkOut); this.setState({ cartOpen:true, cartStep:'details' }); }) : null,
-      addWa: hasValidDates ? this.waLink(L('Olá! Quero reservar '+curName+'.\nDatas: '+curDateRange+' ('+rentalDays+' dias)\nDiária: R$'+current.price+'\nSubtotal: R$'+(current.price*rentalDays)+'\nEntrega e coleta: R$'+this.fee+'\nTotal: R$'+(current.price*rentalDays+this.fee)+'\nPode confirmar a disponibilidade?','Hi! I\u2019d like to book the '+curName+'.\nDates: '+curDateRange+' ('+rentalDays+' days)\nDaily rate: R$'+current.price+'\nSubtotal: R$'+(current.price*rentalDays)+'\nDelivery & pickup: R$'+this.fee+'\nTotal: R$'+(current.price*rentalDays+this.fee)+'\nCan you confirm availability?','¡Hola! Quiero reservar '+curName+'.\nFechas: '+curDateRange+' ('+rentalDays+' días)\nPrecio por día: R$'+current.price+'\nSubtotal: R$'+(current.price*rentalDays)+'\nEntrega y recogida: R$'+this.fee+'\nTotal: R$'+(current.price*rentalDays+this.fee)+'\n¿Pueden confirmar la disponibilidad?')) : '#' } : null;
+      canAdd: __canAdd,
+      addOpacity: __canAdd?1:0.55, addCursor: __canAdd?'pointer':'not-allowed', addPE: __canAdd?'auto':'none',
+      add: __canAdd ? (()=>this.addToCart(current.id, checkIn, checkOut)) : null,
+      reserveWaClick: __canAdd ? (()=>{ this.addToCart(current.id, checkIn, checkOut); this.setState({ cartOpen:true, cartStep:'details' }); }) : null,
+      addWa: hasValidDates ? this.waLink(L('Olá! Quero reservar '+curName+'.\nDatas: '+curDateRange+' ('+rentalDays+' dias)\nDiária: R$'+current.price+'\nSubtotal: R$'+this.money(__curSub,lang)+'\nEntrega e coleta: R$'+this.fee+'\nTotal: R$'+this.money(__curSub+this.fee,lang)+'\nPode confirmar a disponibilidade?','Hi! I\u2019d like to book the '+curName+'.\nDates: '+curDateRange+' ('+rentalDays+' days)\nDaily rate: R$'+current.price+'\nSubtotal: R$'+this.money(__curSub,lang)+'\nDelivery & pickup: R$'+this.fee+'\nTotal: R$'+this.money(__curSub+this.fee,lang)+'\nCan you confirm availability?','¡Hola! Quiero reservar '+curName+'.\nFechas: '+curDateRange+' ('+rentalDays+' días)\nPrecio por día: R$'+current.price+'\nSubtotal: R$'+this.money(__curSub,lang)+'\nEntrega y recogida: R$'+this.fee+'\nTotal: R$'+this.money(__curSub+this.fee,lang)+'\n¿Pueden confirmar la disponibilidad?')) : '#' } : null;
 
-    const __pkUnits = this.state.cart.reduce((s,l)=>s+(l.packBase!=null?(l.packQty||1):0),0);
-    const __pkPct = __pkUnits>=4?15:__pkUnits===3?10:__pkUnits===2?5:0;
     const cartItems = this.state.cart.map(line => {
       const p=this.PRODUCTS.find(x=>x.id===line.id); if(!p) return null;
-      const hasPack = line.packPrice!=null;
-      const pUnit = hasPack ? (line.packBase!=null ? Math.round(line.packBase*(1-__pkPct/100)) : line.packPrice) : 0;
-      const pQty = hasPack ? (line.packQty||1) : 1;
+      const pQty = line.packPrice!=null ? (line.packQty||1) : 1;
       const hasDates = !!(line.checkIn && line.checkOut);
       const days = hasDates ? Math.max(this.minDays, Math.round((this.fromDateStr(line.checkOut)-this.fromDateStr(line.checkIn))/86400000)+1) : 0;
-      const lineTotal = hasPack ? pUnit*pQty : p.price*days;
-      return { ...p, name:pick(p.name)+(pQty>1?' ×'+pQty:'')+(hasPack&&line.packBase!=null&&__pkPct>0?' (Pack −'+__pkPct+'%)':''), cat:pick(this.CATS[p.catKey]), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:L('Aluguel de '+pick(p.name)+' no Rio de Janeiro','Rent '+pick(p.name)+' in Rio de Janeiro','Alquiler de '+pick(p.name)+' en Río de Janeiro'),
+      const tier = hasDates ? this.tierPrice(p.id, p.price, days) : 0;
+      const tooLong = hasDates && tier==null;
+      const lineNum = tooLong ? 0 : this.r2((tier||0)*pQty);
+      return { ...p, name:pick(p.name)+(pQty>1?' ×'+pQty:''), cat:pick(this.CATS[p.catKey]), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:L('Aluguel de '+pick(p.name)+' no Rio de Janeiro','Rent '+pick(p.name)+' in Rio de Janeiro','Alquiler de '+pick(p.name)+' en Río de Janeiro'),
         days, dateRange: hasDates ? (this.formatShortDate(line.checkIn,lang)+' – '+this.formatShortDate(line.checkOut,lang)) : L('Datas a definir no carrinho','Set dates in cart','Fechas por definir en el carrito'),
-        price: hasPack ? Math.round(pUnit/Math.max(days,1)) : p.price,
-        lineTotal, remove:()=>this.removeFromCart(p.id) };
+        price: p.price, tooLong, lineNum, lineTotal: tooLong ? '—' : this.money(lineNum,lang),
+        remove:()=>this.removeFromCart(p.id) };
     }).filter(Boolean);
-    const cartSubtotal = cartItems.reduce((s,p)=>s+p.lineTotal,0);
+    const cartTooLong = cartItems.some(c=>c.tooLong);
+    const __gross = this.r2(cartItems.reduce((s,p)=>s+p.lineNum,0));
+    const cartPackPct = this.packPctFor(new Set(cartItems.map(c=>c.id)).size);
+    const __disc = this.r2(__gross*cartPackPct/100);
+    const cartSubtotal = this.money(__gross, lang);
     const zona = this.selectedZona;
     const zoneFee = zona ? zona.preco : 0;
     const isAirport = !!zona && zona.tipo === 'aeroporto';
-    const cartTotal = cartItems.length ? cartSubtotal + zoneFee : 0;
+    const cartTotal = this.money(cartItems.length ? (__gross - __disc + zoneFee) : 0, lang);
     const cartLinesText = (lng) => cartItems.map(p => {
       const label = lng==='en' ? (p.name+' — '+p.dateRange+' ('+p.days+' days) — R$'+p.price+'/day — R$'+p.lineTotal)
         : lng==='es' ? (p.name+' — '+p.dateRange+' ('+p.days+' días) — R$'+p.price+'/día — R$'+p.lineTotal)
         : (p.name+' — '+p.dateRange+' ('+p.days+' dias) — R$'+p.price+'/dia — R$'+p.lineTotal);
       return label;
-    }).join('\n');
+    }).join('\n')+(cartPackPct>0 ? '\n'+(lng==='en'?'Pack Discount':lng==='es'?'Pack Descuento':'Pack Desconto')+' −'+cartPackPct+'%: −R$'+this.money(__disc,lng) : '');
     const cartWa = this.waLink(L('Olá! Quero reservar na Rental Turtle:\n'+cartLinesText('pt')+'\nEntrega e coleta: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+cartLinesText('en')+'\nDelivery & pickup: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+cartLinesText('es')+'\nEntrega y recogida: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.'));
     const { customerName, customerSurname, customerEmail, customerCountry, locationType, locationReference, deliveryTime, pickupTime, paymentMethod, referralSource } = this.state;
     const locOk = isAirport ? true : !!(locationType && (locationReference||'').trim());
     const flightOk = isAirport ? !!((this.state.flightNumber||'').trim() && (this.state.airline||'').trim()) : true;
-    const canContinue = !!(customerName.trim() && customerSurname.trim() && /^\S+@\S+\.\S+$/.test(customerEmail.trim()) && customerCountry.trim() && zona && locOk && flightOk && deliveryTime && pickupTime && paymentMethod && referralSource);
+    const canContinue = !cartTooLong && !!(customerName.trim() && customerSurname.trim() && /^\S+@\S+\.\S+$/.test(customerEmail.trim()) && customerCountry.trim() && zona && locOk && flightOk && deliveryTime && pickupTime && paymentMethod && referralSource);
     const custLine = L('Nome: ','Name: ','Nombre: ')+customerName.trim()+'\n'+L('Sobrenome: ','Surname: ','Apellido: ')+customerSurname.trim()+'\nE-mail: '+customerEmail.trim()+'\n'+L('País de origem: ','Country of origin: ','País de origen: ')+customerCountry.trim()+'\n';
     const reservationBody = L('Olá! Quero reservar na Rental Turtle:\n'+custLine+cartLinesText('pt')+'\nEntrega e coleta: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+custLine+cartLinesText('en')+'\nDelivery and pickup: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+custLine+cartLinesText('es')+'\nEntrega y recogida: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.');
     const detailsWa = 'mailto:info@rentalturtle.com?cc='+encodeURIComponent(customerEmail.trim())+'&subject='+encodeURIComponent('Reserva Rental Turtle')+'&body='+encodeURIComponent(reservationBody);
@@ -1964,6 +1949,13 @@ class Component extends DCLogic {
       referralOther:L('Outro','Other','Otro'),
       detailsFillNote:L('Preencha todos os campos obrigatórios para continuar','Fill in all required fields to continue','Completa todos los campos obligatorios para continuar'),
       perDay:L('/dia','/day','/día'),
+      perWeek:L('/semana','/week','/semana'),
+      cartRemovedMsg:L('Alguns itens do seu carrinho não estão mais disponíveis e foram removidos.','Some items in your cart are no longer available and have been removed.','Algunos artículos de tu carrito ya no están disponibles y se han eliminado.'),
+      cartRemovedLink:L('Ver catálogo.','View catalog.','Ver catálogo.'),
+      heroStrip:L('Sem mínimo de 7 dias · Pague só os dias que usar · Entrega e coleta no seu hotel ou Airbnb','No 7-day minimum · Pay only the days you use · No Brazilian ID needed · PayPal, Wise, Revolut','Sin mínimo de 7 días · Paga solo los días que uses · Sin CPF · PayPal, Wise, Revolut'),
+      longMsg:L('Para aluguéis de mais de 56 dias, fale com a gente pelo WhatsApp.','For rentals longer than 56 days, contact us on WhatsApp.','Para alquileres de más de 56 días, habla con nosotros por WhatsApp.'),
+      longBtn:L('Falar no WhatsApp','Chat on WhatsApp','Hablar por WhatsApp'),
+      durationNote:L('Preços com desconto por duração aplicado automaticamente','Length-of-rental discount applied automatically','Precios con descuento por duración aplicado automáticamente'),
       perDaySpaced:L('/ dia','/ day','/ día'),
       deliveryShort:L('Entrega e coleta','Delivery & pickup','Entrega y recogida'),
       deliveryFromValue:L('a partir de R$'+this.fee,'from R$'+this.fee,'a partir de R$'+this.fee),
@@ -2014,6 +2006,9 @@ class Component extends DCLogic {
     ];
 
     return {
+      cartRemovedNotice: !!this.state.cartRemovedNotice,
+      cartHasPack: cartPackPct>0, cartPackLabel: L('Pack Desconto','Pack Discount','Pack Descuento')+' −'+cartPackPct+'%', cartPackDiscount: this.money(__disc,lang), cartTooLong,
+      waLongHref: this.waLink(L('Olá Rental Turtle 🐢 Quero informações para alugar equipamento de bebê no Rio.','Hi Rental Turtle 🐢 I\u2019d like info about renting baby gear in Rio.','Hola Rental Turtle 🐢 Quiero información para alquilar equipo de bebé en Río.')),
       t,
       showPromo: (this.props.showPromoBar ?? true),
       promoText: L('Entrega e coleta em toda a Zona Sul do Rio por apenas R$50 · Reserve por e-mail e confirmamos em menos de 24h',
@@ -2055,7 +2050,7 @@ class Component extends DCLogic {
                 'Carrito, silla de auto, cuna y lo que necesites: lo entregamos limpio y desinfectado en tu hotel o Airbnb en Río de Janeiro y lo recogemos al final del viaje. Tú llegas ligero y solo disfrutas.'),
       heroCta:L('Ver catálogo','See catalog','Ver catálogo'), heroCta2:L('Tem dúvidas?','Got questions?','¿Tienes dudas?'),
       heroChip1:L('Higienizado','Sanitized','Higienizado'), heroChip2:L('Entrega e coleta','Delivery & pickup','Entrega y recogida'),
-      heroFloat2:L('a partir de R$41','from R$41','desde R$41'),
+      heroFloat2:L('Carrinho por R$'+this.TOPES.compacto[0],'Stroller for R$'+this.TOPES.compacto[0],'Carrito por R$'+this.TOPES.compacto[0]),
       prodTitle:L('O que você pode alugar','What you can rent','Lo que puedes alquilar'),
       prodSub:L('A diária mais uma taxa única de R$50 pela entrega e coleta. Você escolhe, a gente leva tudo higienizado e depois busca de volta.',
                 'The daily rate plus a single R$50 fee for delivery and pickup. You choose, we bring it all sanitized and come back for it later.',

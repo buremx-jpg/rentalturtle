@@ -9,3 +9,10 @@
 
 # Redirigir carrito al home (no es página pública)
 /carrito.html              /               301
+
+# Produto substituído e slugs renomeados (2026-10)
+/catalogo/carrinho-de-bebe.html          /catalogo/bebe-conforto.html               301
+/es/catalogo/carrito-de-bebe.html        /es/catalogo/silla-de-coche-para-bebe.html 301
+/en/catalog/full-size-stroller.html      /en/catalog/infant-car-seat.html           301
+/es/catalogo/silla-de-coche.html         /es/catalogo/silla-de-coche-ninos.html     301
+/en/catalog/car-seat.html                /en/catalog/child-car-seat.html            301

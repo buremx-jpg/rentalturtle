@@ -78,7 +78,8 @@ WhatsApp is available for inquiries and questions (not required to book).
 
 ## Payment methods
 
-- PayPal, Wise, Revolut (international transfers)
+- PayPal, Wise (international transfers)
+- Cash in Brazilian reais (BRL) on delivery
 - Visa / Mastercard (in person)
 - Pix, Bizum (local transfers)
 - No Brazilian CPF or CEP required for foreign visitors

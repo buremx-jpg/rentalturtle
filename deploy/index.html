@@ -84,7 +84,7 @@
       "name": "Como funciona o pagamento?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Você paga 20% na reserva para garantir as datas e os 80% restantes na entrega. Aceitamos Pix, cartão, PayPal, Wise e Revolut. Na entrega deixamos também uma caução de 50% do valor dos itens, devolvida depois da coleta."
+        "text": "Você paga 20% na reserva para garantir as datas e os 80% restantes na entrega. Aceitamos Pix, cartão, PayPal, Wise e dinheiro em reais. Na entrega deixamos também uma caução de 50% do valor dos itens, devolvida depois da coleta."
       }
     },
     {
@@ -449,7 +449,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="background:#FFFFFF;border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-xs);transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);" style-hover="transform:translateY(-2px);box-shadow:var(--shadow-md);">
 <div style="height:56px;display:flex;align-items:center;gap:16px;">
 <sc-for list="{{ m.logos }}" as="lg" hint-placeholder-count="0">
-<img src="{{ lg.src }}" alt="{{ lg.alt }}" style="max-height:34px;max-width:120px;width:auto;height:auto;object-fit:contain;display:block;"/>
+<sc-if value="{{ lg.plain }}"><img src="{{ lg.src }}" alt="{{ lg.alt }}" style="max-height:34px;max-width:120px;width:auto;height:auto;object-fit:contain;display:block;"/></sc-if><sc-if value="{{ lg.word }}"><div style="display:flex;align-items:center;gap:10px;"><img src="{{ lg.src }}" alt="" width="36" height="36" style="width:36px;height:36px;object-fit:contain;display:block;"><span style="font-family:'Baloo 2',var(--font-display);font-weight:800;font-size:28px;line-height:1;color:#264653;">{{ lg.word }}</span></div></sc-if>
 </sc-for>
 </div>
 <div style="font-family:var(--font-body);font-size:14px;line-height:1.5;color:var(--color-text-secondary);flex:1;">{{ m.note }}</div>
@@ -734,9 +734,9 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <sc-if value="{{ calendarOpen }}">
 <div class="rt-calendar" style="position:absolute;top:calc(100% + 8px);left:0;z-index:30;width:220px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:10px;">
 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
-<button onClick="{{ calPrevMonth }}" aria-label="Mês anterior" style="width:22px;height:22px;border-radius:50%;border:none;background:transparent;color:var(--ink-500);cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:var(--sand-100);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button onClick="{{ calPrevMonth }}" aria-label="{{ t.calPrevLabel }}" style="width:22px;height:22px;border-radius:50%;border:none;background:transparent;color:var(--ink-500);cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:var(--sand-100);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></button>
 <span style="font-family:var(--font-display);font-weight:800;font-size:11px;color:var(--ink-500);">{{ calMonthLabel }}</span>
-<button onClick="{{ calNextMonth }}" aria-label="Próximo mês" style="width:22px;height:22px;border-radius:50%;border:none;background:transparent;color:var(--ink-500);cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:var(--sand-100);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg></button>
+<button onClick="{{ calNextMonth }}" aria-label="{{ t.calNextLabel }}" style="width:22px;height:22px;border-radius:50%;border:none;background:transparent;color:var(--ink-500);cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="background:var(--sand-100);"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg></button>
 </div>
 <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;margin-bottom:3px;">
 <sc-for list="{{ calWeekdays }}" as="wd" hint-placeholder-count="7">
@@ -757,7 +757,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--ink-500);"><span style="font-weight:700;color:var(--ink-500);">{{ rentalDays }} {{ t.daysWord }} · R$ {{ cur.subtotal }} (R$ {{ cur.avgDay }}{{ t.perDay }})</span></div>
 <div style="display:flex;flex-direction:column;gap:3px;"><div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--color-text-secondary);">{{ t.deliveryFromValue }}</span></div><div style="font-family:var(--font-body);font-size:12px;line-height:1.45;color:var(--color-text-secondary);">{{ t.deliveryZoneNote }}</div></div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);margin-top:6px;padding-top:12px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink-500);">{{ t.totalProducts }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:#264653;">R${{ cur.subtotal }}</span></div>
-<sc-if value="{{ cur.hasSaving }}"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:#2A9D8F;">{{ t.weeklyDiscount }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:#2A9D8F;">{{ cur.savingAmt }}</span></div></sc-if>
+<sc-if value="{{ cur.hasSaving }}"><div style="display:flex;flex-direction:column;gap:2px;"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:#2A9D8F;">{{ t.durationDiscount }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:#2A9D8F;">{{ cur.savingAmt }}</span></div><div style="font-family:var(--font-body);font-size:12px;line-height:1.4;color:var(--color-text-secondary);">{{ cur.savingVs }}</div></div></sc-if>
 </div>
 </sc-if>
 <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;">
@@ -980,7 +980,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.paymentLabel }} <span style="color:var(--color-danger);">*</span></label>
 <div class="rt-pay-grid" role="radiogroup" aria-label="{{ t.paymentLabel }}" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
 <sc-for list="{{ paymentOptions }}" as="p" hint-placeholder-count="6">
-<button type="button" role="radio" aria-checked="{{ p.aria }}" aria-label="{{ p.name }}" onClick="{{ p.onClick }}" style-hover="border-color:var(--color-primary);" style="grid-column:{{ p.span }};height:48px;border-width:2px;border-style:solid;border-color:{{ p.border }};border-radius:var(--radius-md);background:{{ p.bg }};cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;padding:6px 6px;box-sizing:border-box;transition:border-color .18s ease,background .18s ease;"><sc-for list="{{ p.icons }}" as="ic" hint-placeholder-count="1"><img src="{{ ic }}" alt="{{ p.name }}" style="max-width:100%;max-height:22px;object-fit:contain;display:block;"></sc-for></button>
+<button type="button" role="radio" aria-checked="{{ p.aria }}" aria-label="{{ p.name }}" onClick="{{ p.onClick }}" style-hover="border-color:var(--color-primary);" style="grid-column:{{ p.span }};height:48px;border-width:2px;border-style:solid;border-color:{{ p.border }};border-radius:var(--radius-md);background:{{ p.bg }};cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;padding:6px 6px;box-sizing:border-box;transition:border-color .18s ease,background .18s ease;"><sc-for list="{{ p.icons }}" as="ic" hint-placeholder-count="1"><img src="{{ ic }}" alt="{{ p.name }}" style="max-width:100%;max-height:22px;object-fit:contain;display:block;"></sc-for><sc-if value="{{ p.word }}"><span style="font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);">{{ p.word }}</span></sc-if></button>
 </sc-for>
 </div>
 </div>
@@ -998,7 +998,8 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <p style="margin:0;font-family:var(--font-body);font-size:11.5px;line-height:1.5;color:var(--color-danger);">{{ t.detailsPrivacyNote }}</p>
 <div style="border-top:1px solid var(--color-divider);padding-top:16px;display:flex;flex-direction:column;gap:8px;">
 <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
-<div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.cartSubtotalLabel }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cartSubtotal }}</span></div>
+<div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.cartSubtotal3Label }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cartSubtotal3 }}</span></div>
+<sc-if value="{{ cartHasDur }}"><div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-primary);"><span>{{ t.durationDiscount }}</span><span style="font-weight:700;color:var(--color-primary);">−R${{ cartDurDisc }}</span></div></sc-if>
 <sc-if value="{{ cartHasPack }}"><div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-primary);"><span>{{ cartPackLabel }}</span><span style="font-weight:700;color:var(--color-primary);">−R${{ cartPackDiscount }}</span></div></sc-if>
 <div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--ink-500);">{{ deliveryFeeLabel }}</span></div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);padding-top:10px;margin-top:2px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink-500);">{{ t.totalEst }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--color-primary);">R${{ cartTotal }}</span></div>
@@ -1020,7 +1021,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="font-family:var(--font-body);font-weight:800;font-size:11px;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--color-primary);">{{ c.cat }}</div>
 <h4 style="margin:2px 0 4px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--ink-500);">{{ c.name }}</h4>
 <div style="font-family:var(--font-body);font-size:12px;color:var(--color-text-secondary);">{{ c.dateRange }} · {{ c.days }} {{ t.wordDays }}</div>
-<div style="font-family:var(--font-body);font-size:12px;color:var(--color-text-secondary);">R${{ c.price }}{{ t.perDay }}</div>
+<div style="font-family:var(--font-body);font-size:12px;color:var(--color-text-secondary);">R${{ c.avgDay }}{{ t.perDay }}</div>
 <div style="font-family:var(--font-body);font-weight:800;font-size:14px;color:var(--ink-500);margin-top:2px;">R${{ c.lineTotal }}</div>
 </div>
 <button onClick="{{ c.remove }}" title="{{ t.removeTitle }}" style="width:30px;height:30px;flex-shrink:0;border-radius:50%;border:none;background:none;color:var(--color-text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;" style-hover="color:var(--color-danger);background:var(--coral-50);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"></path></svg></button>
@@ -1905,7 +1906,7 @@ class Component extends DCLogic {
       const isAirportZone = !!zona && zona.tipo === 'aeroporto';
       await emailjs.send('service_9zabifv', 'template_0mol0tp', {
         name: resv.name, email: resv.email, country: resv.country, message: resv.body,
-        location_type: locationType, location_reference: locationReference, delivery_time: deliveryTime, pickup_time: pickupTime, payment_method: paymentMethod, referral_source: referralSource,
+        location_type: locationType, location_reference: locationReference, delivery_time: deliveryTime, pickup_time: pickupTime, payment_method: (paymentMethod==='Efectivo' ? 'Efectivo (reales)' : paymentMethod), total_reserva: resv.total||'', referral_source: referralSource,
         zona_entrega: zona ? zona.nome : '', taxa_entrega: zona ? ('R$'+zona.preco) : '',
         numero_voo: isAirportZone ? (flightNumber||'') : '', companhia_aerea: isAirportZone ? (airline||'') : '',
       });
@@ -1921,6 +1922,7 @@ class Component extends DCLogic {
   setDeliveryTime = (e) => this.setState({ deliveryTime: e.target.value });
   setPickupTime = (e) => this.setState({ pickupTime: e.target.value });
   setPaymentMethod = (val) => this.setState({ paymentMethod: val });
+  payLabel = (v, lng) => { const m={'Visa/Mastercard':['Cartão (Visa/Mastercard)','Card (Visa/Mastercard)','Tarjeta (Visa/Mastercard)'],'Efectivo':['Dinheiro (reais)','Cash (BRL)','Efectivo (reales)']}; const a=m[v]; if(!a) return v||''; return lng==='en'?a[1]:(lng==='es'?a[2]:a[0]); };
   setReferralSource = (e) => this.setState({ referralSource: e.target.value });
 
   ZONAS = [
@@ -1973,7 +1975,7 @@ class Component extends DCLogic {
     const curSaving = (current && !curTooLong) ? this.r2(__curRaw-__curSub) : 0;
     const __canAdd = hasValidDates && !curTooLong;
     const cur = current ? { ...decorate(current), ...(current.title?{name:pick(current.title)}:{}),
-      subtotal: this.money(__curSub,lang), avgDay: (rentalDays>0&&__curTier!=null)?String(Math.ceil(__curSub/rentalDays)):'', total: this.money(__curSub+this.fee,lang), hasSaving: curSaving>0, savingAmt: '\u2212R$'+this.money(curSaving,lang), imgW: current.id==='bebe-conforto'?'76%':'100%', imgM: current.id==='bebe-conforto'?'6.75% auto':'0', savingMsg: L('Preço semanal aplicado — você economiza R$'+this.money(curSaving,lang)+' em comparação com a diária','Weekly price applied — you save R$'+this.money(curSaving,lang)+' compared to the daily rate','Precio semanal aplicado — ahorras R$'+this.money(curSaving,lang)+' en comparación con la tarifa diaria'), tooLong: curTooLong, notTooLong: !curTooLong,
+      subtotal: this.money(__curSub,lang), avgDay: (rentalDays>0&&__curTier!=null)?String(Math.ceil(__curSub/rentalDays)):'', total: this.money(__curSub+this.fee,lang), hasSaving: curSaving>0, savingAmt: '\u2212R$'+this.money(curSaving,lang), savingVs: (()=>{ const X=(this.PRICES_3_7&&this.PRICES_3_7[current.id])?Math.ceil(this.PRICES_3_7[current.id][0]/3):current.price; return L('vs. R$'+X+'/dia do aluguel de 3 dias','vs. R$'+X+'/day for a 3-day rental','vs. R$'+X+'/día del alquiler de 3 días'); })(), imgW: current.id==='bebe-conforto'?'76%':'100%', imgM: current.id==='bebe-conforto'?'6.75% auto':'0', savingMsg: L('Preço semanal aplicado — você economiza R$'+this.money(curSaving,lang)+' em comparação com a diária','Weekly price applied — you save R$'+this.money(curSaving,lang)+' compared to the daily rate','Precio semanal aplicado — ahorras R$'+this.money(curSaving,lang)+' en comparación con la tarifa diaria'), tooLong: curTooLong, notTooLong: !curTooLong,
       hasSpecs: !!detail, hasProsCons: !!(detail && detail.pros), hasCons: !!(dCons && pickA(dCons).length), model: (di18n&&di18n.model)||detail?.model,
       prosLabel: L('Prós','Pros','Pros'),
       longDesc: pickA(dLong), pros: pickA(dPros), cons: pickA(dCons), specs: pickA(dSpecs),
@@ -1994,7 +1996,7 @@ class Component extends DCLogic {
       const lineNum = tooLong ? 0 : this.r2((tier||0)*pQty);
       return { ...p, name:pick(p.name)+(pQty>1?' ×'+pQty:''), cat:pick(this.CATS[p.catKey]), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:((p.id==='colchonete'||p.id==='colchao')&&p.alt)?pick(p.alt):L('Aluguel de '+pick(p.name)+' no Rio de Janeiro','Rent '+pick(p.name)+' in Rio de Janeiro','Alquiler de '+pick(p.name)+' en Río de Janeiro'),
         days, dateRange: hasDates ? (this.formatShortDate(line.checkIn,lang)+' – '+this.formatShortDate(line.checkOut,lang)) : L('Datas a definir no carrinho','Set dates in cart','Fechas por definir en el carrito'),
-        price: p.price, tooLong, lineNum, lineTotal: tooLong ? '—' : this.money(lineNum,lang),
+        price: p.price, avgDay: (!tooLong && days>0 && tier!=null) ? Math.ceil(tier/days) : p.price, rawNum: (!tooLong && days>0 && tier!=null && this.PRICES_3_7 && this.PRICES_3_7[p.id]) ? Math.round(this.PRICES_3_7[p.id][0]/3*days)*pQty : lineNum, tooLong, lineNum, lineTotal: tooLong ? '—' : this.money(lineNum,lang),
         remove:()=>this.removeFromCart(p.id) };
     }).filter(Boolean);
     const cartTooLong = cartItems.some(c=>c.tooLong);
@@ -2002,14 +2004,17 @@ class Component extends DCLogic {
     const cartPackPct = this.packPctFor(new Set(cartItems.map(c=>c.id)).size);
     const __disc = this.r2(__gross*cartPackPct/100);
     const cartSubtotal = this.money(__gross, lang);
+    const __raw3 = this.r2(cartItems.reduce((s,p)=>s+(p.rawNum||0),0));
+    const __durDisc = this.r2(Math.max(0, __raw3-__gross));
+    const cartSubtotal3 = this.money(__raw3, lang), cartDurDisc = this.money(__durDisc, lang), cartHasDur = __durDisc>0;
     const zona = this.selectedZona;
     const zoneFee = zona ? zona.preco : 0;
     const isAirport = !!zona && zona.tipo === 'aeroporto';
     const cartTotal = this.money(cartItems.length ? (__gross - __disc + zoneFee) : 0, lang);
     const cartLinesText = (lng) => cartItems.map(p => {
-      const label = lng==='en' ? (p.name+' — '+p.dateRange+' ('+p.days+' days) — R$'+p.price+'/day — R$'+p.lineTotal)
-        : lng==='es' ? (p.name+' — '+p.dateRange+' ('+p.days+' días) — R$'+p.price+'/día — R$'+p.lineTotal)
-        : (p.name+' — '+p.dateRange+' ('+p.days+' dias) — R$'+p.price+'/dia — R$'+p.lineTotal);
+      const label = lng==='en' ? (p.name+' — '+p.dateRange+' ('+p.days+' days) — R$'+p.avgDay+'/day — R$'+p.lineTotal)
+        : lng==='es' ? (p.name+' — '+p.dateRange+' ('+p.days+' días) — R$'+p.avgDay+'/día — R$'+p.lineTotal)
+        : (p.name+' — '+p.dateRange+' ('+p.days+' dias) — R$'+p.avgDay+'/dia — R$'+p.lineTotal);
       return label;
     }).join('\n')+(cartPackPct>0 ? '\n'+(lng==='en'?'Pack Discount':lng==='es'?'Pack Descuento':'Pack Desconto')+' −'+cartPackPct+'%: −R$'+this.money(__disc,lng) : '');
     const cartWa = this.waLink(L('Olá! Quero reservar na Rental Turtle:\n'+cartLinesText('pt')+'\nEntrega e coleta: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+cartLinesText('en')+'\nDelivery & pickup: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+cartLinesText('es')+'\nEntrega y recogida: R$'+zoneFee+'\nTotal: R$'+cartTotal+'.'));
@@ -2057,7 +2062,7 @@ class Component extends DCLogic {
       del2Label:L('2 · Entrega','2 · Delivery','2 · Entrega'),
       del2Desc:L('1. Assinamos um contrato de aluguel.\n2. Você paga 100% na entrega dos produtos.\n3. Você paga a taxa conforme sua zona (a partir de R$50).\n4. Você deixa uma caução de R$150, devolvida integralmente no momento da recolhida, após verificar que os produtos não têm nenhum dano significativo.','1. We sign a rental contract.\n2. You pay 100% on delivery of the products.\n3. You pay R$50 for delivery and pickup.\n4. You leave a R$150 deposit, refunded in full at pickup, after checking that the products have no significant damage.','1. Firmamos un contrato de alquiler.\n2. Pagas el 100% en la entrega de los productos.\n3. Pagas la tarifa según tu zona (a partir de R$50).\n4. Depositas una fianza de 150RS que se devuelve íntegramente en el momento de la recogida, después de comprobar que los productos no tienen ningún daño significativo.'),
       del3Label:L('3 · Devolução','3 · Return','3 · Devolución'),
-      del3Desc:L('Retiramos os produtos na data combinada e devolvemos a caução pelo mesmo método de pagamento utilizado na reserva.','We pick everything up on the agreed date and refund your deposit to the same card.','Recogemos los productos en la fecha acordada y te devolvemos la fianza en la misma tarjeta.'),
+      del3Desc:L('Retiramos os produtos na data combinada e devolvemos a caução pelo mesmo meio de pagamento.','We pick everything up on the agreed date and refund your deposit using the same payment method.','Recogemos los productos en la fecha acordada y te devolvemos la fianza por el mismo medio de pago.'),
       // benefits
       benTitle:L('Seus benefícios','Your perks','Tus ventajas'),
       benSub:L('Menos peso na mala, mais tempo curtindo o Rio.','Less weight in your bag, more time enjoying Rio.','Menos peso en la maleta, más tiempo disfrutando de Río.'),
@@ -2155,6 +2160,9 @@ class Component extends DCLogic {
       cardMin:L('· mínimo 3 dias','· 3-day minimum','· mínimo 3 días'),
       weekFrom:L('','',''),
       weeklyDiscount:L('Desconto semanal','Weekly discount','Descuento semanal'),
+      durationDiscount:L('Desconto por duração','Length-of-stay discount','Descuento por duración'),
+      cartSubtotal3Label:L('Subtotal (preço de 3 dias por dia)','Subtotal (3-day daily rate)','Subtotal (precio de 3 días por día)'),
+      calPrevLabel:L('Mês anterior','Previous month','Mes anterior'), calNextLabel:L('Próximo mês','Next month','Mes siguiente'),
       cartRemovedMsg:L('Alguns itens do seu carrinho não estão mais disponíveis e foram removidos.','Some items in your cart are no longer available and have been removed.','Algunos artículos de tu carrito ya no están disponibles y se han eliminado.'),
       cartRemovedLink:L('Ver catálogo.','View catalog.','Ver catálogo.'),
       heroStrip:L('A partir de 3 dias · Não precisa alugar a semana toda','From 3 days · No need to rent the whole week','Desde 3 días · No hace falta alquilar la semana entera'),
@@ -2216,9 +2224,9 @@ class Component extends DCLogic {
       { logos:[{src:payPre?payPre+'wise.png':LOGO_FB,alt:'Wise'}],
         note:L('Transferência internacional com câmbio real e taxas baixas.','International transfer with the real exchange rate and low fees.','Transferencia internacional con cambio real y comisiones bajas.'),
         badge:L('Internacional','International','Internacional'), bg:'#DCF3E8', fg:'#16794F' },
-      { logos:[{src:payPre?payPre+'revolut.png':LOGO_FB,alt:'Revolut'}],
-        note:L('Transferência rápida entre contas Revolut ou para conta bancária.','Fast transfer between Revolut accounts or to a bank account.','Transferencia rápida entre cuentas Revolut o a cuenta bancaria.'),
-        badge:L('Internacional','International','Internacional'), bg:'#DCF3E8', fg:'#16794F' },
+      { logos:[{src:payPre?payPre+'efectivo.png':LOGO_FB,alt:'',word:L('Dinheiro','Cash','Efectivo')}],
+        note:L('Pague em reais (R$) na entrega do equipamento. Avise na reserva e levamos o troco.','Pay in Brazilian reais (R$) when we deliver the gear. Let us know when you book and we\u2019ll bring change.','Paga en reales (R$) al recibir el equipo. Indícalo al reservar y te llevamos el cambio.'),
+        badge:L('Pagamento presencial','In-person payment','Pago presencial'), bg:'#FDF0D5', fg:'#8A5A00' },
       { logos:[{src:payPre?payPre+'pix.png':LOGO_FB,alt:'Pix'}],
         note:L('Disponível apenas para clientes com conta bancária no Brasil.','Available only for customers with a bank account in Brazil.','Disponible solo para clientes con cuenta bancaria en Brasil.'),
         badge:L('Conta no Brasil','Brazil account','Cuenta en Brasil'), bg:'#E4E9FC', fg:'#3B4FB0' },
@@ -2226,6 +2234,7 @@ class Component extends DCLogic {
         note:L('Disponível apenas para clientes com conta bancária na Espanha.','Available only for customers with a bank account in Spain.','Disponible solo para clientes con cuenta bancaria en España.'),
         badge:L('Conta na Espanha','Spain account','Cuenta en España'), bg:'#E4E9FC', fg:'#3B4FB0' },
     ];
+    payMethods.forEach(m=>m.logos.forEach(l=>{ l.plain=!l.word; }));
     const navItems = [
       { label:L('Catálogo','Catalog','Catálogo'),          onClick:this.goCatalog },
       { label:L('Como funciona','How it works','Cómo funciona'), onClick:()=>this.navSection('como-funciona') },
@@ -2301,7 +2310,7 @@ class Component extends DCLogic {
       calEndActive: this.state.calendarOpen && this.state.calSelecting==='end',
       calMonthLabel: this.calMonthLabel(lang), calPrevMonth:this.calPrevMonth, calNextMonth:this.calNextMonth,
       calWeekdays: this.calWeekdayLabels(lang), calDays: this.buildCalendarDays(),
-      cartItems, cartTotal, cartSubtotal, hasCartItems:cartItems.length>0, cartEmpty:cartItems.length===0, cartWa,
+      cartItems, cartTotal, cartSubtotal, cartSubtotal3, cartDurDisc, cartHasDur, hasCartItems:cartItems.length>0, cartEmpty:cartItems.length===0, cartWa,
       closeCart:this.closeCart, cartOpen:this.state.cartOpen, goCatalogFromCart:()=>{ this.closeCart(); this.goCatalog(); },
       cartStepIsCart: this.state.cartStep!=='details', cartStepIsDetails: this.state.cartStep==='details',
       goToDetails:this.goToDetails, backToCart:this.backToCart,
@@ -2320,9 +2329,9 @@ class Component extends DCLogic {
       showAddressFields:!isAirport, showFlightFields:isAirport,
       flightNumber:(this.state.flightNumber||''), airline:(this.state.airline||''), setFlightNumber:this.setFlightNumber, setAirline:this.setAirline,
       deliveryFeeLabel: zona ? ('R$'+zona.preco) : '—',
-      paymentOptions:(()=>{ const base=(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen==='product')?'../assets/pay/':'./assets/pay/'; const sel=this.state.paymentMethod; const defs=[{value:'Visa/Mastercard',files:['visa.png','mastercard.png'],span:'span 2'},{value:'PayPal',files:['paypal.png'],span:'span 1'},{value:'Wise',files:['wise.png'],span:'span 1'},{value:'Revolut',files:['revolut.png'],span:'span 1'},{value:'Pix',files:['pix.png'],span:'span 1'},{value:'Bizum',files:['bizum.png'],span:'span 1'}]; return defs.map(d=>({ key:d.value, name:d.value, icons:d.files.map(f=>(f?base+f:'/assets/logo-turtle-sm.png')), span:d.span, aria:(sel===d.value)?'true':'false', border:(sel===d.value)?'var(--color-primary)':'var(--color-border)', bg:(sel===d.value)?'var(--green-50)':'var(--color-surface)', onClick:()=>this.setPaymentMethod(d.value) })); })(),
+      paymentOptions:(()=>{ const base=(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen==='product')?'../assets/pay/':'./assets/pay/'; const sel=this.state.paymentMethod; const defs=[{value:'Visa/Mastercard',files:['visa.png','mastercard.png'],span:'span 2'},{value:'PayPal',files:['paypal.png'],span:'span 1'},{value:'Wise',files:['wise.png'],span:'span 1'},{value:'Efectivo',files:['efectivo.png'],span:'span 1',word:L('Dinheiro (reais)','Cash (BRL)','Efectivo (reales)')},{value:'Pix',files:['pix.png'],span:'span 1'},{value:'Bizum',files:['bizum.png'],span:'span 1'}]; return defs.map(d=>({ key:d.value, name:this.payLabel(d.value, lang), word:d.word||'', icons:d.files.map(f=>(f?base+f:'/assets/logo-turtle-sm.png')), span:d.span, aria:(sel===d.value)?'true':'false', border:(sel===d.value)?'var(--color-primary)':'var(--color-border)', bg:(sel===d.value)?'var(--green-50)':'var(--color-surface)', onClick:()=>this.setPaymentMethod(d.value) })); })(),
       detailsHref: canContinue ? detailsWa : '#',
-      sendReservation: canContinue ? (()=>this.sendReservation({ name:(customerName.trim()+' '+customerSurname.trim()).trim(), email:customerEmail.trim(), country:customerCountry.trim(), body:reservationBody, mailto:detailsWa })) : null,
+      sendReservation: canContinue ? (()=>this.sendReservation({ total:'R$'+cartTotal, name:(customerName.trim()+' '+customerSurname.trim()).trim(), email:customerEmail.trim(), country:customerCountry.trim(), body:reservationBody, mailto:detailsWa })) : null,
       sendBtnLabel: this.state.sendStatus==='sending' ? L('Enviando…','Sending…','Enviando…') : this.state.sendStatus==='sent' ? L('Reserva enviada ✓','Booking sent ✓','Reserva enviada ✓') : t.cartSend,
       sentNoteText: L('Recebemos seu pedido! Enviamos uma cópia para o seu e-mail.','We got your request! A copy was sent to your email.','¡Hemos recibido tu solicitud! Te enviamos una copia a tu email.'),
       showSentNote: this.state.sendStatus==='sent',

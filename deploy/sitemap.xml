@@ -148,4 +148,25 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/baby-bathtub.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/banheira-de-bebe.html"/>
   </url>
+  <url>
+    <loc>https://rentalturtle.com/catalogo/colchao-impermeavel.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/colchao-impermeavel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/colchon-impermeable.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/waterproof-crib-mattress.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/colchao-impermeavel.html"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/es/catalogo/colchon-impermeable.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/colchao-impermeavel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/colchon-impermeable.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/waterproof-crib-mattress.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/colchao-impermeavel.html"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/en/catalog/waterproof-crib-mattress.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/colchao-impermeavel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/colchon-impermeable.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/waterproof-crib-mattress.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/colchao-impermeavel.html"/>
+  </url>
 </urlset>

@@ -27,7 +27,7 @@
   "url": "https://rentalturtle.com/en/",
   "email": "info@rentalturtle.com",
   "telephone": "+5521975855044",
-  "priceRange": "R$17 - R$41",
+  "priceRange": "R$52 - R$268",
   "currenciesAccepted": "BRL",
   "openingHours": "Mo-Su 05:00-23:00",
   "areaServed": [
@@ -63,18 +63,11 @@
   "image": "https://rentalturtle.com/assets/og-image.jpg",
   "offers": {
     "@type": "Offer",
-    "price": "23",
+    "price": "68",
     "priceCurrency": "BRL",
     "availability": "https://schema.org/InStock",
     "url": "https://rentalturtle.com/en/catalog/high-chair.html",
-    "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut",
-    "priceSpecification": {
-      "@type": "UnitPriceSpecification",
-      "price": "23",
-      "priceCurrency": "BRL",
-      "unitCode": "DAY",
-      "unitText": "per day"
-    }
+    "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut"
   }
 }
 </script>
@@ -101,6 +94,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="ext-resource-dependency" content="../assets/prod-cadeira.webp" data-resource-id="prodCadeira" />
 <meta name="ext-resource-dependency" content="../assets/prod-berco.webp" data-resource-id="prodBerco" />
 <meta name="ext-resource-dependency" content="../assets/prod-banheira.webp" data-resource-id="prodBanheira" />
+<meta name="ext-resource-dependency" content="../assets/colchao-ortobom-7cm.webp" data-resource-id="prodColchao" />
 <meta name="ext-resource-dependency" content="../assets/sobre-photo.webp" data-resource-id="sobrePhoto" />
 <template id="__bundler_thumbnail" data-bg-color="#2A9D8F">
 <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
@@ -701,7 +695,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <sc-if value="{{ cur.tooLong }}"><div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--color-divider);padding-top:16px;"><p style="margin:0;font-family:var(--font-body);font-size:14px;line-height:1.5;font-weight:700;color:var(--ink-500);">{{ t.longMsg }}</p><a href="{{ waLongHref }}" target="_blank" data-cta="whatsapp_mais_56_dias" style="display:flex;align-items:center;justify-content:center;height:var(--control-md);border-radius:var(--radius-pill);background:var(--color-primary);color:#fff;font-family:var(--font-body);font-weight:800;font-size:var(--text-sm);text-decoration:none;">{{ t.longBtn }}</a></div></sc-if>
 <sc-if value="{{ cur.notTooLong }}">
 <div style="border-top:1px solid var(--color-divider);padding-top:16px;display:flex;flex-direction:column;gap:9px;">
-<div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--ink-500);"><span style="font-weight:700;color:var(--ink-500);">R${{ cur.price }} × {{ rentalDays }} {{ t.daysWord }}</span><span style="font-weight:700;color:var(--ink-500);">R${{ cur.subtotal }}</span></div>
+<div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--ink-500);"><span style="font-weight:700;color:var(--ink-500);">{{ rentalDays }} {{ t.daysWord }} · R$ {{ cur.subtotal }} (R$ {{ cur.avgDay }}{{ t.perDay }})</span></div>
 <div style="display:flex;flex-direction:column;gap:3px;"><div style="display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);"><span>{{ t.deliveryShort }}</span><span style="font-weight:700;color:var(--color-text-secondary);">{{ t.deliveryFromValue }}</span></div><div style="font-family:var(--font-body);font-size:12px;line-height:1.45;color:var(--color-text-secondary);">{{ t.deliveryZoneNote }}</div></div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--color-divider);margin-top:6px;padding-top:12px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:var(--ink-500);">{{ t.totalProducts }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:#264653;">R${{ cur.subtotal }}</span></div>
 <sc-if value="{{ cur.hasSaving }}"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;"><span style="font-family:var(--font-display);font-weight:800;font-size:16px;color:#2A9D8F;">{{ t.weeklyDiscount }}</span><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:#2A9D8F;">{{ cur.savingAmt }}</span></div></sc-if>
@@ -990,7 +984,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;deliveryFee&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:50,&quot;unit&quot;:&quot;R$&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;minRentalDays&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;unit&quot;:&quot;dias&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+5521975855044&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;showPromoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Conteúdo&quot;}}">
 class Component extends DCLogic {
-  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{const c=JSON.parse(localStorage.getItem('rt-cart')||'[]');const ids=window.RT_PRODUCT_IDS||['bebe-conforto','compacto','cadeirinha','cadeira','berco','banheira'];const k=(Array.isArray(c)?c:[]).filter(l=>l&&ids.indexOf(l.id)>=0);if(k.length!==c.length){window.__rtCartPurged=true;localStorage.setItem('rt-cart',JSON.stringify(k));}return k;}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle', paymentMethod:'Visa/Mastercard', cartRemovedNotice:(typeof window!=='undefined'&&(()=>{try{const f=!!window.__rtCartPurged||localStorage.getItem('rt-cart-purged')==='1';localStorage.removeItem('rt-cart-purged');return f;}catch(e){return !!window.__rtCartPurged;}})()) };
+  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{const c=JSON.parse(localStorage.getItem('rt-cart')||'[]');const ids=window.RT_PRODUCT_IDS||['bebe-conforto','compacto','cadeirinha','cadeira','berco','banheira','colchao'];const k=(Array.isArray(c)?c:[]).filter(l=>l&&ids.indexOf(l.id)>=0);if(k.length!==c.length){window.__rtCartPurged=true;localStorage.setItem('rt-cart',JSON.stringify(k));}return k;}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle', paymentMethod:'Visa/Mastercard', cartRemovedNotice:(typeof window!=='undefined'&&(()=>{try{const f=!!window.__rtCartPurged||localStorage.getItem('rt-cart-purged')==='1';localStorage.removeItem('rt-cart-purged');return f;}catch(e){return !!window.__rtCartPurged;}})()) };
 
   CATS = {
     todos:   { pt:'Todos',    en:'All',       es:'Todos' },
@@ -1001,7 +995,7 @@ class Component extends DCLogic {
     banho:   { pt:'Banho',    en:'Bath',      es:'Baño' },
   };
 
-  PRODUCT_SLUGS = {"bebe-conforto":{"pt":"bebe-conforto","es":"silla-de-coche-para-bebe","en":"infant-car-seat"},"compacto":{"pt":"carrinho-compacto","es":"carrito-de-paseo-compacto","en":"compact-stroller"},"cadeirinha":{"pt":"cadeirinha-de-auto","es":"silla-de-coche-ninos","en":"child-car-seat"},"cadeira":{"pt":"cadeira-de-alimentacao","es":"trona-para-comer","en":"high-chair"},"berco":{"pt":"berco-de-viagem","es":"cuna-de-viaje","en":"travel-crib"},"banheira":{"pt":"banheira-de-bebe","es":"banera-de-bebe","en":"baby-bathtub"}};
+  PRODUCT_SLUGS = {"bebe-conforto":{"pt":"bebe-conforto","es":"silla-de-coche-para-bebe","en":"infant-car-seat"},"compacto":{"pt":"carrinho-compacto","es":"carrito-de-paseo-compacto","en":"compact-stroller"},"cadeirinha":{"pt":"cadeirinha-de-auto","es":"silla-de-coche-ninos","en":"child-car-seat"},"cadeira":{"pt":"cadeira-de-alimentacao","es":"trona-para-comer","en":"high-chair"},"berco":{"pt":"berco-de-viagem","es":"cuna-de-viaje","en":"travel-crib"},"banheira":{"pt":"banheira-de-bebe","es":"banera-de-bebe","en":"baby-bathtub"},"colchonete":{"pt":"colchonete-dobravel","es":"colchoneta-plegable","en":"foldable-crib-mattress"},"colchao":{"pt":"colchao-impermeavel","es":"colchon-impermeable","en":"waterproof-crib-mattress"}};
   HOME_REL = {"pt":"","es":"es/","en":"en/"};
   PROD_REL = {"pt":"catalogo/","es":"es/catalogo/","en":"en/catalog/"};
   siteRoot(){ if(typeof window==='undefined') return '/'; var dir=window.location.pathname.replace(/[^/]*$/,''); var suf=this.bootedProduct()?this.PROD_REL[this.state.lang]:this.HOME_REL[this.state.lang]; if(suf&&dir.slice(-suf.length)===suf) dir=dir.slice(0,dir.length-suf.length); return dir; }
@@ -1010,31 +1004,38 @@ class Component extends DCLogic {
   bootedProduct(){ return typeof window!=='undefined' && window.__RT_INIT && window.__RT_INIT.screen==='product'; }
 
   PRODUCTS = [
-    { id:'compacto', catKey:'passeio', price:41, rating:4.8, reviews:64,
+    { id:'compacto', catKey:'passeio', price:45, rating:4.8, reviews:64,
       name:{ pt:'Carrinho compacto', en:'Compact stroller', es:'Carrito compacto' },
       desc:{ pt:'Leve, dobra com uma mão só e cabe no porta-malas e no elevador. O companheiro do dia a dia da viagem.', en:'Light, folds with one hand and fits in the trunk and the elevator. Your everyday travel companion.', es:'Ligero, se pliega con una mano y cabe en el maletero y el ascensor. El compañero del día a día del viaje.' } },
-    { id:'bebe-conforto', catKey:'auto', price:39, rating:4.9, reviews:0,
+    { id:'bebe-conforto', catKey:'auto', price:37, rating:4.9, reviews:0,
       name:{ pt:'Bebê conforto', en:'Infant car seat', es:'Silla de coche para bebé' },
       desc:{ pt:'Para bebês de 0 a 13 kg. Fixa-se com cinto de 3 pontos. Ideal para viagens longas e para o transporte do dia a dia.', en:'For babies 0 to 13 kg. Fits with 3-point seatbelt. Ideal for long trips and daily use.', es:'Para bebés de 0 a 13 kg. Se fija con cinturón de 3 puntos. Ideal para viajes largos y para el transporte del día a día.' } },
-    { id:'cadeirinha', catKey:'auto', price:37, rating:4.9, reviews:178,
+    { id:'cadeirinha', catKey:'auto', price:43, rating:4.9, reviews:178,
       name:{ pt:'Cadeirinha de auto', en:'Child car seat', es:'Silla de coche para niños' },
       desc:{ pt:'Cadeirinha 0–4 anos, homologada e revisada. Instalamos junto com você na entrega, se precisar.', en:'Car seat for ages 0–4, approved and inspected. We install it with you at delivery if you need.', es:'Silla de auto 0–4 años, homologada y revisada. La instalamos contigo en la entrega, si lo necesitas.' } },
     { id:'cadeira', catKey:'refeicao', price:23, rating:4.6, reviews:57,
       name:{ pt:'Cadeira de alimentação', en:'High chair', es:'Trona' },
       desc:{ pt:'Cadeira alta e firme, com bandeja removível. Limpa fácil e já chega pronta pras refeições no apê ou hotel.', en:'Tall, sturdy high chair with a removable tray. Easy to clean and ready for mealtimes at your flat or hotel.', es:'Trona alta y firme, con bandeja extraíble. Se limpia fácil y llega lista para las comidas en el apartamento u hotel.' } },
     { id:'berco', catKey:'dormir', price:window.RT_PRECIOS.berco, rating:4.8, reviews:121,
-      name:{ pt:'Berço de viagem', en:'Travel cot', es:'Cuna de viaje' },
+      name:{ pt:'Berço de viagem', en:'Travel Crib', es:'Cuna de viaje' },
       desc:{ pt:'Berço portátil com colchão higienizado. Montamos em minutos para o seu bebê dormir tranquilo.', en:'Portable crib with a sanitized mattress. We set it up in minutes so your baby sleeps soundly.', es:'Cuna portátil con colchón higienizado. La montamos en minutos para que tu bebé duerma tranquilo.' } },
-    { id:'banheira', catKey:'banho', price:17, rating:4.7, reviews:44,
+    { id:'colchao', catKey:'dormir', price:21, rating:4.8, reviews:0, langs:['pt','es','en'], item_name:'Colchão Ortobom', item_category:'dormir',
+      name:{ pt:'Colchão Ortobom', es:'Colchón Ortobom', en:'Ortobom Mattress' },
+      title:{ pt:'Colchão Ortobom', es:'Colchón Ortobom', en:'Ortobom Mattress' },
+      alt:{ pt:'Colchão Ortobom 7 cm para berço, azul, 90 × 60 cm', es:'Colchón Ortobom 7 cm para cuna, azul, 90 × 60 cm', en:'Ortobom 7 cm crib mattress, blue, 90 × 60 cm' },
+      desc:{ pt:'Colchão firme de 7 cm com capa impermeável. Antiácaro e hipoalergênico, para o bebê dormir bem.', es:'Colchón firme de 7 cm con funda impermeable. Antiácaros e hipoalergénico, para que el bebé duerma bien.', en:'Firm 7 cm mattress with a waterproof cover. Dust-mite resistant and hypoallergenic, so your baby sleeps well.' } },
+    { id:'banheira', catKey:'banho', price:18, rating:4.7, reviews:44,
       name:{ pt:'Banheira de bebê', en:'Baby bathtub', es:'Bañera de bebé' },
       desc:{ pt:'Banheira ergonômica e antiderrapante, higienizada antes de cada locação. Banho seguro longe de casa.', en:'Ergonomic, non-slip bathtub, sanitized before every rental. A safe bath away from home.', es:'Bañera ergonómica y antideslizante, higienizada antes de cada alquiler. Un baño seguro lejos de casa.' } },
   ];
 
-  // Topes por duração (7 / 14 / 28 dias). Diária vem de PRODUCTS.price.
-  TOPES = { 'bebe-conforto':[209,269,339], compacto:[199,259,329], cadeirinha:[189,239,299], berco:[159,199,249], cadeira:[129,169,219], banheira:[99,129,159] };
-  MAX_ONLINE_DAYS = 56;
+  // Preços por duração 7 / 14 / 21 dias (TOPES) e 3–7 dias (PRICES_3_7).
+  TOPES = { 'bebe-conforto':[155,195,235], compacto:[190,238,268], cadeirinha:[183,229,259], berco:[127,159,179], cadeira:[96,119,134], banheira:[74,93,105], colchao:[87,109,121] };
+  // Preços fixos de 3, 4, 5, 6 e 7 dias.
+  PRICES_3_7 = { 'bebe-conforto':[109,121,134,145,155], compacto:[133,149,164,177,190], cadeirinha:[129,143,158,171,183], berco:[89,100,110,119,127], cadeira:[68,75,83,90,96], banheira:[52,58,64,69,74], colchao:[61,68,75,81,87] };
+  MAX_ONLINE_DAYS = 21;
   r2(n){ return Math.round((n||0)*100)/100; }
-  tierPrice(id, daily, d){ if (d>this.MAX_ONLINE_DAYS) return null; const t=this.TOPES[id]; if(!t) return this.r2(daily*d); const t7=t[0], t14=t[1], t28=t[2]; if(d<=7) return Math.min(d*daily,t7); if(d<=14) return Math.min(t7+(d-7)*daily,t14); if(d<=28) return Math.min(t14+(d-14)*daily,t28); return this.r2(t28+(d-28)*(t28/28)); }
+  tierPrice(id, daily, d){ if (d>this.MAX_ONLINE_DAYS) return null; d=Math.max(3,d); const s=this.PRICES_3_7[id], t=this.TOPES[id]; if(!s||!t) return Math.round(daily*d); if(d<=7) return s[d-3]; if(d<14) return Math.min(t[0]+(d-7)*6, t[1]); if(d===14) return t[1]; if(d<21) return Math.min(t[1]+(d-14)*6, t[2]); return t[2]; }
   money(n, lng){ const v=this.r2(n); if(Number.isInteger(v)) return String(v); const x=v.toFixed(2); return lng==='en'?x:x.replace('.',','); }
   packPctFor(n){ return n>=4?15:n===3?10:n===2?5:0; }
 
@@ -1225,6 +1226,52 @@ class Component extends DCLogic {
         { label:'Estrutura', value:'Aço' },
         { label:'Tecido', value:'Poliéster resistente e fácil de limpar' },
         { label:'Cor', value:'Bege / Areia (conforme a versão)' },
+      ],
+    },
+    colchonete: {
+      model:"Colchonete dobrável D'Bella for Baby",
+      prosLabel:'Prós',
+      longDesc:[
+        "Mais conforto para o seu bebê dormir bem no Rio. O colchonete dobrável D'Bella for Baby tem espuma D16 de 3 cm, macia e com bom apoio, no tamanho do berço portátil. A capa tem zíper, sai fácil e é lavável à máquina, e as espumas internas são removíveis e forradas. Entregamos higienizado no seu hotel ou Airbnb. Combine com o berço portátil no seu Pack Desconto.",
+      ],
+      pros:[
+        'Espuma D16 com 3 cm de espessura: macia e com bom apoio',
+        'Dobrável: fácil de levar e de guardar',
+        'Capa com zíper, removível e lavável à máquina',
+        'Espumas internas removíveis e forradas',
+        'Higienizado antes de cada aluguel',
+      ],
+      specs:[
+        { label:'Marca', value:"D'Bella for Baby" },
+        { label:'Medidas aberto', value:'94 × 64 cm' },
+        { label:'Espessura', value:'3 cm' },
+        { label:'Medidas fechado', value:'60 × 30 × 12 cm' },
+        { label:'Enchimento', value:'espuma D16' },
+        { label:'Capa', value:'removível, com zíper, lavável à máquina' },
+        { label:'Tamanho', value:'berço portátil' },
+      ],
+    },
+    colchao: {
+      model:'Colchão Ortobom 7 cm',
+      prosLabel:'Prós',
+      longDesc:[
+        'Conforto e higiene para o sono do bebê no Rio. O colchão Ortobom tem 7 cm de espuma D18, firme e uniforme, sem molas. A capa é impermeável: protege contra escapes da fralda e é fácil de limpar. Também é antiácaro, antimofo, antibacteriano e hipoalergênico. Mede 90 × 60 cm e serve em berços e cercadinhos. Entregamos higienizado no seu hotel ou Airbnb. Combine com o berço portátil no seu Pack Desconto.',
+      ],
+      pros:[
+        'Espuma D18 de 7 cm: firme e uniforme, sem molas',
+        'Capa impermeável: protege contra escapes e é fácil de limpar',
+        'Antiácaro, antimofo e antibacteriano',
+        'Hipoalergênico',
+        'Higienizado antes de cada aluguel',
+      ],
+      specs:[
+        { label:'Marca', value:'Ortobom' },
+        { label:'Medidas', value:'90 × 60 cm' },
+        { label:'Altura', value:'7 cm' },
+        { label:'Enchimento', value:'espuma D18, sem molas' },
+        { label:'Capa', value:'100% poliéster, impermeável' },
+        { label:'Serve em', value:'berço, berço portátil e cercadinho' },
+        { label:'Cor', value:'azul' },
       ],
     },
     banheira: {
@@ -1542,6 +1589,90 @@ class Component extends DCLogic {
         ],
       },
     },
+    colchonete: {
+      en: {
+        model:"D'Bella for Baby foldable mattress",
+        longDesc:["More comfort so your baby sleeps well in Rio. The D'Bella for Baby foldable mattress has 3 cm D16 foam, soft with good support, sized for the travel crib. The zippered cover comes off easily and is machine washable, and the inner foam pads are removable and lined. We deliver it sanitized to your hotel or Airbnb. Pair it with the travel crib in your Pack Discount."],
+        pros:[
+          '3 cm thick D16 foam: soft with good support',
+          'Foldable: easy to carry and store',
+          'Zippered cover, removable and machine washable',
+          'Removable, lined inner foam pads',
+          'Sanitized before every rental',
+        ],
+        specs:[
+          { label:'Brand', value:"D'Bella for Baby" },
+          { label:'Open size', value:'94 × 64 cm' },
+          { label:'Thickness', value:'3 cm' },
+          { label:'Folded size', value:'60 × 30 × 12 cm' },
+          { label:'Filling', value:'D16 foam' },
+          { label:'Cover', value:'removable, zippered, machine washable' },
+          { label:'Size', value:'travel crib' },
+        ],
+      },
+      es: {
+        model:"Colchoneta plegable D'Bella for Baby",
+        longDesc:["Más comodidad para que tu bebé duerma bien en Río. La colchoneta plegable D'Bella for Baby tiene espuma D16 de 3 cm, suave y con buen soporte, del tamaño de la cuna de viaje. La funda tiene cremallera, se quita fácilmente y se puede lavar a máquina, y las espumas interiores son extraíbles y forradas. La entregamos higienizada en tu hotel o Airbnb. Combínala con la cuna de viaje en tu Pack Descuento."],
+        pros:[
+          'Espuma D16 de 3 cm de grosor: suave y con buen soporte',
+          'Plegable: fácil de llevar y de guardar',
+          'Funda con cremallera, extraíble y lavable a máquina',
+          'Espumas interiores extraíbles y forradas',
+          'Higienizada antes de cada alquiler',
+        ],
+        specs:[
+          { label:'Marca', value:"D'Bella for Baby" },
+          { label:'Medidas abierta', value:'94 × 64 cm' },
+          { label:'Grosor', value:'3 cm' },
+          { label:'Medidas plegada', value:'60 × 30 × 12 cm' },
+          { label:'Relleno', value:'espuma D16' },
+          { label:'Funda', value:'extraíble, con cremallera, lavable a máquina' },
+          { label:'Tamaño', value:'cuna de viaje' },
+        ],
+      },
+    },
+    colchao: {
+      en: {
+        model:'Ortobom 7 cm Mattress',
+        longDesc:["Comfort and hygiene for your baby's sleep in Rio. This Ortobom mattress has 7 cm of D18 foam, firm and even, with no springs. The waterproof cover protects against diaper leaks and is easy to clean. It's also dust-mite resistant, mold resistant, antibacterial and hypoallergenic. It measures 90 × 60 cm and fits cribs and playpens. We deliver it sanitized to your hotel or Airbnb. Add it to your Pack Discount together with the travel crib."],
+        pros:[
+          '7 cm D18 foam: firm and even, no springs',
+          'Waterproof cover: protects against leaks and is easy to clean',
+          'Dust-mite resistant, mold resistant and antibacterial',
+          'Hypoallergenic',
+          'Sanitized before every rental',
+        ],
+        specs:[
+          { label:'Brand', value:'Ortobom' },
+          { label:'Size', value:'90 × 60 cm (35.4 × 23.6 in)' },
+          { label:'Thickness', value:'7 cm (2.8 in)' },
+          { label:'Filling', value:'D18 foam, no springs' },
+          { label:'Cover', value:'100% polyester, waterproof' },
+          { label:'Fits', value:'crib, travel crib and playpen' },
+          { label:'Color', value:'blue' },
+        ],
+      },
+      es: {
+        model:'Colchón Ortobom 7 cm',
+        longDesc:['Comodidad e higiene para el sueño del bebé en Río. El colchón Ortobom tiene 7 cm de espuma D18, firme y uniforme, sin resortes. La funda es impermeable: protege de los escapes del pañal y es fácil de limpiar. Además es antiácaros, antimoho, antibacteriano e hipoalergénico. Mide 90 × 60 cm y sirve para cunas y corralitos. Te lo entregamos higienizado en tu hotel o Airbnb. Combínalo con la cuna de viaje en tu Pack Descuento.'],
+        pros:[
+          'Espuma D18 de 7 cm: firme y uniforme, sin resortes',
+          'Funda impermeable: protege de los escapes y es fácil de limpiar',
+          'Antiácaros, antimoho y antibacteriano',
+          'Hipoalergénico',
+          'Higienizado antes de cada alquiler',
+        ],
+        specs:[
+          { label:'Marca', value:'Ortobom' },
+          { label:'Medidas', value:'90 × 60 cm' },
+          { label:'Altura', value:'7 cm' },
+          { label:'Relleno', value:'espuma D18, sin resortes' },
+          { label:'Funda', value:'100 % poliéster, impermeable' },
+          { label:'Sirve para', value:'cuna, cuna de viaje y corralito' },
+          { label:'Color', value:'azul' },
+        ],
+      },
+    },
   };
 
   FAQS = [
@@ -1549,8 +1680,8 @@ class Component extends DCLogic {
       a:{ pt:'Entregamos e buscamos em toda a Zona Sul do Rio: Copacabana, Ipanema, Leblon, Botafogo, Flamengo, Leme, Urca, Gávea, Jardim Botânico e Barra da Tijuca. Precisa de outra região? Fala com a gente no WhatsApp.', en:'We deliver and pick up across Rio\u2019s South Zone: Copacabana, Ipanema, Leblon, Botafogo, Flamengo, Leme, Urca, Gávea, Jardim Botânico and Barra da Tijuca. Need another area? Message us on WhatsApp.', es:'Entregamos y recogemos en toda la Zona Sur de Río: Copacabana, Ipanema, Leblon, Botafogo, Flamengo, Leme, Urca, Gávea, Jardim Botânico y Barra da Tijuca. ¿Necesitas otra zona? Escríbenos por WhatsApp.' } },
     { q:{ pt:'Quanto custa a entrega?', en:'How much is delivery?', es:'¿Cuánto cuesta la entrega?' },
       a:{ pt:'Taxa única de R$50 pela entrega e pela coleta — não importa quantos itens você alugar.', en:'A single R$50 fee covers delivery and pickup — no matter how many items you rent.', es:'Una tasa única de 50 R$ cubre la entrega y la recogida — no importa cuántos artículos alquiles.' } },
-    { q:{ pt:'Qual é a locação mínima?', en:'What\u2019s the minimum rental?', es:'¿Cuál es el alquiler mínimo?' },
-      a:{ pt:'A locação mínima é de 3 dias. A partir dos 5 ou 6 dias ativamos automaticamente o preço semanal, que é mais barato que pagar diária a diária. Você paga só os dias que usar e nunca mais que o preço da semana.', en:'The minimum rental is 3 days. From day 5 or 6 we automatically apply the weekly price, which is cheaper than paying day by day. You pay only the days you use, never more than the weekly price.', es:'El alquiler mínimo es de 3 días. A partir de los 5 o 6 días activamos automáticamente el precio semanal, más barato que pagar día a día. Pagas solo los días que uses y nunca más que el precio de la semana.' } },
+    { q:{ pt:'Qual é o período mínimo de aluguel?', en:'What is the minimum rental period?', es:'¿Cuál es el periodo mínimo de alquiler?' },
+      a:{ pt:'O mínimo é de 3 dias e você pode alugar até 21 dias pelo site. Quanto mais dias, menor o preço por dia. Para mais de 21 dias, fale com a gente pelo WhatsApp.', en:'The minimum is 3 days and you can book up to 21 days online. The more days, the lower the price per day. For more than 21 days, message us on WhatsApp.', es:'El mínimo es de 3 días y puedes alquilar hasta 21 días desde la web. Cuantos más días, menor el precio por día. Para más de 21 días, escríbenos por WhatsApp.' } },
     { q:{ pt:'Como funciona o pagamento?', en:'How does payment work?', es:'¿Cómo funciona el pago?' },
       a:{ pt:'Você paga 100% na entrega dos produtos e uma caução de R$150 que é devolvida integralmente no momento da recolhida, após verificar que os produtos não têm nenhum dano significativo.', en:'You pay 100% on delivery of the products and a R$150 deposit that is refunded in full at pickup, after checking that the products have no significant damage.', es:'Pagas el 100% en la entrega de los productos y una fianza de 150RS que se devuelve integramente en el momento de la recogida. Despues de comprobar que los productos no tienen ningun daño significativo.' } },
     { q:{ pt:'Os equipamentos são higienizados?', en:'Is the gear sanitized?', es:'¿El equipamiento está higienizado?' },
@@ -1573,8 +1704,8 @@ class Component extends DCLogic {
   get minDays(){ return this.props.minRentalDays ?? 3; }
   get wa(){ return (this.props.whatsappNumber ?? '5521975855044').replace(/\D/g,''); }
 
-  RES_KEYS = { compacto:'prodCompacto', 'bebe-conforto':'prodBebeConforto', cadeirinha:'prodCadeirinha', cadeira:'prodCadeira', berco:'prodBerco', banheira:'prodBanheira' };
-  imgFallbackFor(id){ const key=this.RES_KEYS[id]; if (typeof window!=='undefined' && window.__resources && key && window.__resources[key]) return window.__resources[key]; return '../assets/prod-'+id+'.webp'; }
+  RES_KEYS = { compacto:'prodCompacto', 'bebe-conforto':'prodBebeConforto', cadeirinha:'prodCadeirinha', cadeira:'prodCadeira', berco:'prodBerco', banheira:'prodBanheira', colchonete:'prodColchonete', colchao:'prodColchao' };
+  imgFallbackFor(id){ const key=this.RES_KEYS[id]; if (typeof window!=='undefined' && window.__resources && key && window.__resources[key]) return window.__resources[key]; return '../assets/'+(id==='colchonete'?'colchonete-dobravel':id==='colchao'?'colchao-ortobom-7cm':'prod-'+id)+'.webp'; }
 
   componentDidMount(){ try{ const __prev=this.state.cart||[]; const __c=__prev.filter(l=>!(l.packPrice!=null && !(l.checkIn&&l.checkOut))); if(__c.length!==__prev.length){ try{ localStorage.setItem('rt-cart', JSON.stringify(__c)); }catch(e){} this.setState({ cart:__c }); } }catch(e){} this.setState(st=>{ const ids=this.PRODUCTS.map(p=>p.id); const cur=st.cart||[]; const c=cur.filter(l=>l&&ids.indexOf(l.id)>=0); if(c.length===cur.length) return null; try{ localStorage.setItem('rt-cart', JSON.stringify(c)); }catch(e){} return { cart:c, cartRemovedNotice:true }; }); this._os=()=>{ const s=window.scrollY>40; if(s!==this.state.scrolled) this.setState({scrolled:s}); }; window.addEventListener('scroll',this._os,{passive:true}); if(typeof window!=='undefined' && /#(produtos|catalogo)/.test(window.location.hash)){ setTimeout(()=>this.scrollTo('produtos'),160); } }
   componentWillUnmount(){ window.removeEventListener('scroll',this._os); this._lockScroll(false); }
@@ -1596,7 +1727,7 @@ class Component extends DCLogic {
     if (typeof window === 'undefined') { this.setState({ lang: code, langOpen:false }); return; }
     const cur = this.state.lang;
     if (code === cur) { this.setState({ langOpen:false }); return; }
-    if (this.bootedProduct() && this.state.productId && this.PRODUCT_SLUGS[this.state.productId]) {
+    if (this.bootedProduct() && this.state.productId && this.PRODUCT_SLUGS[this.state.productId] && this.PRODUCT_SLUGS[this.state.productId][code]) {
       window.location.href = this.productUrl(this.state.productId, code);
     } else {
       window.location.href = this.homeUrl(code);
@@ -1751,16 +1882,17 @@ class Component extends DCLogic {
     const pick = (o) => (o ? (o[lang]!=null?o[lang]:o.pt) : undefined);
     const t_chooseDates = L('Escolher dias','Choose dates','Elegir días');
     const pickA = (o) => ((Array.isArray(o) ? o : (o ? (o[lang]!=null?o[lang]:o.pt) : [])) || []);
-    const decorate = (p) => { const name=pick(p.name), cat=pick(this.CATS[p.catKey]); return { ...p, name, cat, week:this.money((this.TOPES[p.id]||[p.price*7])[0], lang), tag:pick(p.tag), desc:pick(p.desc), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:L('Aluguel de '+name+' no Rio de Janeiro','Rent '+name+' in Rio de Janeiro','Alquiler de '+name+' en Río de Janeiro'), open:(e)=>{ if(e&&e.preventDefault)e.preventDefault(); this.goProduct(p.id); }, href:this.productUrl(p.id, lang),
+    const decorate = (p) => { const name=pick(p.name), cat=pick(this.CATS[p.catKey]); return { ...p, name, cat, week:this.money((this.TOPES[p.id]||[p.price*7])[0], lang), tag:pick(p.tag), desc:pick(p.desc), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:p.alt?pick(p.alt):L('Aluguel de '+name+' no Rio de Janeiro','Rent '+name+' in Rio de Janeiro','Alquiler de '+name+' en Río de Janeiro'), open:(e)=>{ if(e&&e.preventDefault)e.preventDefault(); this.goProduct(p.id); }, href:this.productUrl(p.id, lang),
       wa:this.waLink(L('Olá! Quero alugar '+name+' (R$'+p.price+'/dia). Pode me ajudar?','Hi! I\u2019d like to rent the '+name+' (R$'+p.price+'/day). Can you help?','¡Hola! Quiero alquilar '+name+' (R$'+p.price+'/día). ¿Me pueden ayudar?')) }; };
-    const products = this.PRODUCTS.map(decorate);
+    const __vis = this.PRODUCTS.filter(p=>!p.langs||p.langs.indexOf(lang)>=0);
+    const products = __vis.map(decorate);
 
-    const catKeys = ['todos', ...Array.from(new Set(this.PRODUCTS.map(p=>p.catKey)))];
+    const catKeys = ['todos', ...Array.from(new Set(__vis.map(p=>p.catKey)))];
     const categories = catKeys.map(k => { const active=k===catFilter; return { label:pick(this.CATS[k]), active, onClick:()=>this.setCat(k),
-      count: k==='todos' ? this.PRODUCTS.length : this.PRODUCTS.filter(p=>p.catKey===k).length,
+      count: k==='todos' ? __vis.length : __vis.filter(p=>p.catKey===k).length,
       bg: active?'var(--color-primary)':'var(--color-surface)', color: active?'#fff':'var(--ink-500)',
       borderColor: active?'var(--color-primary)':'var(--color-border)' }; });
-    const filteredProducts = (catFilter==='todos' ? this.PRODUCTS : this.PRODUCTS.filter(p=>p.catKey===catFilter)).map(decorate);
+    const filteredProducts = (catFilter==='todos' ? __vis : __vis.filter(p=>p.catKey===catFilter)).map(decorate);
 
     const current = this.PRODUCTS.find(p=>p.id===productId);
     const { checkIn, checkOut } = this.state;
@@ -1774,18 +1906,18 @@ class Component extends DCLogic {
     const dCons = di18n ? di18n.cons : (detail && detail.cons);
     const curName = current ? pick(current.name) : '';
     const curDateRange = hasValidDates ? (this.formatShortDate(checkIn,lang)+' – '+this.formatShortDate(checkOut,lang)) : null;
-    const __curRaw = current ? current.price*rentalDays : 0;
+    const __curRaw = current ? ((this.PRICES_3_7&&this.PRICES_3_7[current.id]) ? Math.round(this.PRICES_3_7[current.id][0]/3*rentalDays) : current.price*rentalDays) : 0;
     const __curTier = current ? this.tierPrice(current.id, current.price, rentalDays) : null;
     const curTooLong = !!current && __curTier==null;
     const __curSub = __curTier==null ? __curRaw : __curTier;
     const curSaving = (current && !curTooLong) ? this.r2(__curRaw-__curSub) : 0;
     const __canAdd = hasValidDates && !curTooLong;
-    const cur = current ? { ...decorate(current),
-      subtotal: this.money(__curSub,lang), total: this.money(__curSub+this.fee,lang), hasSaving: curSaving>0, savingAmt: '\u2212R$'+this.money(curSaving,lang), imgW: current.id==='bebe-conforto'?'76%':'100%', imgM: current.id==='bebe-conforto'?'6.75% auto':'0', savingMsg: L('Preço semanal aplicado — você economiza R$'+this.money(curSaving,lang)+' em comparação com a diária','Weekly price applied — you save R$'+this.money(curSaving,lang)+' compared to the daily rate','Precio semanal aplicado — ahorras R$'+this.money(curSaving,lang)+' en comparación con la tarifa diaria'), tooLong: curTooLong, notTooLong: !curTooLong,
-      hasSpecs: !!detail, hasProsCons: !!(detail && detail.pros), hasCons: !!(dCons && pickA(dCons).length), model: detail?.model,
+    const cur = current ? { ...decorate(current), ...(current.title?{name:pick(current.title)}:{}),
+      subtotal: this.money(__curSub,lang), avgDay: (rentalDays>0&&__curTier!=null)?String(Math.ceil(__curSub/rentalDays)):'', total: this.money(__curSub+this.fee,lang), hasSaving: curSaving>0, savingAmt: '\u2212R$'+this.money(curSaving,lang), imgW: current.id==='bebe-conforto'?'76%':'100%', imgM: current.id==='bebe-conforto'?'6.75% auto':'0', savingMsg: L('Preço semanal aplicado — você economiza R$'+this.money(curSaving,lang)+' em comparação com a diária','Weekly price applied — you save R$'+this.money(curSaving,lang)+' compared to the daily rate','Precio semanal aplicado — ahorras R$'+this.money(curSaving,lang)+' en comparación con la tarifa diaria'), tooLong: curTooLong, notTooLong: !curTooLong,
+      hasSpecs: !!detail, hasProsCons: !!(detail && detail.pros), hasCons: !!(dCons && pickA(dCons).length), model: (di18n&&di18n.model)||detail?.model,
       prosLabel: L('Prós','Pros','Pros'),
       longDesc: pickA(dLong), pros: pickA(dPros), cons: pickA(dCons), specs: pickA(dSpecs),
-      related: this.PRODUCTS.filter(p=>p.id!==current.id).slice(0,3).map(decorate),
+      related: __vis.filter(p=>p.id!==current.id).slice(0,3).map(decorate),
       canAdd: __canAdd,
       addOpacity: __canAdd?1:0.55, addCursor: __canAdd?'pointer':'not-allowed', addPE: __canAdd?'auto':'none',
       add: __canAdd ? (()=>this.addToCart(current.id, checkIn, checkOut)) : null,
@@ -1800,7 +1932,7 @@ class Component extends DCLogic {
       const tier = hasDates ? this.tierPrice(p.id, p.price, days) : 0;
       const tooLong = hasDates && tier==null;
       const lineNum = tooLong ? 0 : this.r2((tier||0)*pQty);
-      return { ...p, name:pick(p.name)+(pQty>1?' ×'+pQty:''), cat:pick(this.CATS[p.catKey]), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:L('Aluguel de '+pick(p.name)+' no Rio de Janeiro','Rent '+pick(p.name)+' in Rio de Janeiro','Alquiler de '+pick(p.name)+' en Río de Janeiro'),
+      return { ...p, name:pick(p.name)+(pQty>1?' ×'+pQty:''), cat:pick(this.CATS[p.catKey]), imgId:'prod-'+p.id, imgFallback:this.imgFallbackFor(p.id), imgAlt:((p.id==='colchonete'||p.id==='colchao')&&p.alt)?pick(p.alt):L('Aluguel de '+pick(p.name)+' no Rio de Janeiro','Rent '+pick(p.name)+' in Rio de Janeiro','Alquiler de '+pick(p.name)+' en Río de Janeiro'),
         days, dateRange: hasDates ? (this.formatShortDate(line.checkIn,lang)+' – '+this.formatShortDate(line.checkOut,lang)) : L('Datas a definir no carrinho','Set dates in cart','Fechas por definir en el carrito'),
         price: p.price, tooLong, lineNum, lineTotal: tooLong ? '—' : this.money(lineNum,lang),
         remove:()=>this.removeFromCart(p.id) };
@@ -1966,8 +2098,8 @@ class Component extends DCLogic {
       weeklyDiscount:L('Desconto semanal','Weekly discount','Descuento semanal'),
       cartRemovedMsg:L('Alguns itens do seu carrinho não estão mais disponíveis e foram removidos.','Some items in your cart are no longer available and have been removed.','Algunos artículos de tu carrito ya no están disponibles y se han eliminado.'),
       cartRemovedLink:L('Ver catálogo.','View catalog.','Ver catálogo.'),
-      heroStrip:L('Sem mínimo de 7 dias · Pague só os dias que usar','No 7-day minimum · Pay only the days you use · No CPF needed (Brazilian tax ID)','Sin mínimo de 7 días · Paga solo los días que uses · Sin CPF (documento de identificación fiscal brasileño)'),
-      longMsg:L('Para aluguéis de mais de 56 dias, fale com a gente pelo WhatsApp.','For rentals longer than 56 days, contact us on WhatsApp.','Para alquileres de más de 56 días, habla con nosotros por WhatsApp.'),
+      heroStrip:L('A partir de 3 dias · Não precisa alugar a semana toda','From 3 days · No need to rent the whole week','Desde 3 días · No hace falta alquilar la semana entera'),
+      longMsg:L('Para aluguéis de mais de 21 dias, fale com a gente pelo WhatsApp.','For rentals longer than 21 days, contact us on WhatsApp.','Para alquileres de más de 21 días, habla con nosotros por WhatsApp.'),
       longBtn:L('Falar no WhatsApp','Chat on WhatsApp','Hablar por WhatsApp'),
       durationNote:L('Preços com desconto por duração aplicado automaticamente','Length-of-rental discount applied automatically','Precios con descuento por duración aplicado automáticamente'),
       perDaySpaced:L('/ dia','/ day','/ día'),

@@ -16,3 +16,8 @@
 /en/catalog/full-size-stroller.html      /en/catalog/infant-car-seat.html           301
 /es/catalogo/silla-de-coche.html         /es/catalogo/silla-de-coche-ninos.html     301
 /en/catalog/car-seat.html                /en/catalog/child-car-seat.html            301
+
+# Produto removido (2026-10): Colchonete Dobrável
+/catalogo/colchonete-dobravel.html       /catalogo/colchao-impermeavel.html         301
+/es/catalogo/colchoneta-plegable.html    /es/catalogo/colchon-impermeable.html      301
+/en/catalog/foldable-crib-mattress.html  /en/catalog/waterproof-crib-mattress.html  301

@@ -9,13 +9,13 @@
     emailjs.init({ publicKey: "zZevy4-YLmMl16Kxj" });
   })();
 </script>
-<title>Alugar assento de elevação Isofix no Rio | Rental Turtle</title>
+<title>Alugar assento de elevação com Isofix no Rio | Rental Turtle</title>
 <meta name="description" content="Assento de elevação com Isofix para crianças de 15 a 36 kg, certificado pelo INMETRO e higienizado. Entrega e coleta na Zona Sul do Rio de Janeiro.">
 <link rel="canonical" href="https://rentalturtle.com/catalogo/assento-de-elevacao.html">
-<meta property="og:title" content="Alugar assento de elevação Isofix no Rio | Rental Turtle">
+<meta property="og:title" content="Alugar assento de elevação com Isofix no Rio | Rental Turtle">
 <meta property="og:description" content="Assento de elevação com Isofix para crianças de 15 a 36 kg, certificado pelo INMETRO e higienizado. Entrega e coleta na Zona Sul do Rio de Janeiro.">
 <meta property="og:image" content="https://rentalturtle.com/assets/prod-assento-elevacao.webp">
-<meta property="og:image:alt" content="Assento de elevação Isofix Replay Kids FIX FIT">
+<meta property="og:image:alt" content="Assento de elevação com Isofix Replay Kids FIX FIT">
 <meta property="og:url" content="https://rentalturtle.com/catalogo/assento-de-elevacao.html">
 <meta property="og:type" content="website">
 <script type="application/ld+json">
@@ -55,7 +55,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Assento de elevação Isofix",
+  "name": "Assento de elevação com Isofix",
   "description": "Para crianças de 15 a 36 kg que já não precisam de cadeirinha com cinto próprio. Pesa só 800 g e se prende ao carro com Isofix; se precisar, ajudamos a instalar na entrega.",
   "brand": {
     "@type": "Brand",
@@ -885,6 +885,26 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <input value="{{ customerEmail }}" onChange="{{ setCustomerEmail }}" type="email" placeholder="{{ t.fieldEmailPh }}" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
 </div>
 <div>
+<label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.fieldPhone }} <span style="color:var(--color-danger);">*</span></label>
+<div style="position:relative;display:flex;gap:8px;">
+<div onClick="{{ togglePhoneCc }}" role="button" aria-haspopup="listbox" aria-expanded="{{ phoneCcAria }}" style="flex:0 0 auto;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 12px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap;"><span role="img" aria-label="{{ phoneCcFlagName }}" style="display:inline-block;flex:0 0 auto;width:20px;height:14px;border-radius:2px;background-color:var(--sand-100);background-size:cover;background-position:center;background-image:url({{ phoneCcFlagSrc }});box-shadow:0 0 0 1px rgba(0,0,0,0.08);"></span><span>{{ phoneCcDial }}</span><span style="font-size:10px;margin-left:4px;">▼</span></div>
+<input value="{{ phoneNum }}" onChange="{{ setPhoneNum }}" onBlur="{{ phoneBlur }}" type="tel" inputMode="tel" autoComplete="tel-national" placeholder="{{ phonePh }}" style="flex:1;min-width:0;width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid {{ phoneBorder }};background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
+<sc-if value="{{ phoneCcOpen }}">
+<div role="listbox" style="position:absolute;left:0;right:0;top:100%;margin-top:6px;z-index:30;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);box-shadow:0 4px 12px rgba(0,0,0,0.08);overflow:hidden;">
+<div style="padding:8px;border-bottom:1px solid var(--color-border);"><input value="{{ phoneCcQuery }}" onChange="{{ setPhoneCcQuery }}" autoFocus="{{ true }}" placeholder="{{ t.phoneSearchPh }}" style="width:100%;height:38px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 12px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;"></div>
+<div style="max-height:260px;overflow-y:auto;">
+<sc-for list="{{ phoneCcOptions }}" as="c" hint-placeholder-count="0">
+<sc-if value="{{ c.sep }}"><div style="height:1px;background:var(--color-border);margin:4px 0;"></div></sc-if>
+<div role="option" onClick="{{ c.onClick }}" style="padding:10px 12px;cursor:pointer;display:flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);" style-hover="background:var(--sand-100);"><span role="img" aria-label="{{ c.flagName }}" style="display:inline-block;flex:0 0 auto;width:20px;height:14px;border-radius:2px;background-color:var(--sand-100);background-size:cover;background-position:center;background-image:url({{ c.flagSrc }});box-shadow:0 0 0 1px rgba(0,0,0,0.08);"></span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.name }}</span><span style="font-weight:700;">{{ c.dialLabel }}</span></div>
+</sc-for>
+<sc-if value="{{ phoneCcNoResults }}"><div style="padding:10px 12px;font-family:var(--font-body);font-size:13px;color:var(--ink-300);">{{ t.phoneNoResults }}</div></sc-if>
+</div>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{ phoneErrShow }}"><div style="font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--color-danger);margin-top:6px;">{{ phoneErr }}</div></sc-if>
+</div>
+<div>
 <label style="display:block;font-family:var(--font-body);font-weight:800;font-size:12px;color:var(--ink-500);margin-bottom:6px;">{{ t.fieldCountry }} <span style="color:var(--color-danger);">*</span></label>
 <input value="{{ customerCountry }}" onChange="{{ setCustomerCountry }}" placeholder="{{ t.fieldCountryPh }}" style="width:100%;height:46px;border-radius:var(--radius-md);border:1.5px solid var(--color-border);background:var(--color-surface);padding:0 14px;font-family:var(--font-body);font-size:14px;color:var(--ink-500);outline:none;box-sizing:border-box;">
 </div>
@@ -1007,7 +1027,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;deliveryFee&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:50,&quot;unit&quot;:&quot;R$&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;minRentalDays&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;unit&quot;:&quot;dias&quot;,&quot;section&quot;:&quot;Conteúdo&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;+5521975855044&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;showPromoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Conteúdo&quot;}}">
 class Component extends DCLogic {
-  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{const c=JSON.parse(localStorage.getItem('rt-cart')||'[]');const ids=window.RT_PRODUCT_IDS||['bebe-conforto','compacto','cadeirinha','cadeirinha-360','assento-elevacao','cadeira','berco','banheira','colchao'];const k=(Array.isArray(c)?c:[]).filter(l=>l&&ids.indexOf(l.id)>=0);if(k.length!==c.length){window.__rtCartPurged=true;localStorage.setItem('rt-cart',JSON.stringify(k));}return k;}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', sendStatus:'idle', paymentMethod:'Visa/Mastercard', cartRemovedNotice:(typeof window!=='undefined'&&(()=>{try{const f=!!window.__rtCartPurged||localStorage.getItem('rt-cart-purged')==='1';localStorage.removeItem('rt-cart-purged');return f;}catch(e){return !!window.__rtCartPurged;}})()) };
+  state = { screen:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen)||(typeof window!=='undefined'&&'home'), productId:(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.productId)||null, cart:(typeof window!=='undefined'?(()=>{try{const c=JSON.parse(localStorage.getItem('rt-cart')||'[]');const ids=window.RT_PRODUCT_IDS||['bebe-conforto','compacto','cadeirinha','cadeirinha-360','assento-elevacao','cadeira','berco','banheira','colchao'];const k=(Array.isArray(c)?c:[]).filter(l=>l&&ids.indexOf(l.id)>=0);if(k.length!==c.length){window.__rtCartPurged=true;localStorage.setItem('rt-cart',JSON.stringify(k));}return k;}catch(e){return[]}})():[]), openFaq:0, lang:(typeof window!=='undefined' ? (/\/es(\/|$)/.test(window.location.pathname) ? 'es' : (/\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'pt')) : 'pt'), scrolled:false, cartOpen:(typeof window!=='undefined'&&window.__RT_INIT&&!!window.__RT_INIT.cartOpen)||false, langOpen:false, catFilter:'todos', mobileMenuOpen:false, checkIn:null, checkOut:null, calendarOpen:false, calSelecting:'start', calMonthIndex:null, cartStep:'cart', deliveryZone:'', zoneOpen:false, flightNumber:'', airline:'', customerName:'', customerSurname:'', customerEmail:'', customerCountry:'', phoneCc:'BR', phoneNum:'', phoneTouched:false, phoneCcOpen:false, phoneCcQuery:'', sendStatus:'idle', paymentMethod:'Visa/Mastercard', cartRemovedNotice:(typeof window!=='undefined'&&(()=>{try{const f=!!window.__rtCartPurged||localStorage.getItem('rt-cart-purged')==='1';localStorage.removeItem('rt-cart-purged');return f;}catch(e){return !!window.__rtCartPurged;}})()) };
 
   CATS = {
     todos:   { pt:'Todos',    en:'All',       es:'Todos' },
@@ -1038,13 +1058,13 @@ class Component extends DCLogic {
       alt:{"pt":"Cadeirinha Safety 1st Multifix com Isofix preta","es":"Silla de coche Safety 1st Multifix con Isofix negra","en":"Black Safety 1st Multifix car seat with Isofix"},
       desc:{"pt":"Cadeirinha conversível para crianças de 1 a 10 anos. Fixação Isofix, arnês de 5 pontos e certificação INMETRO.","es":"Silla de coche convertible para niños de 1 a 10 años. Anclaje Isofix, arnés de 5 puntos y certificación INMETRO.","en":"Convertible car seat for children aged 1 to 10. Isofix installation, 5-point harness and INMETRO certification."} },
     { id:'cadeirinha-360', catKey:'auto', price:44, rating:4.9, reviews:0,
-      name:{"pt":"Cadeirinha giratória 360°","en":"360-degree rotating car seat","es":"Silla de coche giratoria 360°"},
-      alt:{"pt":"Cadeirinha giratória 360° Maxi Baby Max360","es":"Silla de coche giratoria 360° Maxi Baby Max360","en":"Maxi Baby Max360 360-degree rotating car seat"},
+      name:{"pt":"Cadeirinha giratória 360° com Isofix","en":"360-degree rotating car seat with Isofix","es":"Silla de coche giratoria 360° con Isofix"},
+      alt:{"pt":"Cadeirinha giratória 360° com Isofix Maxi Baby Max360","es":"Silla de coche giratoria 360° con Isofix Maxi Baby Max360","en":"Maxi Baby Max360 360-degree rotating car seat with Isofix"},
       desc:{"pt":"Uma só cadeirinha do nascimento até 36 kg. Gira 360° para colocar e tirar a criança sem torcer as costas, e se prende com Isofix e Top Tether; se precisar, ajudamos a instalar na entrega.","en":"One seat from birth up to 36 kg. It rotates 360° so you can get your child in and out without twisting your back, and locks in with Isofix and Top Tether; we can help you install it at delivery.","es":"Una sola silla desde el nacimiento hasta 36 kg. Gira 360° para sentar y sacar al niño sin torcer la espalda, y se ancla con Isofix y Top Tether; si hace falta, te ayudamos a instalarla en la entrega."} },
     { id:'assento-elevacao', catKey:'auto', price:28, rating:4.9, reviews:0,
-      name:{"pt":"Assento de elevação Isofix","en":"Isofix booster seat","es":"Asiento elevador Isofix"},
-      cartName:{"pt":"assento de elevação","en":"booster seat","es":"asiento elevador"},
-      alt:{"pt":"Assento de elevação Isofix Replay Kids FIX FIT","es":"Asiento elevador Isofix Replay Kids FIX FIT","en":"Replay Kids FIX FIT Isofix booster seat"},
+      name:{"pt":"Assento de elevação com Isofix","en":"Booster seat with Isofix","es":"Asiento elevador con Isofix"},
+      cartName:{"pt":"assento de elevação com Isofix","en":"booster seat with Isofix","es":"asiento elevador con Isofix"},
+      alt:{"pt":"Assento de elevação com Isofix Replay Kids FIX FIT","es":"Asiento elevador con Isofix Replay Kids FIX FIT","en":"Replay Kids FIX FIT booster seat with Isofix"},
       desc:{"pt":"Para crianças de 15 a 36 kg que já não precisam de cadeirinha com cinto próprio. Pesa só 800 g e se prende ao carro com Isofix; se precisar, ajudamos a instalar na entrega.","en":"For children from 15 to 36 kg who no longer need a harnessed car seat. It weighs only 800 g and locks into the car with Isofix; we can help you install it at delivery.","es":"Para niños de 15 a 36 kg que ya no necesitan silla con arnés. Pesa solo 800 g y se ancla al coche con Isofix; si hace falta, te ayudamos a instalarlo en la entrega."} },
     { id:'cadeira', catKey:'refeicao', price:23, rating:4.6, reviews:57,
       name:{ pt:'Cadeira de alimentação', en:'High chair', es:'Trona' },
@@ -1824,6 +1844,41 @@ class Component extends DCLogic {
   setCustomerName = (e) => this.setState({ customerName: e.target.value });
   setCustomerSurname = (e) => this.setState({ customerSurname: e.target.value });
   setCustomerEmail = (e) => this.setState({ customerEmail: e.target.value });
+
+  PHONE_CC_RAW = 'AF,93,9,9|AL,355,8,9|DZ,213,8,9|AS,1684,7,7|AD,376,6,9|AO,244,9,9|AI,1264,7,7|AG,1268,7,7|AR,54,10,11|AM,374,8,8|AW,297,7,7|AU,61,9,9|AT,43,4,13|AZ,994,9,9|BS,1242,7,7|BH,973,8,8|BD,880,10,10|BB,1246,7,7|BY,375,9,10|BE,32,8,9|BZ,501,7,7|BJ,229,8,10|BM,1441,7,7|BT,975,7,8|BO,591,8,8|BA,387,8,9|BW,267,7,8|BR,55,10,11|VG,1284,7,7|BN,673,7,7|BG,359,8,9|BF,226,8,8|BI,257,8,8|KH,855,8,9|CM,237,9,9|CA,1,10,10|CV,238,7,7|KY,1345,7,7|CF,236,8,8|TD,235,8,8|CL,56,9,9|CN,86,10,11|CO,57,10,10|KM,269,7,7|CG,242,9,9|CD,243,9,9|CK,682,5,5|CR,506,8,8|CI,225,10,10|HR,385,8,9|CU,53,8,8|CW,599,7,8|CY,357,8,8|CZ,420,9,9|DK,45,8,8|DJ,253,8,8|DM,1767,7,7|DO,1809,7,7|EC,593,8,9|EG,20,9,10|SV,503,8,8|GQ,240,9,9|ER,291,7,7|EE,372,7,8|SZ,268,8,8|ET,251,9,9|FK,500,5,5|FO,298,6,6|FJ,679,7,7|FI,358,6,10|FR,33,9,9|GF,594,9,9|PF,689,8,8|GA,241,7,8|GM,220,7,7|GE,995,9,9|DE,49,7,12|GH,233,9,9|GI,350,8,8|GR,30,10,10|GL,299,6,6|GD,1473,7,7|GP,590,9,9|GU,1671,7,7|GT,502,8,8|GN,224,9,9|GW,245,7,9|GY,592,7,7|HT,509,8,8|HN,504,8,8|HK,852,8,8|HU,36,8,9|IS,354,7,9|IN,91,10,10|ID,62,9,12|IR,98,10,10|IQ,964,10,10|IE,353,7,9|IL,972,8,9|IT,39,6,11|JM,1876,7,7|JP,81,9,10|JO,962,8,9|KZ,77,9,9|KE,254,9,9|KI,686,5,8|XK,383,8,9|KW,965,8,8|KG,996,9,9|LA,856,8,10|LV,371,8,8|LB,961,7,8|LS,266,8,8|LR,231,7,9|LY,218,9,9|LI,423,7,9|LT,370,8,8|LU,352,6,11|MO,853,8,8|MG,261,9,9|MW,265,7,9|MY,60,9,10|MV,960,7,7|ML,223,8,8|MT,356,8,8|MH,692,7,7|MQ,596,9,9|MR,222,8,8|MU,230,7,8|MX,52,10,10|FM,691,7,7|MD,373,8,8|MC,377,8,9|MN,976,8,8|ME,382,8,9|MS,1664,7,7|MA,212,9,9|MZ,258,8,9|MM,95,7,10|NA,264,8,9|NR,674,7,7|NP,977,8,10|NL,31,9,9|NC,687,6,6|NZ,64,8,10|NI,505,8,8|NE,227,8,8|NG,234,8,10|NU,683,4,4|KP,850,8,10|MK,389,8,8|MP,1670,7,7|NO,47,8,8|OM,968,8,8|PK,92,10,10|PW,680,7,7|PS,970,9,9|PA,507,7,8|PG,675,7,8|PY,595,9,9|PE,51,8,9|PH,63,10,10|PL,48,9,9|PT,351,9,9|PR,1787,7,7|QA,974,8,8|RE,262,9,9|RO,40,9,9|RU,7,10,10|RW,250,9,9|KN,1869,7,7|LC,1758,7,7|PM,508,6,6|VC,1784,7,7|WS,685,5,7|SM,378,6,10|ST,239,7,7|SA,966,9,9|SN,221,9,9|RS,381,8,9|SC,248,7,7|SL,232,8,8|SG,65,8,8|SX,1721,7,7|SK,421,9,9|SI,386,8,8|SB,677,5,7|SO,252,7,9|ZA,27,9,9|KR,82,9,10|SS,211,9,9|ES,34,9,9|LK,94,9,9|SD,249,9,9|SR,597,6,7|SE,46,7,9|CH,41,9,9|SY,963,9,9|TW,886,9,9|TJ,992,9,9|TZ,255,9,9|TH,66,8,9|TL,670,7,8|TG,228,8,8|TO,676,5,7|TT,1868,7,7|TN,216,8,8|TR,90,10,10|TM,993,8,8|TC,1649,7,7|TV,688,5,6|UG,256,9,9|UA,380,9,9|AE,971,8,9|GB,44,10,10|US,1,10,10|UY,598,8,8|UZ,998,9,9|VU,678,5,7|VA,39,6,11|VE,58,10,10|VN,84,9,10|WF,681,6,6|YE,967,7,9|YT,262,9,9|ZM,260,9,9|ZW,263,9,9';
+  PHONE_PRIORITY = ['BR','AR','CL','UY','PY','CO','US','PT','ES','FR','IT','DE','GB'];
+  PHONE_PH = { BR:'21 99999-9999', AR:'11 2345-6789', CL:'9 6123 4567', UY:'94 231 234', PY:'961 456789', CO:'321 1234567', US:'201 555 0123', PT:'912 345 678', ES:'612 34 56 78', FR:'6 12 34 56 78', IT:'312 345 6789', DE:'1512 3456789', GB:'7400 123456' };
+  get phoneCountries(){
+    if (this.__pc) return this.__pc;
+    const dn={}; ['pt','es','en'].forEach(l=>{ try{ dn[l]=new Intl.DisplayNames([l==='pt'?'pt-BR':l],{type:'region'}); }catch(e){} });
+    this.__pc = this.PHONE_CC_RAW.split('|').map(s=>{ const [iso,dial,mn,mx]=s.split(','); const names={}; ['pt','es','en'].forEach(l=>{ let n=iso; try{ n=(dn[l]&&dn[l].of(iso))||iso; }catch(e){} names[l]=n; });
+      return { iso, dial, min:+mn, max:+mx, names, flag:String.fromCodePoint(...iso.split('').map(ch=>0x1F1E6+ch.charCodeAt(0)-65)), norm:(names.pt+' '+names.es+' '+names.en+' '+iso).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase() }; });
+    return this.__pc;
+  }
+  phoneCountry(iso){ return this.phoneCountries.find(c=>c.iso===iso) || this.phoneCountries.find(c=>c.iso==='BR'); }
+  phoneDetect(d){ let best=null; const pr=this.PHONE_PRIORITY; for (const c of this.phoneCountries){ if (d.startsWith(c.dial) && (!best || c.dial.length>best.dial.length || (c.dial.length===best.dial.length && pr.indexOf(c.iso)>=0 && pr.indexOf(best.iso)<0))) best=c; } return best; }
+  phoneResolve(v){ const tr=(v||'').trim(); if (/^(\+|00)/.test(tr)){ const d=tr.replace(/^00/,'').replace(/\D/g,''); if (d.length>=8){ const c=this.phoneDetect(d); if (c) return { phoneCc:c.iso, phoneNum:d.slice(c.dial.length) }; } return { phoneNum:'+'+tr.replace(/^(\+|00)/,'').replace(/[^\d\s-]/g,'') }; } return { phoneNum:(v||'').replace(/[^\d\s-]/g,'') }; }
+  setPhoneNum = (e) => this.setState(this.phoneResolve(e && e.target ? e.target.value : ''));
+  phoneBlur = () => { const tr=(this.state.phoneNum||'').trim(); let s={ phoneTouched:true }; if (/^\+/.test(tr)){ const d=tr.replace(/\D/g,''); const c=this.phoneDetect(d); if (c) s={ ...s, phoneCc:c.iso, phoneNum:d.slice(c.dial.length) }; } this.setState(s); };
+  togglePhoneCc = () => this.setState(s=>({ phoneCcOpen:!s.phoneCcOpen, phoneCcQuery:'', zoneOpen:false }));
+  setPhoneCcQuery = (e) => this.setState({ phoneCcQuery: e.target.value });
+  selectPhoneCc = (iso) => this.setState({ phoneCc:iso, phoneCcOpen:false, phoneCcQuery:'' });
+  phoneInfo(){ const c=this.phoneCountry(this.state.phoneCc||'BR'); const raw=(this.state.phoneNum||'').trim(); let d=raw.replace(/\D/g,''); if (c.iso!=='IT') d=d.replace(/^0+/,''); const empty=!d && !raw; const valid=!/^\+/.test(raw) && d.length>=c.min && d.length<=c.max; return { c, empty, valid, full: valid ? '+'+c.dial+d : '' }; }
+  phoneVals(L, lang){
+    const pi=this.phoneInfo(), c=pi.c, pr=this.PHONE_PRIORITY;
+    const err = pi.empty ? L('Informe seu telefone','Enter your phone number','Introduce tu teléfono') : (!pi.valid ? L('Número de telefone inválido para o país selecionado','Invalid phone number for the selected country','Número de teléfono no válido para el país seleccionado') : '');
+    const show = !!(this.state.phoneTouched && err);
+    const nm = (x)=>x.names[lang]||x.names.pt;
+    const q=(this.state.phoneCcQuery||'').trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/^\+/,'');
+    const qd=/^\d+$/.test(q)?q:null;
+    const match=(x)=>!q || (qd ? x.dial.startsWith(qd) : x.norm.includes(q));
+    const all=this.phoneCountries.filter(match);
+    const top=pr.map(iso=>all.find(x=>x.iso===iso)).filter(Boolean);
+    const rest=all.filter(x=>pr.indexOf(x.iso)<0).sort((a,b)=>nm(a).localeCompare(nm(b)));
+    const opts=[...top,...rest].map((x,i)=>({ flag:x.flag, flagSrc:'https://flagcdn.com/w40/'+x.iso.toLowerCase()+'.png', flagName:nm(x), name:nm(x), dialLabel:'+'+x.dial, sep: top.length>0 && i===top.length, onClick:()=>this.selectPhoneCc(x.iso) }));
+    const ph = this.PHONE_PH[c.iso] || '1234567890123'.slice(0,c.max).replace(/(\d{3})(?=\d)/g,'$1 ');
+    return { pi, vals:{ phoneNum:this.state.phoneNum||'', setPhoneNum:this.setPhoneNum, phoneBlur:this.phoneBlur, togglePhoneCc:this.togglePhoneCc, phoneCcOpen:!!this.state.phoneCcOpen, phoneCcAria:this.state.phoneCcOpen?'true':'false', phoneCcFlag:c.flag, phoneCcFlagSrc:'https://flagcdn.com/w40/'+c.iso.toLowerCase()+'.png', phoneCcFlagName:nm(c), phoneCcDial:'+'+c.dial, phoneCcQuery:this.state.phoneCcQuery||'', setPhoneCcQuery:this.setPhoneCcQuery, phoneCcOptions:opts, phoneCcNoResults:opts.length===0, phonePh:ph, phoneErr:err, phoneErrShow:show, phoneBorder: show ? 'var(--color-danger)' : 'var(--color-border)' } };
+  }
   sendReservation = async (resv) => {
     if (!resv || this.state.sendStatus === 'sent') return;
     this.setState({ sendStatus: 'sending' });
@@ -1832,7 +1887,7 @@ class Component extends DCLogic {
       const zona = this.selectedZona;
       const isAirportZone = !!zona && zona.tipo === 'aeroporto';
       await emailjs.send('service_9zabifv', 'template_0mol0tp', {
-        name: resv.name, email: resv.email, country: resv.country, message: resv.body,
+        name: resv.name, email: resv.email, country: resv.country, phone: resv.phone||'', message: resv.body,
         location_type: locationType, location_reference: locationReference, delivery_time: deliveryTime, pickup_time: pickupTime, payment_method: (paymentMethod==='Efectivo' ? 'Efectivo (reales)' : paymentMethod), total_reserva: resv.total||'', referral_source: referralSource,
         zona_entrega: zona ? zona.nome : '', taxa_entrega: zona ? ('R$'+zona.preco) : '',
         numero_voo: isAirportZone ? (flightNumber||'') : '', companhia_aerea: isAirportZone ? (airline||'') : '',
@@ -1948,8 +2003,9 @@ class Component extends DCLogic {
     const { customerName, customerSurname, customerEmail, customerCountry, locationType, locationReference, deliveryTime, pickupTime, paymentMethod, referralSource } = this.state;
     const locOk = isAirport ? true : !!(locationType && (locationReference||'').trim());
     const flightOk = isAirport ? !!((this.state.flightNumber||'').trim() && (this.state.airline||'').trim()) : true;
-    const canContinue = !cartTooLong && !!(customerName.trim() && customerSurname.trim() && /^\S+@\S+\.\S+$/.test(customerEmail.trim()) && customerCountry.trim() && zona && locOk && flightOk && deliveryTime && pickupTime && paymentMethod && referralSource);
-    const custLine = L('Nome: ','Name: ','Nombre: ')+customerName.trim()+'\n'+L('Sobrenome: ','Surname: ','Apellido: ')+customerSurname.trim()+'\nE-mail: '+customerEmail.trim()+'\n'+L('País de origem: ','Country of origin: ','País de origen: ')+customerCountry.trim()+'\n';
+    const __phv = this.phoneVals(L, lang), __ph = __phv.pi;
+    const canContinue = !cartTooLong && !!(customerName.trim() && customerSurname.trim() && /^\S+@\S+\.\S+$/.test(customerEmail.trim()) && customerCountry.trim() && __ph.valid && zona && locOk && flightOk && deliveryTime && pickupTime && paymentMethod && referralSource);
+    const custLine = L('Nome: ','Name: ','Nombre: ')+customerName.trim()+'\n'+L('Sobrenome: ','Surname: ','Apellido: ')+customerSurname.trim()+'\nE-mail: '+customerEmail.trim()+'\n'+L('País de origem: ','Country of origin: ','País de origen: ')+customerCountry.trim()+'\n'+L('Telefone: ','Phone: ','Teléfono: ')+__ph.full+'\n';
     const reservationBody = L('Olá! Quero reservar na Rental Turtle:\n'+custLine+cartLinesText('pt')+'\nEntrega e coleta: R$'+zoneFee+'\nFiança: R$150 (devolvida no final da locação)\nTotal: R$'+cartTotal+'.','Hi! I\u2019d like to book with Rental Turtle:\n'+custLine+cartLinesText('en')+'\nDelivery and pickup: R$'+zoneFee+'\nDeposit: R$150 (refunded at the end of the rental)\nTotal: R$'+cartTotal+'.','¡Hola! Quiero reservar en Rental Turtle:\n'+custLine+cartLinesText('es')+'\nEntrega y recogida: R$'+zoneFee+'\nFianza: R$150 (devuelta al final del alquiler)\nTotal: R$'+cartTotal+'.');
     const detailsWa = 'mailto:info@rentalturtle.com?cc='+encodeURIComponent(customerEmail.trim())+'&subject='+encodeURIComponent('Reserva Rental Turtle')+'&body='+encodeURIComponent(reservationBody);
 
@@ -2059,6 +2115,7 @@ class Component extends DCLogic {
       fieldSurnamePh:L('Ex: Silva','E.g. Silva','Ej: Silva'),
       fieldEmail:L('E-mail','Email','Email'),
       fieldEmailPh:L('Ex: maria@email.com','E.g. maria@email.com','Ej: maria@email.com'),
+      fieldPhone:L('Telefone (WhatsApp)','Phone (WhatsApp)','Teléfono (WhatsApp)'), phoneSearchPh:L('Buscar país ou código','Search country or code','Buscar país o código'), phoneNoResults:L('Nenhum país encontrado','No country found','Ningún país encontrado'),
       fieldCountry:L('País de origem','Country of origin','País de origen'),
       fieldCountryPh:L('Ex: Argentina','E.g. Argentina','Ej: Argentina'),
       zoneLabel:L('Zona de entrega','Delivery area','Zona de entrega'),
@@ -2238,7 +2295,7 @@ class Component extends DCLogic {
       closeCart:this.closeCart, cartOpen:this.state.cartOpen, goCatalogFromCart:()=>{ this.closeCart(); this.goCatalog(); },
       cartStepIsCart: this.state.cartStep!=='details', cartStepIsDetails: this.state.cartStep==='details',
       goToDetails:this.goToDetails, backToCart:this.backToCart,
-      customerName:this.state.customerName, customerSurname:this.state.customerSurname, customerEmail:this.state.customerEmail, customerCountry:this.state.customerCountry,
+      customerName:this.state.customerName, customerSurname:this.state.customerSurname, customerEmail:this.state.customerEmail, customerCountry:this.state.customerCountry, ...__phv.vals,
       setCustomerName:this.setCustomerName, setCustomerSurname:this.setCustomerSurname, setCustomerEmail:this.setCustomerEmail, setCustomerCountry:this.setCustomerCountry,
       locationType:(this.state.locationType||''), locationReference:(this.state.locationReference||''), deliveryTime:(this.state.deliveryTime||''), pickupTime:(this.state.pickupTime||''), paymentMethod:(this.state.paymentMethod||''), referralSource:(this.state.referralSource||''),
       locEndAria:(this.state.locationType==='Endereço')?'true':'false', locHotelAria:(this.state.locationType==='Hotel')?'true':'false',
@@ -2255,7 +2312,7 @@ class Component extends DCLogic {
       deliveryFeeLabel: zona ? ('R$'+zona.preco) : '—',
       paymentOptions:(()=>{ const base=(typeof window!=='undefined'&&window.__RT_INIT&&window.__RT_INIT.screen==='product')?'../assets/pay/':'../assets/pay/'; const sel=this.state.paymentMethod; const defs=[{value:'Visa/Mastercard',files:['visa.png','mastercard.png'],span:'span 2'},{value:'PayPal',files:['paypal.png'],span:'span 1'},{value:'Wise',files:['wise.png'],span:'span 1'},{value:'Efectivo',files:['efectivo.png'],span:'span 1',word:L('Dinheiro (reais)','Cash (BRL)','Efectivo (reales)')},{value:'Pix',files:['pix.png'],span:'span 1'},{value:'Bizum',files:['bizum.png'],span:'span 1'}]; return defs.map(d=>({ key:d.value, name:this.payLabel(d.value, lang), word:d.word||'', icons:d.files.map(f=>(f?base+f:'/assets/logo-turtle-sm.png')), span:d.span, aria:(sel===d.value)?'true':'false', border:(sel===d.value)?'var(--color-primary)':'var(--color-border)', bg:(sel===d.value)?'var(--green-50)':'var(--color-surface)', onClick:()=>this.setPaymentMethod(d.value) })); })(),
       detailsHref: canContinue ? detailsWa : '#',
-      sendReservation: canContinue ? (()=>this.sendReservation({ total:'R$'+cartTotal, name:(customerName.trim()+' '+customerSurname.trim()).trim(), email:customerEmail.trim(), country:customerCountry.trim(), body:reservationBody, mailto:detailsWa })) : null,
+      sendReservation: canContinue ? (()=>this.sendReservation({ total:'R$'+cartTotal, name:(customerName.trim()+' '+customerSurname.trim()).trim(), email:customerEmail.trim(), country:customerCountry.trim(), phone:__ph.full, body:reservationBody, mailto:detailsWa })) : null,
       sendBtnLabel: this.state.sendStatus==='sending' ? L('Enviando…','Sending…','Enviando…') : this.state.sendStatus==='sent' ? L('Reserva enviada ✓','Booking sent ✓','Reserva enviada ✓') : t.cartSend,
       sentNoteText: L('Recebemos seu pedido! Enviamos uma cópia para o seu e-mail.','We got your request! A copy was sent to your email.','¡Hemos recibido tu solicitud! Te enviamos una copia a tu email.'),
       showSentNote: this.state.sendStatus==='sent',

@@ -86,6 +86,48 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/cadeirinha-de-auto.html"/>
   </url>
   <url>
+    <loc>https://rentalturtle.com/catalogo/cadeirinha-360.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/cadeirinha-360.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/silla-de-coche-360.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/360-car-seat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/cadeirinha-360.html"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/es/catalogo/silla-de-coche-360.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/cadeirinha-360.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/silla-de-coche-360.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/360-car-seat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/cadeirinha-360.html"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/en/catalog/360-car-seat.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/cadeirinha-360.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/silla-de-coche-360.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/360-car-seat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/cadeirinha-360.html"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/catalogo/assento-de-elevacao.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/assento-de-elevacao.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/asiento-elevador.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/booster-seat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/assento-de-elevacao.html"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/es/catalogo/asiento-elevador.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/assento-de-elevacao.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/asiento-elevador.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/booster-seat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/assento-de-elevacao.html"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/en/catalog/booster-seat.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/assento-de-elevacao.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/asiento-elevador.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/booster-seat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/assento-de-elevacao.html"/>
+  </url>
+  <url>
     <loc>https://rentalturtle.com/catalogo/cadeira-de-alimentacao.html</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/cadeira-de-alimentacao.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/trona-para-comer.html"/>

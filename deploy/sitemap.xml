@@ -22,27 +22,33 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/"/>
   </url>
-  <url>
-    <loc>https://rentalturtle.com/catalogo/bebe-conforto.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/silla-de-coche-para-bebe.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/infant-car-seat.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
-  </url>
-  <url>
-    <loc>https://rentalturtle.com/es/catalogo/silla-de-coche-para-bebe.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/silla-de-coche-para-bebe.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/infant-car-seat.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
-  </url>
-  <url>
-    <loc>https://rentalturtle.com/en/catalog/infant-car-seat.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/silla-de-coche-para-bebe.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/infant-car-seat.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
-  </url>
+  <!-- OCULTO bebe-conforto (reactivar: quitar este comentario)
+    <url>
+      <loc>https://rentalturtle.com/catalogo/bebe-conforto.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/silla-de-coche-para-bebe.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/infant-car-seat.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
+    </url>
+  -->
+  <!-- OCULTO bebe-conforto (reactivar: quitar este comentario)
+    <url>
+      <loc>https://rentalturtle.com/es/catalogo/silla-de-coche-para-bebe.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/silla-de-coche-para-bebe.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/infant-car-seat.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
+    </url>
+  -->
+  <!-- OCULTO bebe-conforto (reactivar: quitar este comentario)
+    <url>
+      <loc>https://rentalturtle.com/en/catalog/infant-car-seat.html</loc>
+      <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/silla-de-coche-para-bebe.html"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/infant-car-seat.html"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/bebe-conforto.html"/>
+    </url>
+  -->
   <url>
     <loc>https://rentalturtle.com/catalogo/carrinho-compacto.html</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/carrinho-compacto.html"/>
@@ -63,6 +69,27 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/carrito-de-paseo-compacto.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/compact-stroller.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/carrinho-compacto.html"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/catalogo/carrinho-chicco-cheerio.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/carrinho-chicco-cheerio.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/carrito-chicco-cheerio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/chicco-cheerio-stroller.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/carrinho-chicco-cheerio.html"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/es/catalogo/carrito-chicco-cheerio.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/carrinho-chicco-cheerio.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/carrito-chicco-cheerio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/chicco-cheerio-stroller.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/carrinho-chicco-cheerio.html"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/en/catalog/chicco-cheerio-stroller.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/carrinho-chicco-cheerio.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/carrito-chicco-cheerio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/chicco-cheerio-stroller.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/carrinho-chicco-cheerio.html"/>
   </url>
   <url>
     <loc>https://rentalturtle.com/catalogo/cadeirinha-de-auto.html</loc>

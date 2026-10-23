@@ -21,3 +21,11 @@
 /catalogo/colchonete-dobravel.html       /catalogo/colchao-impermeavel.html         301
 /es/catalogo/colchoneta-plegable.html    /es/catalogo/colchon-impermeable.html      301
 /en/catalog/foldable-crib-mattress.html  /en/catalog/waterproof-crib-mattress.html  301
+
+# OCULTO bebe-conforto (2026-10): temporal 302 forzada al catálogo (sección #produtos de la home). Borrar al reactivar.
+/catalogo/bebe-conforto                  /     302!
+/catalogo/bebe-conforto.html             /     302!
+/es/catalogo/silla-de-coche-para-bebe       /es/  302!
+/es/catalogo/silla-de-coche-para-bebe.html  /es/  302!
+/en/catalog/infant-car-seat              /en/  302!
+/en/catalog/infant-car-seat.html         /en/  302!

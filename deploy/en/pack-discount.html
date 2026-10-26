@@ -825,7 +825,9 @@ class Component extends DCLogic {
   ];
 
   // Preços por duração 7 / 14 / 21 dias (TOPES) e 3–7 dias (PRICES_3_7).
-  TOPES = { 'carrinho-cheerio':[200,250,282], 'bebe-conforto':[155,195,235], compacto:[190,238,268], cadeirinha:[183,229,259], 'cadeirinha-360':[188,235,265], 'assento-elevacao':[117,147,166], berco:[127,159,179], cadeira:[96,119,134], banheira:[74,93,105], colchao:[87,109,121] };
+  TOPES = { 'carrinho-cheerio':[200,270,340], 'bebe-conforto':[155,225,295], compacto:[190,260,330], cadeirinha:[183,253,323], 'cadeirinha-360':[188,258,328], 'assento-elevacao':[117,147,166], berco:[127,197,267], cadeira:[96,119,134], banheira:[74,93,105], colchao:[87,157,227] };
+  // 8–21 dias: estes produtos = preço de 7 dias + R$10 por dia extra (sem tope). Os demais: +R$6/dia com tope em 14 e 21 dias.
+  PLUS10 = { compacto:1, 'carrinho-cheerio':1, cadeirinha:1, 'cadeirinha-360':1, 'bebe-conforto':1, berco:1, colchao:1 };
   // Preços fixos de 3, 4, 5, 6 e 7 dias.
   PRICES_3_7 = { 'carrinho-cheerio':[140,156,172,186,200], 'bebe-conforto':[109,121,134,145,155], compacto:[133,149,164,177,190], cadeirinha:[129,143,158,171,183], 'cadeirinha-360':[132,147,162,175,188], 'assento-elevacao':[82,92,101,109,117], berco:[89,100,110,119,127], cadeira:[68,75,83,90,96], banheira:[52,58,64,69,74], colchao:[61,68,75,81,87] };
   MAX_ONLINE_DAYS = 21;
@@ -834,7 +836,7 @@ class Component extends DCLogic {
   RELATED = { 'assento-elevacao':['cadeirinha','compacto','bebe-conforto'], cadeirinha:['carrinho-cheerio','bebe-conforto','cadeirinha-360','assento-elevacao'], 'cadeirinha-360':['bebe-conforto','compacto','assento-elevacao'], 'bebe-conforto':['compacto','cadeirinha','cadeirinha-360'], compacto:['carrinho-cheerio','bebe-conforto','cadeirinha','cadeira'], berco:['compacto','carrinho-cheerio','cadeirinha'], 'carrinho-cheerio':['compacto','berco','cadeirinha'] };
   twoPricesLabel(id, lng){ const s=this.PRICES_3_7[id]; if(!s) return ''; const w=lng==='en'?'days':(lng==='es'?'días':'dias'); return '3 '+w+' R$'+s[0]+' · 7 '+w+' R$'+s[4]; }
   r2(n){ return Math.round((n||0)*100)/100; }
-  tierPrice(id, daily, d){ if (d>this.MAX_ONLINE_DAYS) return null; d=Math.max(3,d); const s=this.PRICES_3_7[id], t=this.TOPES[id]; if(!s||!t) return Math.round(daily*d); if(d<=7) return s[d-3]; if(d<14) return Math.min(t[0]+(d-7)*6, t[1]); if(d===14) return t[1]; if(d<21) return Math.min(t[1]+(d-14)*6, t[2]); return t[2]; }
+  tierPrice(id, daily, d){ if (d>this.MAX_ONLINE_DAYS) return null; d=Math.max(3,d); const s=this.PRICES_3_7[id], t=this.TOPES[id]; if(!s||!t) return Math.round(daily*d); if(d<=7) return s[d-3]; if(this.PLUS10&&this.PLUS10[id]) return t[0]+(d-7)*10; if(d<14) return Math.min(t[0]+(d-7)*6, t[1]); if(d===14) return t[1]; if(d<21) return Math.min(t[1]+(d-14)*6, t[2]); return t[2]; }
   money(n, lng){ const v=this.r2(n); if(Number.isInteger(v)) return String(v); const x=v.toFixed(2); return lng==='en'?x:x.replace('.',','); }
   packPctFor(n){ return n>=4?15:n===3?10:n===2?5:0; }
 

@@ -11,9 +11,9 @@
 /carrito.html              /               301
 
 # Produto substituído e slugs renomeados (2026-10)
-/catalogo/carrinho-de-bebe.html          /catalogo/bebe-conforto.html               301
-/es/catalogo/carrito-de-bebe.html        /es/catalogo/silla-de-coche-para-bebe.html 301
-/en/catalog/full-size-stroller.html      /en/catalog/infant-car-seat.html           301
+/catalogo/carrinho-de-bebe.html          /catalogo/carrinho-compacto.html           301
+/es/catalogo/carrito-de-bebe.html        /es/catalogo/carrito-de-paseo-compacto.html 301
+/en/catalog/full-size-stroller.html      /en/catalog/compact-stroller.html          301
 /es/catalogo/silla-de-coche.html         /es/catalogo/silla-de-coche-ninos.html     301
 /en/catalog/car-seat.html                /en/catalog/child-car-seat.html            301
 
@@ -22,10 +22,10 @@
 /es/catalogo/colchoneta-plegable.html    /es/catalogo/colchon-impermeable.html      301
 /en/catalog/foldable-crib-mattress.html  /en/catalog/waterproof-crib-mattress.html  301
 
-# OCULTO bebe-conforto (2026-10): temporal 302 forzada al catálogo (sección #produtos de la home). Borrar al reactivar.
-/catalogo/bebe-conforto                  /     302!
-/catalogo/bebe-conforto.html             /     302!
-/es/catalogo/silla-de-coche-para-bebe       /es/  302!
-/es/catalogo/silla-de-coche-para-bebe.html  /es/  302!
-/en/catalog/infant-car-seat              /en/  302!
-/en/catalog/infant-car-seat.html         /en/  302!
+# Produto removido (2026-11): Bebê conforto
+/catalogo/bebe-conforto                     /catalogo/cadeirinha-360.html          301
+/catalogo/bebe-conforto.html                /catalogo/cadeirinha-360.html          301
+/es/catalogo/silla-de-coche-para-bebe       /es/catalogo/silla-de-coche-360.html   301
+/es/catalogo/silla-de-coche-para-bebe.html  /es/catalogo/silla-de-coche-360.html   301
+/en/catalog/infant-car-seat                 /en/catalog/360-car-seat.html          301
+/en/catalog/infant-car-seat.html            /en/catalog/360-car-seat.html          301

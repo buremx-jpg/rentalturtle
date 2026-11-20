@@ -227,6 +227,24 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
   .rt-pcard-img>image-slot{height:auto !important;aspect-ratio:16/9 !important;--is-bg:#ffffff;}
 }
 </style>
+<style>
+@media (max-width:640px){
+  .rt-pk-sec{padding:36px 20px 28px !important;}
+  .rt-pk-card{border-radius:24px !important;padding:22px 18px !important;flex-direction:column !important;align-items:stretch !important;gap:22px !important;}
+  .rt-pk-title{font-size:25px !important;}
+  .rt-pk-line{font-size:14px !important;}
+  .rt-pk-row{gap:3px !important;justify-content:space-between !important;flex-wrap:nowrap !important;}
+  .rt-pk-item{flex:0 1 62px !important;}
+  .rt-pk-box{width:100% !important;max-width:62px;height:auto !important;aspect-ratio:1/1;border-radius:14px !important;}
+  .rt-pk-box>img{width:88% !important;height:88% !important;}
+  .rt-pk-plus{flex:0 0 18px !important;width:18px !important;height:18px !important;font-size:13px !important;margin-top:22px !important;}
+  .rt-pk-name{font-size:12px !important;}
+  .rt-pk-pill{font-size:13px !important;}
+  .rt-pk-foot{flex-direction:column;align-items:stretch !important;gap:10px !important;}
+  .rt-pk-foot>a{width:100%;}
+  .rt-pk-note{text-align:center;}
+}
+</style>
 </helmet>
 <div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:clip;">
 
@@ -369,9 +387,6 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 </a>
 </sc-for>
 </div>
-<div style="text-align:center;margin-top:40px;">
-<button onClick="{{ goCatalog }}" style="display:inline-flex;align-items:center;gap:8px;height:var(--control-md);padding:0 24px;border:none;border-radius:var(--radius-pill);background:var(--color-bg-secondary);color:var(--ink-500);font-family:var(--font-body);font-weight:800;font-size:var(--text-sm);cursor:pointer;transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--sand-300);">{{ seeAll }} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
-</div>
 </div>
 </section>
 
@@ -388,6 +403,46 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <div style="display:flex;gap:14px;align-items:flex-start;">
 <div style="width:50px;height:50px;border-radius:var(--radius-md);background:var(--color-surface);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;color:var(--color-primary);flex-shrink:0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
 <div><p style="margin:0;font-family:var(--font-display);font-weight:700;font-size:var(--text-md);color:var(--ink-500);">{{ t.trust3Title }}</p><p style="margin:3px 0 0;font-family:var(--font-body);font-size:14px;color:var(--color-text-secondary);line-height:1.45;">{{ t.trust3Desc }}</p></div>
+</div>
+</div>
+</section>
+
+<section style="background:#FFFFFF;">
+<div class="rt-pk-sec" style="max-width:var(--container-max);margin:0 auto;padding:64px var(--container-pad) 56px;">
+<div class="rt-pk-card" style="background:#fff;border:1px solid #EDE5D6;border-radius:28px;box-shadow:0 12px 32px rgba(38,70,83,0.08);padding:40px 44px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px 40px;">
+<div style="flex:1 1 380px;min-width:0;">
+<span style="display:inline-flex;padding:5px 12px;border-radius:999px;background:#264653;color:#fff;font-family:var(--font-body);font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;">PACK DESCUENTO</span>
+<h2 class="rt-pk-title" style="font-family:'Baloo 2',var(--font-display);font-weight:800;font-size:34px;line-height:1.1;color:#264653;margin:14px 0 0;text-wrap:balance;">¿Vas a alquilar 2 productos o más?<br><span style="color:#1E7B70;">Usa el Pack Descuento</span></h2>
+<p class="rt-pk-line" style="font-family:'Nunito',var(--font-body);font-weight:700;font-size:16px;line-height:1.5;color:#4A5B61;margin:10px 0 0;">5% con 2 productos · 10% con 3 · 15% con 4 o más</p>
+<div class="rt-pk-foot" style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:24px;">
+<a href="/es/pack-descuento" data-cta="home_pack_desconto" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:var(--control-lg);padding:0 28px;box-sizing:border-box;border:none;border-radius:var(--radius-pill);background:#E76F51;color:#fff;box-shadow:var(--shadow-lift);font-family:var(--font-body);font-weight:800;font-size:var(--text-md);text-decoration:none;cursor:pointer;transition:transform var(--dur-fast) var(--ease-out),background var(--dur-base) var(--ease-out);" style-hover="background:var(--color-cta-hover);" style-active="transform:scale(.96);">Armar mi pack <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<span class="rt-pk-note" style="font-family:var(--font-body);font-size:14px;color:#4A5B61;">Vale cualquier combinación de productos.</span>
+</div>
+</div>
+<div class="rt-pk-row" style="flex:0 1 auto;min-width:0;display:flex;align-items:flex-start;justify-content:center;gap:10px;">
+<div class="rt-pk-item" style="flex:0 1 104px;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;">
+<div class="rt-pk-box" style="width:104px;height:104px;box-sizing:border-box;background:#fff;border:1px solid #EDE5D6;border-radius:20px;box-shadow:0 4px 12px rgba(38,70,83,0.08);display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="./assets/prod-cadeira.webp" alt="Trona de bebé" loading="lazy" decoding="async" width="94" height="94" style="width:94px;height:94px;object-fit:cover;object-position:center;display:block;"></div>
+<div class="rt-pk-name" style="margin-top:8px;font-family:var(--font-body);font-size:14px;font-weight:700;line-height:1.25;color:#264653;text-wrap:balance;">Trona</div>
+</div>
+<div class="rt-pk-plus" style="flex:0 0 30px;width:30px;height:30px;margin-top:37px;border-radius:50%;background:#E76F51;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-weight:800;font-size:20px;line-height:1;">+</div>
+<div class="rt-pk-item" style="flex:0 1 104px;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;">
+<div class="rt-pk-box" style="width:104px;height:104px;box-sizing:border-box;background:#fff;border:1px solid #EDE5D6;border-radius:20px;box-shadow:0 4px 12px rgba(38,70,83,0.08);display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="./assets/prod-berco.webp" alt="Cuna de viaje" loading="lazy" decoding="async" width="94" height="94" style="width:94px;height:94px;object-fit:contain;display:block;"></div>
+<div class="rt-pk-name" style="margin-top:8px;font-family:var(--font-body);font-size:14px;font-weight:700;line-height:1.25;color:#264653;text-wrap:balance;">Cuna</div>
+<span class="rt-pk-pill" style="margin-top:6px;display:inline-flex;padding:2px 9px;border-radius:999px;background:#DCEFEC;color:#1E6F66;font-family:var(--font-body);font-weight:800;font-size:15px;line-height:1.4;">−5%</span>
+</div>
+<div class="rt-pk-plus" style="flex:0 0 30px;width:30px;height:30px;margin-top:37px;border-radius:50%;background:#E76F51;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-weight:800;font-size:20px;line-height:1;">+</div>
+<div class="rt-pk-item" style="flex:0 1 104px;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;">
+<div class="rt-pk-box" style="width:104px;height:104px;box-sizing:border-box;background:#fff;border:1px solid #EDE5D6;border-radius:20px;box-shadow:0 4px 12px rgba(38,70,83,0.08);display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="./assets/colchao-ortobom-7cm.webp" alt="Colchón Ortobom" loading="lazy" decoding="async" width="94" height="94" style="width:94px;height:94px;object-fit:contain;display:block;"></div>
+<div class="rt-pk-name" style="margin-top:8px;font-family:var(--font-body);font-size:14px;font-weight:700;line-height:1.25;color:#264653;text-wrap:balance;">Colchón</div>
+<span class="rt-pk-pill" style="margin-top:6px;display:inline-flex;padding:2px 9px;border-radius:999px;background:#DCEFEC;color:#1E6F66;font-family:var(--font-body);font-weight:800;font-size:15px;line-height:1.4;">−10%</span>
+</div>
+<div class="rt-pk-plus" style="flex:0 0 30px;width:30px;height:30px;margin-top:37px;border-radius:50%;background:#E76F51;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-weight:800;font-size:20px;line-height:1;">+</div>
+<div class="rt-pk-item" style="flex:0 1 104px;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;">
+<div class="rt-pk-box" style="width:104px;height:104px;box-sizing:border-box;background:#fff;border:1px solid #EDE5D6;border-radius:20px;box-shadow:0 4px 12px rgba(38,70,83,0.08);display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="./assets/prod-banheira.webp" alt="Bañera de bebé Yuupi" loading="lazy" decoding="async" width="94" height="94" style="width:94px;height:94px;object-fit:contain;display:block;"></div>
+<div class="rt-pk-name" style="margin-top:8px;font-family:var(--font-body);font-size:14px;font-weight:700;line-height:1.25;color:#264653;text-wrap:balance;">Bañera</div>
+<span class="rt-pk-pill" style="margin-top:6px;display:inline-flex;padding:2px 9px;border-radius:999px;background:#DCEFEC;color:#1E6F66;font-family:var(--font-body);font-weight:800;font-size:15px;line-height:1.4;">−15%</span>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -837,7 +892,7 @@ main:empty{flex:none !important;min-height:0 !important;}@media (max-width:768px
 <a href="{{ waHref }}" target="_blank" title="WhatsApp" data-cta="whatsapp_footer" style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--color-primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.2-.2-1.2-1.5-1.2-2.9 0-1.3.7-2 1-2.3.2-.2.5-.3.7-.3h.5c.2 0 .4.1.6.5l.8 1.9c.1.2 0 .4-.1.5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.7 1 .8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.3.1.7-.1 1Z"></path></svg></a>
 <a href="https://www.instagram.com/rentalturtle/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background var(--dur-base) var(--ease-out);" style-hover="background:var(--color-primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
 </div>
-<p style="font-family:var(--font-body);font-size:12px;line-height:1.5;color:#fff;margin:14px 0 0;">69.573.951 DAVID GARCIA RUIZ · CNPJ 69.573.951/0001-56</p>
+<p style="font-family:var(--font-body);font-size:12px;line-height:1.5;color:#fff;margin:14px 0 0;">69.573.951 DAVID GARCIA RUIZ · <span style="white-space:nowrap;">CNPJ 69.573.951/0001-56</span></p>
 </div>
 <div>
 <div style="font-family:var(--font-display);font-weight:800;font-size:14px;color:#fff;margin-bottom:16px;text-transform:uppercase;letter-spacing:var(--tracking-wide);">{{ t.footNav }}</div>
@@ -2126,7 +2181,7 @@ class Component extends DCLogic {
       footCats:L('Categorias','Categories','Categorías'),
       footContact:L('Contato','Contact','Contacto'),
       footLoc:L('R. Visc. de Caravelas, Humaitá · Rio de Janeiro','R. Visc. de Caravelas, Humaitá · Rio de Janeiro','R. Visc. de Caravelas, Humaitá · Río de Janeiro'),
-      footRights:L('© 2025 Rental Turtle · Rio de Janeiro. Todos os direitos reservados.','© 2025 Rental Turtle · Rio de Janeiro. All rights reserved.','© 2025 Rental Turtle · Río de Janeiro. Todos los derechos reservados.'),
+      footRights:L('© 2026 Rental Turtle · Rio de Janeiro. Todos os direitos reservados.','© 2026 Rental Turtle · Rio de Janeiro. All rights reserved.','© 2026 Rental Turtle · Río de Janeiro. Todos los derechos reservados.'),
       footTerms:L('Termos','Terms','Términos'),
       footPrivacy:L('Privacidade','Privacy','Privacidad'), footTermsHref:L('/termos.html','/en/terms.html','/es/terminos.html'), footPrivacyHref:L('/privacidade.html','/en/privacy.html','/es/privacidad.html'),
       footBlog:L('Blog','Blog','Blog'),

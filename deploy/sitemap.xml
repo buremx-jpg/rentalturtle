@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://rentalturtle.com/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/"/>
@@ -11,7 +11,7 @@
   </url>
   <url>
     <loc>https://rentalturtle.com/es/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/"/>
@@ -19,11 +19,35 @@
   </url>
   <url>
     <loc>https://rentalturtle.com/en/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/catalogo/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/es/catalogo/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/"/>
+  </url>
+  <url>
+    <loc>https://rentalturtle.com/en/catalog/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/catalogo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/catalogo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/catalog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rentalturtle.com/catalogo/"/>
   </url>
   <url>
     <loc>https://rentalturtle.com/catalogo/carrinho-compacto.html</loc>
@@ -243,7 +267,7 @@
   </url>
   <url>
     <loc>https://rentalturtle.com/pack-desconto</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/pack-desconto"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/pack-descuento"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/pack-discount"/>
@@ -251,7 +275,7 @@
   </url>
   <url>
     <loc>https://rentalturtle.com/es/pack-descuento</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/pack-desconto"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/pack-descuento"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/pack-discount"/>
@@ -259,7 +283,7 @@
   </url>
   <url>
     <loc>https://rentalturtle.com/en/pack-discount</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rentalturtle.com/pack-desconto"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://rentalturtle.com/es/pack-descuento"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rentalturtle.com/en/pack-discount"/>

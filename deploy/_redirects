@@ -1,14 +1,19 @@
 /es/index.html  /es/  301
 /en/index.html  /en/  301
 
+# Direcciones parecidas al Pack y prefijo /pt/ (2026-11)
+/pack                 /pack-desconto       301
+/packs                /pack-desconto       301
+/desconto             /pack-desconto       301
+/pack-descuento       /es/pack-descuento   301
+/pack-discount        /en/pack-discount    301
+/pt/*                 /:splat              301
+
 # Redirigir variables de plantilla sin resolver a catálogos correspondientes
 /catalogo/%7B%7B*          /catalogo/      301
 /en/catalog/%7B%7B*        /en/catalog/    301
 /es/catalogo/%7B%7B*       /es/catalogo/   301
 /%7B%7B*                   /               301
-
-# Redirigir carrito al home (no es página pública)
-/carrito.html              /               301
 
 # Produto substituído e slugs renomeados (2026-10)
 /catalogo/carrinho-de-bebe.html          /catalogo/carrinho-compacto.html           301
@@ -29,3 +34,39 @@
 /es/catalogo/silla-de-coche-para-bebe.html  /es/catalogo/silla-de-coche-360.html   301
 /en/catalog/infant-car-seat                 /en/catalog/360-car-seat.html          301
 /en/catalog/infant-car-seat.html            /en/catalog/360-car-seat.html          301
+
+# Imágenes (2026-11): una sola carpeta /assets/ para los 3 idiomas y fotos en WebP
+/assets/aluguel-carrinho-bebe-rio-de-janeiro-calcadao-copacabana.png                                 /assets/aluguel-carrinho-bebe-rio-de-janeiro-calcadao-copacabana.webp  301
+/es/assets/aluguel-carrinho-bebe-rio-de-janeiro-calcadao-copacabana.png                              /assets/aluguel-carrinho-bebe-rio-de-janeiro-calcadao-copacabana.webp  301
+/en/assets/aluguel-carrinho-bebe-rio-de-janeiro-calcadao-copacabana.png                              /assets/aluguel-carrinho-bebe-rio-de-janeiro-calcadao-copacabana.webp  301
+/assets/carrinho-bebe-compacto-porta-malas-uber-rio-de-janeiro.png                                   /assets/carrinho-bebe-compacto-porta-malas-uber-rio-de-janeiro.webp  301
+/es/assets/carrinho-bebe-compacto-porta-malas-uber-rio-de-janeiro.png                                /assets/carrinho-bebe-compacto-porta-malas-uber-rio-de-janeiro.webp  301
+/en/assets/carrinho-bebe-compacto-porta-malas-uber-rio-de-janeiro.png                                /assets/carrinho-bebe-compacto-porta-malas-uber-rio-de-janeiro.webp  301
+/assets/carrinho-tres-rodas-largo-calcada-estreita-ipanema-rio.jpg                                   /assets/carrinho-tres-rodas-largo-calcada-estreita-ipanema-rio.webp  301
+/es/assets/carrinho-tres-rodas-largo-calcada-estreita-ipanema-rio.jpg                                /assets/carrinho-tres-rodas-largo-calcada-estreita-ipanema-rio.webp  301
+/en/assets/carrinho-tres-rodas-largo-calcada-estreita-ipanema-rio.jpg                                /assets/carrinho-tres-rodas-largo-calcada-estreita-ipanema-rio.webp  301
+/assets/checklist-aluguel-bebe-rio-cartao-internacional-sem-cpf.png                                  /assets/checklist-aluguel-bebe-rio-cartao-internacional-sem-cpf.webp  301
+/es/assets/checklist-aluguel-bebe-rio-cartao-internacional-sem-cpf.png                               /assets/checklist-aluguel-bebe-rio-cartao-internacional-sem-cpf.webp  301
+/en/assets/checklist-aluguel-bebe-rio-cartao-internacional-sem-cpf.png                               /assets/checklist-aluguel-bebe-rio-cartao-internacional-sem-cpf.webp  301
+/assets/chegada-hotel-rio-bebe-sem-bagagem-pesada.png                                                /assets/chegada-hotel-rio-bebe-sem-bagagem-pesada.webp  301
+/es/assets/chegada-hotel-rio-bebe-sem-bagagem-pesada.png                                             /assets/chegada-hotel-rio-bebe-sem-bagagem-pesada.webp  301
+/en/assets/chegada-hotel-rio-bebe-sem-bagagem-pesada.png                                             /assets/chegada-hotel-rio-bebe-sem-bagagem-pesada.webp  301
+/assets/entrega-equipamentos-bebe-hotel-zona-sul-rio-de-janeiro.png                                  /assets/entrega-equipamentos-bebe-hotel-zona-sul-rio-de-janeiro.webp  301
+/es/assets/entrega-equipamentos-bebe-hotel-zona-sul-rio-de-janeiro.png                               /assets/entrega-equipamentos-bebe-hotel-zona-sul-rio-de-janeiro.webp  301
+/en/assets/entrega-equipamentos-bebe-hotel-zona-sul-rio-de-janeiro.png                               /assets/entrega-equipamentos-bebe-hotel-zona-sul-rio-de-janeiro.webp  301
+/assets/kit-equipamentos-bebe-aluguel-rio-de-janeiro-carrinho-berco-cadeirinha.png                   /assets/kit-equipamentos-bebe-aluguel-rio-de-janeiro-carrinho-berco-cadeirinha.webp  301
+/es/assets/kit-equipamentos-bebe-aluguel-rio-de-janeiro-carrinho-berco-cadeirinha.png                /assets/kit-equipamentos-bebe-aluguel-rio-de-janeiro-carrinho-berco-cadeirinha.webp  301
+/en/assets/kit-equipamentos-bebe-aluguel-rio-de-janeiro-carrinho-berco-cadeirinha.png                /assets/kit-equipamentos-bebe-aluguel-rio-de-janeiro-carrinho-berco-cadeirinha.webp  301
+/assets/pai-dobrando-carrinho-compacto-ipanema-rio-de-janeiro.jpg                                    /assets/pai-dobrando-carrinho-compacto-ipanema-rio-de-janeiro.webp  301
+/es/assets/pai-dobrando-carrinho-compacto-ipanema-rio-de-janeiro.jpg                                 /assets/pai-dobrando-carrinho-compacto-ipanema-rio-de-janeiro.webp  301
+/en/assets/pai-dobrando-carrinho-compacto-ipanema-rio-de-janeiro.jpg                                 /assets/pai-dobrando-carrinho-compacto-ipanema-rio-de-janeiro.webp  301
+/assets/sofia-avatar.png                                                                             /assets/sofia-avatar.webp  301
+/es/assets/sofia-avatar.png                                                                          /assets/sofia-avatar.webp  301
+/en/assets/sofia-avatar.png                                                                          /assets/sofia-avatar.webp  301
+/assets/foto-portada.jpg                                                                             /assets/foto-portada.webp  301
+/es/assets/foto-portada.jpg                                                                          /assets/foto-portada.webp  301
+/en/assets/foto-portada.jpg                                                                          /assets/foto-portada.webp  301
+/padres-paseando-2-mr51rbxv.png                                                                      /padres-paseando-2-mr51rbxv.webp  301
+/tomas-mr92b99p.png                                                                                  /tomas-mr92b99p.webp  301
+/es/assets/*                                                                                         /assets/:splat  301
+/en/assets/*                                                                                         /assets/:splat  301
